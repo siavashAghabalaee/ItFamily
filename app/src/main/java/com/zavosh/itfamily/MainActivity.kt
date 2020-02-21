@@ -1,6 +1,6 @@
 package com.zavosh.itfamily
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private fun fake() {
         var handler = Handler()
         var runnable = Runnable {
-            PageManager.getInstance().helper.goLoginActivity(this@MainActivity)
+            PageManager.getInstance().helper.goRegisterActivity(this@MainActivity)
             finish()
         }
         handler.postDelayed(runnable,3000)

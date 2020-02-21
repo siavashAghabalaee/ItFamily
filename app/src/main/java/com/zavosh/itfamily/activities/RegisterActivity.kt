@@ -5,31 +5,27 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
-import android.widget.Toast
 import com.zavosh.itfamily.R
 import com.zavosh.itfamily.helper.PageManager
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_register.*
 
-class LoginActivity : AppCompatActivity() {
-
-
+class RegisterActivity : AppCompatActivity() {
     companion object{
-        fun getInstanse(context: Context) : Intent{
-            return Intent(context,LoginActivity::class.java)
+        fun getInstanse(context: Context) : Intent {
+            return Intent(context,RegisterActivity::class.java)
         }
     }
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_register)
+
         setup()
         listeners()
     }
 
     private fun listeners() {
-        iv_login.setOnClickListener {
-            Toast.makeText(this@LoginActivity,"به زودی",Toast.LENGTH_SHORT).show()
+        iv_register.setOnClickListener {
+            PageManager.getInstance().helper.goLoginActivity(this@RegisterActivity)
         }
     }
 
