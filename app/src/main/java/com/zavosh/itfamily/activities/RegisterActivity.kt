@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.Toast
 import com.zavosh.itfamily.R
 import com.zavosh.itfamily.helper.PageManager
 import kotlinx.android.synthetic.main.activity_register.*
@@ -25,7 +26,8 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun listeners() {
         iv_register.setOnClickListener {
-            PageManager.getInstance().helper.goLoginActivity(this@RegisterActivity)
+
+            Toast.makeText(this@RegisterActivity,"به زودی", Toast.LENGTH_SHORT).show()
         }
     }
 

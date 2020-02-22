@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private fun fake() {
         var handler = Handler()
         var runnable = Runnable {
-            PageManager.getInstance().helper.goRegisterActivity(this@MainActivity)
+            PageManager.getInstance().helper.goLoginActivity(this@MainActivity)
             finish()
         }
         handler.postDelayed(runnable,3000)

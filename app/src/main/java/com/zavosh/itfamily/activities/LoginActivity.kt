@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun listeners() {
         iv_login.setOnClickListener {
-            Toast.makeText(this@LoginActivity,"به زودی",Toast.LENGTH_SHORT).show()
+            PageManager.getInstance().helper.goRegisterActivity(this@LoginActivity)
         }
     }
 
