@@ -5,9 +5,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
-import android.widget.Toast
 import com.zavosh.itfamily.R
+import com.zavosh.itfamily.helper.Memory
 import com.zavosh.itfamily.helper.PageManager
+import com.zavosh.itfamily.helper.PublicMethods
+import com.zavosh.itfamily.myviews.MyToast
+import com.zavosh.itfamily.retrofit.Server
+import com.zavosh.itfamily.retrofit.mymodels.Callback
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -29,8 +33,27 @@ class LoginActivity : AppCompatActivity() {
 
     private fun listeners() {
         iv_login.setOnClickListener {
-            PageManager.getInstance().helper.goRegisterActivity(this@LoginActivity)
+
+            PublicMethods.hideKeyboard(this@LoginActivity)
+            if(!etv_phone.text().isNullOrEmpty()){
+                sendNumberToServer(etv_phone.text())
+            }else{
+                MyToast.showToast(this@LoginActivity,getString(R.string.enter_phone))
+            }
         }
+
+        iv_bg.setOnClickListener {
+            PublicMethods.hideKeyboard(this@LoginActivity)
+        }
+    }
+
+    private fun sendNumberToServer(phone : String) {
+        Server.getInstance(this).sendPhone(phone,loader,Callback.Register {
+            Memory.savePhone(phone)
+            Memory.saveTokenCode(it.tokenId)
+            Memory.saveUserCode(it.userCode)
+            PageManager.getInstance().helper.goVerifyActivity(this@LoginActivity)
+        })
     }
 
     private fun setup() {

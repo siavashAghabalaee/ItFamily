@@ -56,8 +56,7 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/pro_bottom"
-            app:layout_constraintBottom_toTopOf="@id/edit_bottom"
-    >
+            app:layout_constraintBottom_toTopOf="@id/edit_bottom">
 
         <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/top_name"
@@ -153,8 +152,8 @@
 
 
 
-        <EditText
-                android:id="@+id/reg_name"
+        <com.zavosh.itfamily.myviews.MyEditText
+                android:id="@+id/etv_name"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintRight_toLeftOf="@id/right_edit"
@@ -165,12 +164,10 @@
                 android:textSize="@dimen/_12sdp"
                 app:layout_constraintTop_toBottomOf="@id/top_name"
                 app:layout_constraintBottom_toTopOf="@id/bottom_name"
-                android:background="@drawable/edit_text_background"
-        >
-        </EditText>
+                android:background="@drawable/edit_text_background"/>
 
-        <EditText
-                android:id="@+id/reg_family"
+        <com.zavosh.itfamily.myviews.MyEditText
+                android:id="@+id/etv_family"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintRight_toLeftOf="@id/right_edit"
@@ -181,12 +178,10 @@
                 android:textSize="@dimen/_12sdp"
                 app:layout_constraintTop_toBottomOf="@id/top_family"
                 app:layout_constraintBottom_toTopOf="@id/bottom_family"
-                android:background="@drawable/edit_text_background"
-        >
-        </EditText>
+                android:background="@drawable/edit_text_background"/>
 
-        <EditText
-                android:id="@+id/reg_mail"
+        <com.zavosh.itfamily.myviews.MyEditText
+                android:id="@+id/etv_mail"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:elevation="5dp"
@@ -197,12 +192,10 @@
                 app:layout_constraintTop_toBottomOf="@id/top_mail"
                 app:layout_constraintBottom_toTopOf="@id/bottom_mail"
                 android:background="@drawable/edit_text_background"
-                android:hint="ایمیل"
-        >
-        </EditText>
+                android:hint="ایمیل"/>
 
-        <EditText
-                android:id="@+id/reg_password"
+        <com.zavosh.itfamily.myviews.MyEditText
+                android:id="@+id/etv_password"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintRight_toLeftOf="@id/right_edit"
@@ -213,25 +206,36 @@
                 android:textSize="@dimen/_12sdp"
                 app:layout_constraintTop_toBottomOf="@id/top_pass"
                 app:layout_constraintBottom_toTopOf="@id/bottom_pass"
-                android:hint="کلمه عبور"
-        >
-        </EditText>
+                android:hint="کلمه عبور"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
+    <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/edit_bottom"
             app:layout_constraintBottom_toBottomOf="parent">
-
         <ImageView android:layout_width="@dimen/_80sdp"
-                   android:id="@+id/iv_register"
-                   android:src="@drawable/register_button"
-                   android:layout_height="@dimen/_80sdp"/>
+            android:id="@+id/iv_register"
+            android:layout_centerInParent="true"
+            android:src="@drawable/register_button"
+            android:layout_height="@dimen/_80sdp" />
 
-    </LinearLayout>
+        <com.zavosh.itfamily.myviews.MyTextViewBold
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/skip"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_12sdp"
+            android:id="@+id/tv_skip"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

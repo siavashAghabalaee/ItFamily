@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ItFamily</string>
+    <string name="enter_code">کد ارسال شده را وارد نمایید</string>
+    <string name="enter_phone">شماره مبایل خود را وارد نمایید</string>
+    <string name="error">خطا</string>
+    <string name="skip">رد شدن</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="androidErrorRequest">خطا در برقراری ارتباط.</string>
+    <string name="it_news">آخرین اخبار روز آی.تی</string>
+    <string name="it_video">ویدیوهای مربوط به آی.تی</string>
+    <string name="it_podcast">پادکست های مربوط به آی.تی</string>
+    <string name="it_blog">مقالات مربوط به آی.تی</string>
+    <string name="it_title">آخرین شماره های نشریه آی.تی</string>
 </resources>

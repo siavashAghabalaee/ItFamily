@@ -1,9 +1,12 @@
-package com.zavosh.itfamily
+package com.zavosh.itfamily.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.WindowManager
+import com.zavosh.itfamily.R
+import com.zavosh.itfamily.helper.Memory
 import com.zavosh.itfamily.helper.PageManager
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +28,11 @@ class MainActivity : AppCompatActivity() {
     private fun fake() {
         var handler = Handler()
         var runnable = Runnable {
-            PageManager.getInstance().helper.goLoginActivity(this@MainActivity)
+            Log.i("soefsfs",Memory.loadToken())
+            if (Memory.loadToken().isNullOrEmpty())
+                PageManager.getInstance().goLoginActivity(this@MainActivity)
+            else
+                PageManager.getInstance().goHomeActivity(this@MainActivity)
             finish()
         }
         handler.postDelayed(runnable,3000)

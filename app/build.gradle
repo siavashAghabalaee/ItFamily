@@ -8,7 +8,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.zavosh.itfamily"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -27,6 +27,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
@@ -34,8 +35,19 @@ dependencies {
 
 
     //-------------siavash-------------
+    implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
-
-
+    implementation 'com.orhanobut:hawk:2.0.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.etebarian:meow-bottom-navigation:1.2.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
     //-------------parisa-------------
+    //required support lib modules
+    implementation "com.mikepenz:materialdrawer-nav:7.0.0-rc07"
+    implementation "com.mikepenz:materialdrawer:7.0.0-rc07"
+    implementation "androidx.recyclerview:recyclerview:1.1.0-beta04"
+    implementation "androidx.annotation:annotation:1.0.0-alpha01"
+    implementation "com.google.android.material:material:1.1.0-alpha10"
 }

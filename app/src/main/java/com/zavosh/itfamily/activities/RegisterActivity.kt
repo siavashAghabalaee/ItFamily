@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
     companion object{
-        fun getInstanse(context: Context) : Intent {
+        fun getInstance(context: Context) : Intent {
             return Intent(context,RegisterActivity::class.java)
         }
     }
@@ -26,8 +26,11 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun listeners() {
         iv_register.setOnClickListener {
-
             Toast.makeText(this@RegisterActivity,"به زودی", Toast.LENGTH_SHORT).show()
+        }
+
+        tv_skip.setOnClickListener {
+            PageManager.getInstance().goHomeActivity(this@RegisterActivity)
         }
     }
 

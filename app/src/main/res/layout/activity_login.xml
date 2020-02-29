@@ -8,9 +8,11 @@
         tools:context=".activities.LoginActivity">
 
     <ImageView android:layout_width="match_parent"
+        android:id="@+id/iv_bg"
                android:src="@drawable/bg_login_shape"
                android:scaleType="centerCrop"
                android:layout_height="match_parent"/>
+
     <androidx.constraintlayout.widget.Guideline
             android:id="@+id/bottom_login"
             android:layout_width="match_parent"
@@ -69,15 +71,23 @@
                 app:layout_constraintRight_toLeftOf="@id/login_right"
                 app:layout_constraintLeft_toRightOf="@id/login_left">
 
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:id="@+id/loader"/>
 
             <ImageView android:layout_width="@dimen/_40sdp"
                        android:src="@drawable/phone_icon"
                        android:layout_height="@dimen/_40sdp"/>
 
-            <EditText
+            <com.zavosh.itfamily.myviews.MyEditText
+                android:id="@+id/etv_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="شماره تماس..................................................................."
+                android:singleLine="true"
+                    android:hint="شماره تماس......................................."
                     android:textDirection="anyRtl"
                     android:textColorHint="#B1B1B1"
                     android:gravity="center"
@@ -95,12 +105,12 @@
             android:layout_marginBottom="@dimen/_70sdp"/>
 
 
-            >
-
         </LinearLayout>
 
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
