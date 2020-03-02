@@ -13,16 +13,25 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.graphics.Color
 import android.util.Log
 import android.view.Gravity
+import android.view.View
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
+import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.zavosh.itfamily.helper.FragmentHandler
 import com.zavosh.itfamily.helper.PageManager
 import kotlinx.android.synthetic.main.activity_home.*
 
 
-class HomeActivity : AppCompatActivity() {
-
+class HomeActivity : AppCompatActivity() ,Drawer.OnDrawerItemClickListener{
+    lateinit var drawer : Drawer
+    override fun onItemClick(view: View?, position: Int, drawerItem: IDrawerItem<*>): Boolean {
+        Log.i("myDrawer","pos : "+position)
+        //drawer.closeDrawer()
+        return false
+    }
 
 
     companion object{
@@ -69,15 +78,19 @@ class HomeActivity : AppCompatActivity() {
         btnTab.show(1)
         PageManager.getInstance(this@HomeActivity,supportFragmentManager).goHomeFragment()
 
-
+        val item1 = PrimaryDrawerItem().withIdentifier(1).withName("سیاوش").withIcon(R.mipmap.app_icon).withOnDrawerItemClickListener(this)
+        val item2 = SecondaryDrawerItem().withIdentifier(2).withName("sia2").withIcon(R.mipmap.app_icon).withOnDrawerItemClickListener(this)
 
         val drawer = DrawerBuilder()
             .withActivity(this)
             .addDrawerItems(
-                //pass your items here
+                item1,
+                item1,
+                item1
             )
             .withDrawerGravity(Gravity.END)
             .build()
+
 
 
         supportActionBar?.setDisplayShowHomeEnabled(false)

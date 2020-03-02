@@ -10,6 +10,8 @@ import com.zavosh.itfamily.helper.Memory;
 import com.zavosh.itfamily.myviews.MyToast;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeRequest;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeSender;
+import com.zavosh.itfamily.retrofit.mymodels.postprofilerequest.PostProfileRequest;
+import com.zavosh.itfamily.retrofit.mymodels.postprofilerequest.PostProfileSender;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterResponse;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterSender;
 import com.zavosh.itfamily.retrofit.mymodels.verifycode.VerifyCodeResponse;
@@ -93,7 +95,6 @@ public class Server implements RequestsManager {
         apiService.getHome(Memory.loadToken(),new HomeSender(version,osType)).enqueue(new Callback<HomeRequest>() {
             @Override
             public void onResponse(Call<HomeRequest> call, Response<HomeRequest> response) {
-                Log.i("aeaijwdaiojd","status "+response.code());
                 Server.this.loader.setVisibility(View.GONE);
                 CheckResponse checkResponse = new CheckResponse(response.code(),context,3,Server.this);
                 if (checkResponse.checkRequestCode() && checkResponse.checkStatus(response.body().getStatus())){
@@ -107,6 +108,28 @@ public class Server implements RequestsManager {
                     loader.setVisibility(View.GONE);
                     MyToast.showToast(context, context.getString(R.string.error));
                 }
+            }
+        });
+    }
+
+    //id = 4
+    public void sendProfile(String fullName, String email, String isMail ,final ProgressBar loader, final com.zavosh.itfamily.retrofit.mymodels.Callback.PostProfile callback){
+        this.loader = loader;   this.fullName = fullName;  this.email = email;   this.isMail = isMail;
+        this.loader.setVisibility(View.VISIBLE);
+        apiService.postProfile(Memory.TOKEN,new PostProfileSender(fullName,email,isMail)).enqueue(new Callback<PostProfileRequest>() {
+            @Override
+            public void onResponse(Call<PostProfileRequest> call, Response<PostProfileRequest> response) {
+                Server.this.loader.setVisibility(View.GONE);
+                CheckResponse checkResponse = new CheckResponse(response.code(),context,4,Server.this);
+                if (checkResponse.checkRequestCode() && checkResponse.checkStatus(response.body().getStatus())){
+                    callback.callback(response.body().getResult());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PostProfileRequest> call, Throwable t) {
+                loader.setVisibility(View.GONE);
+                MyToast.showToast(context, context.getString(R.string.error));
             }
         });
     }
@@ -133,9 +156,13 @@ public class Server implements RequestsManager {
 
 
 
-
-
+    //3
     private String version;
     private String osType;
     private com.zavosh.itfamily.retrofit.mymodels.Callback.Home callbackHome;
+    //4
+    private String fullName;
+    private String email;
+    private String isMail;
+
 }

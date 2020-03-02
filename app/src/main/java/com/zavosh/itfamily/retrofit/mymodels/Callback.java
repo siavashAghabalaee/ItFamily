@@ -16,4 +16,8 @@ public interface Callback {
     interface Home{
         void callback(HomeResult result);
     }
+
+    interface PostProfile{
+        void callback(String result);
+    }
 }

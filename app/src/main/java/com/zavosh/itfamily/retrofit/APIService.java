@@ -4,6 +4,8 @@ import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeRequest;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeSender;
 import com.zavosh.itfamily.retrofit.mymodels.loginrequest.LoginRequest;
 import com.zavosh.itfamily.retrofit.mymodels.loginrequest.LoginSender;
+import com.zavosh.itfamily.retrofit.mymodels.postprofilerequest.PostProfileRequest;
+import com.zavosh.itfamily.retrofit.mymodels.postprofilerequest.PostProfileSender;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterResponse;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterSender;
 import com.zavosh.itfamily.retrofit.mymodels.verifycode.VerifyCodeResponse;
@@ -32,4 +34,8 @@ public interface APIService {
     @Headers("Content-Type: application/json")
     @POST("account/login")
     Call<LoginRequest> login(@Body LoginSender loginSender);
+
+    @Headers("Content-Type: application/json")
+    @POST("account/postprofile")
+    Call<PostProfileRequest> postProfile(@Header("Authorization") String token ,@Body PostProfileSender postProfileSender);
 }

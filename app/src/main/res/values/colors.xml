@@ -8,4 +8,5 @@
     <color name="white">#ffffff</color>
     <color name="textColor">#7E7E7E</color>
     <color name="gray">#BEBEBE</color>
+    <color name="hint">#E2E2E2</color>
 </resources>
