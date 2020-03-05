@@ -82,7 +82,7 @@ class HomeActivity : AppCompatActivity(), Drawer.OnDrawerItemClickListener {
         val item1 = PrimaryDrawerItem().withIdentifier(1).withName("لیست ویدیوها")
             .withIcon(R.mipmap.app_icon).withOnDrawerItemClickListener(this)
         val item2 =
-            SecondaryDrawerItem().withIdentifier(2).withName("sia2").withIcon(R.mipmap.app_icon)
+            SecondaryDrawerItem().withIdentifier(2).withName("لیست پادکست ها").withIcon(R.mipmap.app_icon)
                 .withOnDrawerItemClickListener(this)
 
         val drawer = DrawerBuilder()
@@ -104,6 +104,7 @@ class HomeActivity : AppCompatActivity(), Drawer.OnDrawerItemClickListener {
 
                 when (position) {
                     0 -> PageManager.getInstance().goVideoListFragment()
+                    1 -> PageManager.getInstance().goPodcastFragment()
                 }
                 return false
             }

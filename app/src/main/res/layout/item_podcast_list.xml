@@ -162,23 +162,19 @@
                         android:gravity="right|center">
 
                         <com.zavosh.itfamily.myviews.MyTextView
+                            android:id="@+id/tv_podcast_title"
                             android:layout_width="wrap_content"
-                            android:layout_marginBottom="@dimen/_5sdp"
                             android:layout_height="wrap_content"
-                            android:text="پادکست شماره ۰۴ آی تی"
-                            android:textSize="10sp"
+                            android:layout_marginBottom="@dimen/_5sdp"
                             android:textColor="@color/white"
-                            >
-                        </com.zavosh.itfamily.myviews.MyTextView>
+                            android:textSize="10sp"></com.zavosh.itfamily.myviews.MyTextView>
 
                         <com.zavosh.itfamily.myviews.MyTextView
+                            android:id="@+id/tv_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="تابستان ۱۳۹۹"
-                            android:textSize="10sp"
                             android:textColor="@color/white"
-                            >
-                        </com.zavosh.itfamily.myviews.MyTextView>
+                            android:textSize="10sp"></com.zavosh.itfamily.myviews.MyTextView>
 
                     </LinearLayout>
 
