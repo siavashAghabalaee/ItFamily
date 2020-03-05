@@ -48,6 +48,8 @@ public class MagazineAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
+
+
                     bundle.putString("getTitle", list.get(position).getTitle());
 //                    bundle.putString("getSummery", list.get(position).getSummery().toString());
                     bundle.putString("getLinkeCount", list.get(position).getLinkeCount());

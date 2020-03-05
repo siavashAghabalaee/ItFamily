@@ -7,6 +7,7 @@
     >
 
     <com.zavosh.itfamily.myviews.MyTextView
+        android:text="erberehr"
         android:id="@+id/question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,12 +15,13 @@
         android:padding="@dimen/_8sdp"
         android:textSize="@dimen/_12sdp"/>
 
-    <TextView
+    <com.zavosh.itfamily.myviews.MyTextView
+        android:text="brtnrtnrjrrj"
         android:id="@+id/answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/_12sdp"
         android:padding="@dimen/_5sdp"
-        ></TextView>
+        />
 
 </LinearLayout>

@@ -31,6 +31,7 @@ class MagazineDetailFragment : Fragment() {
 
     private fun setup() {
 
+
         bundle?.getString("getTitle")
         bundle?.getString("getLinkeCount")
         bundle?.getString("getLinkAddress")

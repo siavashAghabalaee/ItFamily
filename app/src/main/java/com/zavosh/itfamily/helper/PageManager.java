@@ -17,6 +17,7 @@ import com.zavosh.itfamily.fragments.MagazineDetailFragment;
 import com.zavosh.itfamily.fragments.MagazinesFragment;
 import com.zavosh.itfamily.fragments.PodCastFragment;
 import com.zavosh.itfamily.fragments.ProfileFragment;
+import com.zavosh.itfamily.fragments.QuestionFragment;
 import com.zavosh.itfamily.fragments.VideoListFragment;
 import com.zavosh.itfamily.interfaces.PageManagerHelper;
 
@@ -117,6 +118,14 @@ public class PageManager implements PageManagerHelper{
     public void goPodcastFragment() {
         fragmentHandler.clearBack();
         PodCastFragment fragment = new PodCastFragment();
+        fragmentHandler.loadFragment(fragment,true);
+
+    }
+
+    @Override
+    public void goQuestionFragment() {
+        fragmentHandler.clearBack();
+        QuestionFragment fragment = new QuestionFragment();
         fragmentHandler.loadFragment(fragment,true);
 
     }
