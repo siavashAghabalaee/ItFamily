@@ -4,6 +4,7 @@ import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeRequest;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeSender;
 import com.zavosh.itfamily.retrofit.mymodels.loginrequest.LoginRequest;
 import com.zavosh.itfamily.retrofit.mymodels.loginrequest.LoginSender;
+import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineRequest;
 import com.zavosh.itfamily.retrofit.mymodels.postprofilerequest.PostProfileRequest;
 import com.zavosh.itfamily.retrofit.mymodels.postprofilerequest.PostProfileSender;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterResponse;
@@ -38,4 +39,8 @@ public interface APIService {
     @Headers("Content-Type: application/json")
     @POST("account/postprofile")
     Call<PostProfileRequest> postProfile(@Header("Authorization") String token ,@Body PostProfileSender postProfileSender);
+
+    @Headers("Content-Type: application/json")
+    @POST("Magzine/GetList")
+    Call<MagazineRequest> getMagazineList(@Header("Authorization") String token);
 }

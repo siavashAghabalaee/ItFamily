@@ -1,8 +1,11 @@
 package com.zavosh.itfamily.retrofit.mymodels;
 
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeResult;
+import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineResult;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterResult;
 import com.zavosh.itfamily.retrofit.mymodels.verifycode.VerifyCodeResult;
+
+import java.util.List;
 
 public interface Callback {
     interface Register{
@@ -19,5 +22,9 @@ public interface Callback {
 
     interface PostProfile{
         void callback(String result);
+    }
+
+    interface MagazineList{
+        void callback(List<MagazineResult> result);
     }
 }

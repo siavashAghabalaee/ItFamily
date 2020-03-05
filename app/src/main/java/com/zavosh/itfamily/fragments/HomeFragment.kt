@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setup() {
-        Log.i("token",Memory.loadToken())
+        Log.i("tokennnnnnn",Memory.loadToken())
         getHomeData()
     }
 
