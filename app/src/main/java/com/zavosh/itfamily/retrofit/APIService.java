@@ -12,6 +12,7 @@ import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterResponse;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterSender;
 import com.zavosh.itfamily.retrofit.mymodels.verifycode.VerifyCodeResponse;
 import com.zavosh.itfamily.retrofit.mymodels.verifycode.VerifyCodeSender;
+import com.zavosh.itfamily.retrofit.mymodels.videolistrequest.VideoListRequest;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -48,4 +49,8 @@ public interface APIService {
     @Headers("Content-Type: application/json")
     @POST("Content/GetBlogContents")
     Call<BlogListRequest> getBlogList(@Header("Authorization") String token);
+
+    @Headers("Content-Type: application/json")
+    @POST("Content/Getvideos")
+    Call<VideoListRequest> getVideoList(@Header("Authorization") String token);
 }

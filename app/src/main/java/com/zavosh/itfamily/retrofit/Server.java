@@ -18,6 +18,7 @@ import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterResponse;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterSender;
 import com.zavosh.itfamily.retrofit.mymodels.verifycode.VerifyCodeResponse;
 import com.zavosh.itfamily.retrofit.mymodels.verifycode.VerifyCodeSender;
+import com.zavosh.itfamily.retrofit.mymodels.videolistrequest.VideoListRequest;
 import com.zavosh.itfamily.retrofit.mymodels.zavoshchecker.CheckResponse;
 import com.zavosh.itfamily.retrofit.mymodels.zavoshchecker.RequestsManager;
 
@@ -116,7 +117,7 @@ public class Server implements RequestsManager {
 
     //id = 4
     public void sendProfile(String fullName, String email, String isMail ,final ProgressBar loader, final com.zavosh.itfamily.retrofit.mymodels.Callback.PostProfile callback){
-        this.loader = loader;   this.fullName = fullName;  this.email = email;   this.isMail = isMail;
+        this.loader = loader;   this.fullName = fullName;  this.email = email;   this.isMail = isMail; this.postProfileCallback = callback;
         this.loader.setVisibility(View.VISIBLE);
         apiService.postProfile(Memory.TOKEN,new PostProfileSender(fullName,email,isMail)).enqueue(new Callback<PostProfileRequest>() {
             @Override
@@ -183,6 +184,28 @@ public class Server implements RequestsManager {
         });
 
     }
+    //7
+    public void getVideoList(final ProgressBar loader, final com.zavosh.itfamily.retrofit.mymodels.Callback.VideoList callback){
+        this.loader = loader;
+        this.videoListCallback = callback;
+        loader.setVisibility(View.VISIBLE);
+        apiService.getVideoList(Memory.loadToken()).enqueue(new Callback<VideoListRequest>() {
+            @Override
+            public void onResponse(Call<VideoListRequest> call, Response<VideoListRequest> response) {
+                Server.this.loader.setVisibility(View.GONE);
+                CheckResponse checkResponse = new CheckResponse(response.code(),context,7,Server.this);
+                if (checkResponse.checkRequestCode() && checkResponse.checkStatus(response.body().getStatus())){
+                    callback.callback(response.body().getResult());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<VideoListRequest> call, Throwable t) {
+                loader.setVisibility(View.GONE);
+                MyToast.showToast(context, context.getString(R.string.error));
+            }
+        });
+    }
 
 
     @Override
@@ -215,10 +238,13 @@ public class Server implements RequestsManager {
     private String fullName;
     private String email;
     private String isMail;
+    private com.zavosh.itfamily.retrofit.mymodels.Callback.PostProfile postProfileCallback;
     //5
     private com.zavosh.itfamily.retrofit.mymodels.Callback.MagazineList magazineListCallback;
     //6
     private com.zavosh.itfamily.retrofit.mymodels.Callback.BlogList blogListCallback;
+    //7
+    private com.zavosh.itfamily.retrofit.mymodels.Callback.VideoList videoListCallback;
 
 
 }

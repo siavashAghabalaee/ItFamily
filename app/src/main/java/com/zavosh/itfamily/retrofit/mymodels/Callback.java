@@ -5,6 +5,7 @@ import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeResult;
 import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineResult;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterResult;
 import com.zavosh.itfamily.retrofit.mymodels.verifycode.VerifyCodeResult;
+import com.zavosh.itfamily.retrofit.mymodels.videolistrequest.VideoListResult;
 
 import java.util.List;
 
@@ -31,5 +32,9 @@ public interface Callback {
 
     interface BlogList{
         void callback(List<BlogListResult> result);
+    }
+
+    interface VideoList{
+        void callback(List<VideoListResult> result);
     }
 }

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@android:color/transparent"
+    android:gravity="center">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/article_item_card"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_300sdp"
+            app:cardElevation="@dimen/_20sdp"
+            app:cardCornerRadius="@dimen/_20sdp"
+            app:cardPreventCornerOverlap="true"
+            android:foregroundGravity="center"
+            android:layout_marginTop="@dimen/_90sdp"
+            android:layout_marginLeft="38sp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@android:color/transparent"
+                >
+                <com.zavosh.itfamily.myviews.MyImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    app:riv_corner_radius="@dimen/_20sdp"
+                    android:id="@+id/iv_image"
+                    android:scaleType="centerCrop"
+                    app:riv_corner_radius_top_left="@dimen/_20sdp"
+                    app:riv_corner_radius_top_right="@dimen/_20sdp"/>
+
+                <com.zavosh.itfamily.myviews.MyImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bg_shap"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    app:riv_corner_radius_bottom_right="@dimen/_20sdp"
+                    app:riv_corner_radius_bottom_left="@dimen/_20sdp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="bottom|right">
+
+                    <com.zavosh.itfamily.myviews.MyTextViewBold
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:text="مقاله آی تی شماره یک"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        >
+
+                    </com.zavosh.itfamily.myviews.MyTextViewBold>
+
+                    <com.zavosh.itfamily.myviews.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:text="در آخر این تحقیقات نشان از آن دارد که قدرت تمرکز این افراد از ۸ ثانیه به ۱۲ ثانیه اضافه می شود..."
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:textColor="@color/white"
+                        >
+
+                    </com.zavosh.itfamily.myviews.MyTextView>
+
+                </LinearLayout>
+
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_300sdp"
+                app:cardCornerRadius="30dp"
+                android:layout_marginTop="@dimen/_138sdp"
+                app:cardElevation="20dp"
+                android:elevation="30dp"
+                android:layout_marginLeft="@dimen/_55sdp"
+                app:cardPreventCornerOverlap="false"
+                >
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:background="@drawable/bg_corner_them"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        >
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        >
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        >
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical|right"
+                        >
+                        <com.zavosh.itfamily.myviews.MyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="۱۵۴ پسندیده اند"
+                            android:textColor="@color/white"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        >
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>
