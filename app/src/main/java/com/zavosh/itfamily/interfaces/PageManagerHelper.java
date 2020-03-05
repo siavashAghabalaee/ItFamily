@@ -1,6 +1,7 @@
 package com.zavosh.itfamily.interfaces;
 
 import android.content.Context;
+import android.os.Bundle;
 
 public interface PageManagerHelper {
     void goLoginActivity(Context context);
@@ -12,5 +13,6 @@ public interface PageManagerHelper {
     void goHomeFragment();
     void goProfileFragment();
     void goMagazinesFragment();
-    void goArticlesFragment();
+    void goBlogsFragment();
+    void goMagazineDetailFragment(Bundle bundle);
 }

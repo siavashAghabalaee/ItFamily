@@ -400,7 +400,7 @@
 
                     </LinearLayout>
 
-                    <TextView
+                    <com.zavosh.itfamily.myviews.MyTextView
                         android:textSize="@dimen/_18sdp"
                         android:text="جنسیت :"
                         android:layout_width="0dp"
@@ -415,17 +415,17 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
+                android:id="@+id/btn_submit"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:adjustViewBounds="true"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                app:layout_constraintTop_toBottomOf="@id/top_button"
-                app:layout_constraintBottom_toTopOf="@id/bottom_button"
-                app:layout_constraintRight_toLeftOf="@id/right_button"
-                app:layout_constraintLeft_toRightOf="@id/left_button"
                 android:src="@drawable/register_button"
-                android:adjustViewBounds="true"
-                >
+                app:layout_constraintBottom_toTopOf="@id/bottom_button"
+                app:layout_constraintLeft_toRightOf="@id/left_button"
+                app:layout_constraintRight_toLeftOf="@id/right_button"
+                app:layout_constraintTop_toBottomOf="@id/top_button">
 
             </ImageView>
 

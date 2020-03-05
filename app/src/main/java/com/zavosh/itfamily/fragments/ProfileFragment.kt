@@ -12,6 +12,7 @@ import com.zavosh.itfamily.myviews.MyToast
 import com.zavosh.itfamily.retrofit.Server
 import com.zavosh.itfamily.retrofit.mymodels.Callback
 import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -35,25 +36,32 @@ class ProfileFragment : Fragment() {
 
     private fun setup() {
 
-        phone_register.setText(Memory.loadPhone() ?: "")
+        fragmentView.phone_register.setText(Memory.loadPhone() ?: "")
 
-        if (name_register.text.isEmpty() || email_register.text.isEmpty()) {
-            MyToast.showToast(activity, "لطفا نام و ایمیل خود را وارد کنید")
-        } else {
-            if (chk_female.isChecked) {
-                sex = false
-            } else if (chk_male.isChecked) {
-                sex = true
+
+        fragmentView.btn_submit.setOnClickListener {
+
+            if (fragmentView.name_register.text.isEmpty() || fragmentView.email_register.text.isEmpty()) {
+                MyToast.showToast(activity, "لطفا نام و ایمیل خود را وارد کنید")
+            } else {
+                if (fragmentView.chk_female.isChecked) {
+                    sex = false
+                } else if (fragmentView.chk_male.isChecked) {
+                    sex = true
+                }
+                getProfileData()
             }
-            getProfileData()
+
         }
+
+
     }
 
     private fun getProfileData() {
 
 
-        Server.getInstance(context).sendProfile(name_register.text.toString().trim(),
-            email_register.text.toString().trim(),
+        Server.getInstance(context).sendProfile(fragmentView.name_register.text.toString().trim(),
+            fragmentView.email_register.text.toString().trim(),
             sex.toString(), loader,
             object : Callback.PostProfile {
                 override fun callback(result: String?) {

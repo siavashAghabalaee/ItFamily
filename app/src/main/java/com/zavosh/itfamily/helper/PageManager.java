@@ -3,6 +3,7 @@ package com.zavosh.itfamily.helper;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 import androidx.fragment.app.FragmentManager;
 
@@ -10,8 +11,9 @@ import com.zavosh.itfamily.activities.HomeActivity;
 import com.zavosh.itfamily.activities.LoginActivity;
 import com.zavosh.itfamily.activities.RegisterActivity;
 import com.zavosh.itfamily.activities.VerifyActivity;
-import com.zavosh.itfamily.fragments.ArticlesFragment;
+import com.zavosh.itfamily.fragments.BlogListFragment;
 import com.zavosh.itfamily.fragments.HomeFragment;
+import com.zavosh.itfamily.fragments.MagazineDetailFragment;
 import com.zavosh.itfamily.fragments.MagazinesFragment;
 import com.zavosh.itfamily.fragments.ProfileFragment;
 import com.zavosh.itfamily.interfaces.PageManagerHelper;
@@ -89,11 +91,17 @@ public class PageManager implements PageManagerHelper{
     }
 
     @Override
-    public void goArticlesFragment() {
+    public void goBlogsFragment() {
         fragmentHandler.clearBack();
-        ArticlesFragment fragment = new ArticlesFragment();
+        BlogListFragment fragment = new BlogListFragment();
         fragmentHandler.loadFragment(fragment,false);
     }
 
+    @Override
+    public void goMagazineDetailFragment(Bundle bundle) {
+        fragmentHandler.clearBack();
+        MagazineDetailFragment fragment = new MagazineDetailFragment();
+        fragmentHandler.loadFragment(fragment,true,bundle);
+    }
 
 }
