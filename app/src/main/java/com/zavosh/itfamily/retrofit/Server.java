@@ -136,6 +136,7 @@ public class Server implements RequestsManager {
 
     @Override
     public void resendRequest(int id) {
+        Log.i("skehbs","test");
         switch (id){
             case 3:
                 Log.i("aeaijwdaiojd","resend ");
