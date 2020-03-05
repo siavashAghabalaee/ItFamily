@@ -1,5 +1,6 @@
 package com.zavosh.itfamily.retrofit;
 
+import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListRequest;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeRequest;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeSender;
 import com.zavosh.itfamily.retrofit.mymodels.loginrequest.LoginRequest;
@@ -43,4 +44,8 @@ public interface APIService {
     @Headers("Content-Type: application/json")
     @POST("Magzine/GetList")
     Call<MagazineRequest> getMagazineList(@Header("Authorization") String token);
+
+    @Headers("Content-Type: application/json")
+    @POST("Content/GetBlogContents")
+    Call<BlogListRequest> getBlogList(@Header("Authorization") String token);
 }

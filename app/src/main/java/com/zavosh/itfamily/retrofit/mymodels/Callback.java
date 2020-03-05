@@ -1,5 +1,6 @@
 package com.zavosh.itfamily.retrofit.mymodels;
 
+import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListResult;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeResult;
 import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineResult;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterResult;
@@ -26,5 +27,9 @@ public interface Callback {
 
     interface MagazineList{
         void callback(List<MagazineResult> result);
+    }
+
+    interface BlogList{
+        void callback(List<BlogListResult> result);
     }
 }

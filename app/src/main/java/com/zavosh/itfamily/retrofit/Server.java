@@ -8,6 +8,7 @@ import android.widget.ProgressBar;
 import com.zavosh.itfamily.R;
 import com.zavosh.itfamily.helper.Memory;
 import com.zavosh.itfamily.myviews.MyToast;
+import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListRequest;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeRequest;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeSender;
 import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineRequest;
@@ -137,7 +138,7 @@ public class Server implements RequestsManager {
 
     //id = 5
     public void getMagazineList(final ProgressBar loader, final com.zavosh.itfamily.retrofit.mymodels.Callback.MagazineList callback){
-        //this.loader = loader;
+        this.loader = loader;
         this.magazineListCallback = callback;
         this.loader.setVisibility(View.VISIBLE);
         apiService.getMagazineList(Memory.loadToken()).enqueue(new Callback<MagazineRequest>() {
@@ -153,11 +154,36 @@ public class Server implements RequestsManager {
 
             @Override
             public void onFailure(Call<MagazineRequest> call, Throwable t) {
-                //loader.setVisibility(View.GONE);
+                loader.setVisibility(View.GONE);
                 MyToast.showToast(context, context.getString(R.string.error));
             }
         });
     }
+
+    //id = 6
+    public void getBlogList(final ProgressBar loader, final com.zavosh.itfamily.retrofit.mymodels.Callback.BlogList callback){
+        this.loader = loader;
+        this.blogListCallback = callback;
+        loader.setVisibility(View.VISIBLE);
+        apiService.getBlogList(Memory.loadToken()).enqueue(new Callback<BlogListRequest>() {
+            @Override
+            public void onResponse(Call<BlogListRequest> call, Response<BlogListRequest> response) {
+                Server.this.loader.setVisibility(View.GONE);
+                CheckResponse checkResponse = new CheckResponse(response.code(),context,6,Server.this);
+                if (checkResponse.checkRequestCode() && checkResponse.checkStatus(response.body().getStatus())){
+                    callback.callback(response.body().getResult());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BlogListRequest> call, Throwable t) {
+                loader.setVisibility(View.GONE);
+                MyToast.showToast(context, context.getString(R.string.error));
+            }
+        });
+
+    }
+
 
     @Override
     public void resendRequest(int id) {
@@ -189,6 +215,10 @@ public class Server implements RequestsManager {
     private String fullName;
     private String email;
     private String isMail;
+    //5
     private com.zavosh.itfamily.retrofit.mymodels.Callback.MagazineList magazineListCallback;
+    //6
+    private com.zavosh.itfamily.retrofit.mymodels.Callback.BlogList blogListCallback;
+
 
 }
