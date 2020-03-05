@@ -9,7 +9,6 @@ import com.zavosh.itfamily.R
 import com.zavosh.itfamily.myviews.MyToast
 import com.zavosh.itfamily.retrofit.Server
 import com.zavosh.itfamily.retrofit.mymodels.Callback
-import kotlinx.android.synthetic.main.fragment_support.*
 import kotlinx.android.synthetic.main.fragment_support.view.*
 
 class SupportFragment : Fragment() {
@@ -30,7 +29,7 @@ class SupportFragment : Fragment() {
 
         rootView.submit_button.setOnClickListener {
 
-            if (rootView.etv_message.text.toString().isEmpty() || etv_subject.text.toString().isEmpty()) {
+            if (rootView.etv_message.text.toString().isEmpty() || rootView.etv_subject.text.toString().isEmpty()) {
                 MyToast.showToast(context,"لطفا عنوان و توضیحات را وارد کنید")
             } else {
                 sendSupport()
