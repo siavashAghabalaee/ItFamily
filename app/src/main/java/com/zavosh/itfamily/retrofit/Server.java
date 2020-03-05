@@ -262,10 +262,6 @@ public class Server implements RequestsManager {
 
 
 
-
-
-
-
     @Override
     public void resendRequest(int id) {
         switch (id){
