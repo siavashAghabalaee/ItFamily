@@ -320,6 +320,7 @@
                 </EditText>
 
                 <EditText
+                    android:visibility="gone"
                     android:id="@+id/desc_register"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -339,6 +340,78 @@
 
                 </EditText>
 
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/hint"
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toBottomOf="@id/desc_top"
+                    app:layout_constraintBottom_toTopOf="@id/desc_bottom"
+                    app:layout_constraintRight_toLeftOf="@id/register_card_right"
+                    app:layout_constraintLeft_toRightOf="@id/register_card_left">
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <com.zavosh.itfamily.myviews.MyTextView
+                            android:textSize="@dimen/_18sdp"
+                            android:text="مرد"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+
+                        <CheckBox
+                            android:id="@+id/chk_male"
+                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <com.zavosh.itfamily.myviews.MyTextView
+                            android:textSize="@dimen/_18sdp"
+                            android:text="زن"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+
+                        <CheckBox
+                            android:id="@+id/chk_female"
+                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:textSize="@dimen/_18sdp"
+                        android:text="جنسیت :"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+
+                </LinearLayout>
+
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
@@ -355,6 +428,16 @@
                 >
 
             </ImageView>
+
+
+            <ProgressBar
+                android:id="@+id/loader"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
 
