@@ -15,6 +15,7 @@
         >
 
         <androidx.cardview.widget.CardView
+            android:layout_marginTop="@dimen/_20sdp"
             android:id="@+id/article_item_card"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_300sdp"
@@ -64,7 +65,6 @@
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:layout_marginRight="@dimen/_15sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
-                        android:text="مقاله آی تی شماره یک"
                         android:textColor="@color/white"
                         android:textStyle="bold">
 
@@ -78,7 +78,6 @@
                         android:layout_marginRight="@dimen/_15sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:paddingLeft="@dimen/_15sdp"
-                        android:text="در آخر این تحقیقات نشان از آن دارد که قدرت تمرکز این افراد از ۸ ثانیه به ۱۲ ثانیه اضافه می شود..."
                         android:textColor="@color/white">
 
                     </com.zavosh.itfamily.myviews.MyTextView>
@@ -105,7 +104,8 @@
                 android:layout_width="@dimen/_200sdp"
                 android:layout_height="@dimen/_300sdp"
                 app:cardCornerRadius="30dp"
-                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_70sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
                 app:cardElevation="20dp"
                 android:elevation="30dp"
                 android:layout_marginLeft="@dimen/_55sdp"
@@ -158,7 +158,6 @@
                             android:id="@+id/tv_like_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="۱۵۴ پسندیده اند"
                             android:textColor="@color/white" />
 
                     </LinearLayout>

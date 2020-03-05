@@ -12,6 +12,7 @@ import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListRequest;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeRequest;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeSender;
 import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineRequest;
+import com.zavosh.itfamily.retrofit.mymodels.podcastlistrequest.PodcastListRequest;
 import com.zavosh.itfamily.retrofit.mymodels.postprofilerequest.PostProfileRequest;
 import com.zavosh.itfamily.retrofit.mymodels.postprofilerequest.PostProfileSender;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterResponse;
@@ -207,6 +208,28 @@ public class Server implements RequestsManager {
         });
     }
 
+    //8
+    public void getPodcastList(final ProgressBar loader, final com.zavosh.itfamily.retrofit.mymodels.Callback.PodcastList callback){
+        this.loader = loader;
+        this.podcastListCallback = callback;
+        loader.setVisibility(View.VISIBLE);
+        apiService.getPodcastList(Memory.loadToken()).enqueue(new Callback<PodcastListRequest>() {
+            @Override
+            public void onResponse(Call<PodcastListRequest> call, Response<PodcastListRequest> response) {
+                Server.this.loader.setVisibility(View.GONE);
+                CheckResponse checkResponse = new CheckResponse(response.code(),context,8,Server.this);
+                if (checkResponse.checkRequestCode() && checkResponse.checkStatus(response.body().getStatus())){
+                    callback.callback(response.body().getResult());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PodcastListRequest> call, Throwable t) {
+                loader.setVisibility(View.GONE);
+                MyToast.showToast(context, context.getString(R.string.error));
+            }
+        });
+    }
 
     @Override
     public void resendRequest(int id) {
@@ -245,6 +268,8 @@ public class Server implements RequestsManager {
     private com.zavosh.itfamily.retrofit.mymodels.Callback.BlogList blogListCallback;
     //7
     private com.zavosh.itfamily.retrofit.mymodels.Callback.VideoList videoListCallback;
+    //8
+    private com.zavosh.itfamily.retrofit.mymodels.Callback.PodcastList podcastListCallback;
 
 
 }
