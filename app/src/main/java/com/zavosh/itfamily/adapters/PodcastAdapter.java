@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zavosh.itfamily.R;
+import com.zavosh.itfamily.helper.PublicMethods;
 import com.zavosh.itfamily.myviews.MyImageView;
 import com.zavosh.itfamily.myviews.MyTextView;
 import com.zavosh.itfamily.retrofit.mymodels.podcastlistrequest.PodcastListResult;
@@ -37,7 +38,7 @@ public class PodcastAdapter extends RecyclerView.Adapter<PodcastAdapter.PodcastV
         PodcastListResult podcastItem = list.get(position);
         holder.iv_image.setPicasso(podcastItem.getImage(),activity);
         holder.tv_podcast_title.setText(podcastItem.getTitle());
-        holder.tv_date.setText(podcastItem.getPublishDate());
+        holder.tv_date.setText(PublicMethods.getDate(podcastItem.getPublishDate()));
 
     }
 

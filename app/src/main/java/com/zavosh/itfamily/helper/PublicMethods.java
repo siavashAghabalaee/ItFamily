@@ -23,13 +23,16 @@ public class PublicMethods {
 
         }
     }
-    public static String getDeviceId(Context context){
+
+    public static String getDeviceId(Context context) {
         return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
     }
-    public static String getAndroidApi(){
+
+    public static String getAndroidApi() {
         return String.valueOf(Build.VERSION.SDK_INT);
     }
-    public static String getAppVersion(Context context){
+
+    public static String getAppVersion(Context context) {
         String version = "0.0.0";
         try {
             PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
@@ -39,15 +42,18 @@ public class PublicMethods {
         }
         return version;
     }
+
     public static boolean isEmailValid(CharSequence email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
-    public static String convert(String price){
+
+    public static String convert(String price) {
         String newPrice = price.trim();
         NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.US);
         String numberAsString = numberFormat.format(Integer.parseInt(newPrice));
         return numberAsString;
     }
+
     public static String getDeviceString() {
         if (_device != null)
             return _device;
@@ -58,4 +64,17 @@ public class PublicMethods {
         _device = Build.MANUFACTURER + " " + Build.MODEL;
         return _device;
     }
+
+
+    public static String getDate(String date) {
+        String finalDate = "";
+        String[] split = date.split("/");
+        String day = split[0];
+        String month = split[1];
+        String year = split[2];
+        finalDate = year + "/" + month + "/" + day;
+
+        return finalDate;
+    }
+
 }
