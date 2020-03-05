@@ -43,7 +43,12 @@ public interface Callback {
     interface PodcastList{
         void callback(List<PodcastListResult> result);
     }
+
     interface QuestionList{
         void callback(List<QuestionListResult> result);
+    }
+
+    interface PostQuestion{
+        void callback(String result);
     }
 }

@@ -15,6 +15,8 @@ import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineRequest;
 import com.zavosh.itfamily.retrofit.mymodels.podcastlistrequest.PodcastListRequest;
 import com.zavosh.itfamily.retrofit.mymodels.postprofilerequest.PostProfileRequest;
 import com.zavosh.itfamily.retrofit.mymodels.postprofilerequest.PostProfileSender;
+import com.zavosh.itfamily.retrofit.mymodels.postquestionrequest.PostQuestionRequest;
+import com.zavosh.itfamily.retrofit.mymodels.postquestionrequest.PostRequestSender;
 import com.zavosh.itfamily.retrofit.mymodels.questionListlistrequest.QuestionListRequest;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterResponse;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterSender;
@@ -256,10 +258,29 @@ public class Server implements RequestsManager {
         });
     }
 
+    //id = 9
+    public void postQuestion(String subject, String message , final ProgressBar loader, final com.zavosh.itfamily.retrofit.mymodels.Callback.PostQuestion callback){
+        this.loader = loader;
+        this.postQuestionCallback = callback;
+        this.message = message;
+        this.subject = subject;
+        apiService.postQuestion(Memory.loadToken(),new PostRequestSender(subject,message)).enqueue(new Callback<PostQuestionRequest>() {
+            @Override
+            public void onResponse(Call<PostQuestionRequest> call, Response<PostQuestionRequest> response) {
+                Server.this.loader.setVisibility(View.GONE);
+                CheckResponse checkResponse = new CheckResponse(response.code(),context,10,Server.this);
+                if (checkResponse.checkRequestCode() && checkResponse.checkStatus(response.body().getStatus())){
+                    callback.callback(response.body().getResult());
+                }
+            }
 
-
-
-
+            @Override
+            public void onFailure(Call<PostQuestionRequest> call, Throwable t) {
+                loader.setVisibility(View.GONE);
+                MyToast.showToast(context, context.getString(R.string.error));
+            }
+        });
+    }
 
 
     @Override
@@ -285,6 +306,9 @@ public class Server implements RequestsManager {
                 break;
             case 9:
                 getQuestionList(loader,questionListCallback);
+                break;
+            case 10:
+                postQuestion(subject,message,loader,postQuestionCallback);
                 break;
 
         }
@@ -321,6 +345,9 @@ public class Server implements RequestsManager {
     private com.zavosh.itfamily.retrofit.mymodels.Callback.PodcastList podcastListCallback;
     //9
     private com.zavosh.itfamily.retrofit.mymodels.Callback.QuestionList questionListCallback;
-
+    //10
+    private String subject;
+    private String message;
+    private com.zavosh.itfamily.retrofit.mymodels.Callback.PostQuestion postQuestionCallback;
 
 }

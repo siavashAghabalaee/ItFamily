@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@drawable/background_profile"
     >
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background_profile"
+        android:scaleType="centerCrop"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -50,16 +54,14 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.2"
-            />
+            app:layout_constraintGuide_percent="0.25" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/register_bottom"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.7"
-            />
+            app:layout_constraintGuide_percent="0.56" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/register_right"
@@ -91,8 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.1"
-            />
+            app:layout_constraintGuide_percent="0.09" />
 
 
         <!--    <androidx.cardview.widget.CardView-->
@@ -140,6 +141,7 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:scaleType="centerCrop"
             app:layout_constraintLeft_toRightOf="@id/left_button"
             app:layout_constraintRight_toLeftOf="@id/right_button"
             app:layout_constraintBottom_toTopOf="@id/register_top"
@@ -159,52 +161,34 @@
             android:background="@drawable/cardview_background"
             >
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/name_top"
-                android:layout_width="0.5dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.11" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/name_bottom"
-                android:layout_width="0.5dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.25"
-                />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/phone_top"
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.31"
-                />
+                app:layout_constraintGuide_percent="0.07" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/phone_bottom"
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.45"
-                />
+                app:layout_constraintGuide_percent="0.27" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/email_top"
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.51"
-                />
+                app:layout_constraintGuide_percent="0.34" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/desc_bottom"
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.9"
-                />
+                app:layout_constraintGuide_percent="0.94" />
 
 
             <androidx.constraintlayout.widget.Guideline
@@ -225,24 +209,7 @@
 
 
 
-            <EditText
-                android:id="@+id/name_register"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:hint=" نام و نام خانوادگی"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp"
-                app:layout_constraintTop_toBottomOf="@id/name_top"
-                app:layout_constraintBottom_toTopOf="@id/name_bottom"
-                android:background="@drawable/edit_text_background"
-                app:layout_constraintRight_toLeftOf="@id/register_card_right"
-                app:layout_constraintLeft_toRightOf="@id/register_card_left"
-                >
-            </EditText>
+
 
             <EditText
                 android:id="@+id/phone_register"
@@ -309,4 +276,4 @@
         <!--    </androidx.cardview.widget.CardView>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+</RelativeLayout>
