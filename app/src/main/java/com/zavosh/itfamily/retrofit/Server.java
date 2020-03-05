@@ -264,6 +264,7 @@ public class Server implements RequestsManager {
         this.postQuestionCallback = callback;
         this.message = message;
         this.subject = subject;
+        loader.setVisibility(View.VISIBLE);
         apiService.postQuestion(Memory.loadToken(),new PostRequestSender(subject,message)).enqueue(new Callback<PostQuestionRequest>() {
             @Override
             public void onResponse(Call<PostQuestionRequest> call, Response<PostQuestionRequest> response) {

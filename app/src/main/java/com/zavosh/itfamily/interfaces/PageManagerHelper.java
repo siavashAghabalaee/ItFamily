@@ -18,4 +18,5 @@ public interface PageManagerHelper {
     void goVideoListFragment();
     void goPodcastFragment();
     void goQuestionFragment();
+    void goSupportFragment();
 }

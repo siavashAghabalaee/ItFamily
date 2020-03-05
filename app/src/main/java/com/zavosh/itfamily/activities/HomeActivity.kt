@@ -90,12 +90,17 @@ class HomeActivity : AppCompatActivity(), Drawer.OnDrawerItemClickListener {
             SecondaryDrawerItem().withIdentifier(3).withName("سوالات متداول").withIcon(R.mipmap.app_icon)
                 .withOnDrawerItemClickListener(this)
 
+        val item4 =
+            SecondaryDrawerItem().withIdentifier(4).withName("پشتیبانی").withIcon(R.mipmap.app_icon)
+                .withOnDrawerItemClickListener(this)
+
         val drawer = DrawerBuilder()
             .withActivity(this)
             .addDrawerItems(
                 item1,
                 item2,
-                item3
+                item3,
+                item4
             )
             .withDrawerGravity(Gravity.END)
             .build()
@@ -111,6 +116,7 @@ class HomeActivity : AppCompatActivity(), Drawer.OnDrawerItemClickListener {
                     0 -> PageManager.getInstance().goVideoListFragment()
                     1 -> PageManager.getInstance().goPodcastFragment()
                     2 -> PageManager.getInstance().goQuestionFragment()
+                    3 -> PageManager.getInstance().goSupportFragment()
                 }
                 return false
             }
