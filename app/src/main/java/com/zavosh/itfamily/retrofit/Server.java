@@ -15,6 +15,7 @@ import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineRequest;
 import com.zavosh.itfamily.retrofit.mymodels.podcastlistrequest.PodcastListRequest;
 import com.zavosh.itfamily.retrofit.mymodels.postprofilerequest.PostProfileRequest;
 import com.zavosh.itfamily.retrofit.mymodels.postprofilerequest.PostProfileSender;
+import com.zavosh.itfamily.retrofit.mymodels.questionListlistrequest.QuestionListRequest;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterResponse;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterSender;
 import com.zavosh.itfamily.retrofit.mymodels.verifycode.VerifyCodeResponse;
@@ -92,8 +93,8 @@ public class Server implements RequestsManager {
     }
 
     //id = 3
-    public void getHome(String version,String osType, final ProgressBar loader,
-                        final com.zavosh.itfamily.retrofit.mymodels.Callback.Home callback){
+    public void getHome(String version,String osType, final ProgressBar loader
+            , final com.zavosh.itfamily.retrofit.mymodels.Callback.Home callback){
         this.loader = loader;   this.version = version;  this.osType = osType;  this.callbackHome = callback;
         this.loader.setVisibility(View.VISIBLE);
         apiService.getHome(Memory.loadToken(),new HomeSender(version,osType)).enqueue(new Callback<HomeRequest>() {
@@ -185,7 +186,8 @@ public class Server implements RequestsManager {
         });
 
     }
-    //7
+
+    //id = 7
     public void getVideoList(final ProgressBar loader, final com.zavosh.itfamily.retrofit.mymodels.Callback.VideoList callback){
         this.loader = loader;
         this.videoListCallback = callback;
@@ -208,7 +210,7 @@ public class Server implements RequestsManager {
         });
     }
 
-    //8
+    //id = 8
     public void getPodcastList(final ProgressBar loader, final com.zavosh.itfamily.retrofit.mymodels.Callback.PodcastList callback){
         this.loader = loader;
         this.podcastListCallback = callback;
@@ -231,13 +233,64 @@ public class Server implements RequestsManager {
         });
     }
 
+    //id = 9
+    public void getQuestionList(final ProgressBar loader, final com.zavosh.itfamily.retrofit.mymodels.Callback.QuestionList callback){
+        this.loader = loader;
+        this.questionListCallback = callback;
+        loader.setVisibility(View.VISIBLE);
+        apiService.getQuestionList(Memory.loadToken()).enqueue(new Callback<QuestionListRequest>() {
+            @Override
+            public void onResponse(Call<QuestionListRequest> call, Response<QuestionListRequest> response) {
+                Server.this.loader.setVisibility(View.GONE);
+                CheckResponse checkResponse = new CheckResponse(response.code(),context,9,Server.this);
+                if (checkResponse.checkRequestCode() && checkResponse.checkStatus(response.body().getStatus())){
+                    callback.callback(response.body().getResult());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<QuestionListRequest> call, Throwable t) {
+                loader.setVisibility(View.GONE);
+                MyToast.showToast(context, context.getString(R.string.error));
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
     @Override
     public void resendRequest(int id) {
         switch (id){
             case 3:
-                Log.i("aeaijwdaiojd","resend ");
                 getHome(version,osType,loader,callbackHome);
                 break;
+            case 4:
+                sendProfile(fullName,email,isMail,loader,postProfileCallback);
+                break;
+            case 5:
+                getMagazineList(loader,magazineListCallback);
+                break;
+            case 6:
+                getBlogList(loader,blogListCallback);
+                break;
+            case 7:
+                getVideoList(loader,videoListCallback);
+                break;
+            case 8:
+                getPodcastList(loader,podcastListCallback);
+                break;
+            case 9:
+                getQuestionList(loader,questionListCallback);
+                break;
+
         }
     }
 
@@ -270,6 +323,8 @@ public class Server implements RequestsManager {
     private com.zavosh.itfamily.retrofit.mymodels.Callback.VideoList videoListCallback;
     //8
     private com.zavosh.itfamily.retrofit.mymodels.Callback.PodcastList podcastListCallback;
+    //9
+    private com.zavosh.itfamily.retrofit.mymodels.Callback.QuestionList questionListCallback;
 
 
 }

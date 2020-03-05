@@ -4,6 +4,7 @@ import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListResult;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeResult;
 import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineResult;
 import com.zavosh.itfamily.retrofit.mymodels.podcastlistrequest.PodcastListResult;
+import com.zavosh.itfamily.retrofit.mymodels.questionListlistrequest.QuestionListResult;
 import com.zavosh.itfamily.retrofit.mymodels.registerphone.RegisterResult;
 import com.zavosh.itfamily.retrofit.mymodels.verifycode.VerifyCodeResult;
 import com.zavosh.itfamily.retrofit.mymodels.videolistrequest.VideoListResult;
@@ -41,5 +42,8 @@ public interface Callback {
 
     interface PodcastList{
         void callback(List<PodcastListResult> result);
+    }
+    interface QuestionList{
+        void callback(List<QuestionListResult> result);
     }
 }
