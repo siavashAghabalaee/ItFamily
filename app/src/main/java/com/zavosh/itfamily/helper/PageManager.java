@@ -16,6 +16,7 @@ import com.zavosh.itfamily.fragments.HomeFragment;
 import com.zavosh.itfamily.fragments.MagazineDetailFragment;
 import com.zavosh.itfamily.fragments.MagazinesFragment;
 import com.zavosh.itfamily.fragments.ProfileFragment;
+import com.zavosh.itfamily.fragments.VideoListFragment;
 import com.zavosh.itfamily.interfaces.PageManagerHelper;
 
 public class PageManager implements PageManagerHelper{
@@ -91,6 +92,13 @@ public class PageManager implements PageManagerHelper{
     }
 
     @Override
+    public void goMagazineDetailFragment(Bundle bundle) {
+        fragmentHandler.clearBack();
+        MagazineDetailFragment fragment = new MagazineDetailFragment();
+        fragmentHandler.loadFragment(fragment,true,bundle);
+    }
+
+    @Override
     public void goBlogsFragment() {
         fragmentHandler.clearBack();
         BlogListFragment fragment = new BlogListFragment();
@@ -98,10 +106,10 @@ public class PageManager implements PageManagerHelper{
     }
 
     @Override
-    public void goMagazineDetailFragment(Bundle bundle) {
+    public void goVideoListFragment() {
         fragmentHandler.clearBack();
-        MagazineDetailFragment fragment = new MagazineDetailFragment();
-        fragmentHandler.loadFragment(fragment,true,bundle);
+        VideoListFragment fragment = new VideoListFragment();
+        fragmentHandler.loadFragment(fragment,false);
     }
 
 }

@@ -12,11 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.zavosh.itfamily.R;
 import com.zavosh.itfamily.myviews.MyImageView;
 import com.zavosh.itfamily.myviews.MyTextView;
+import com.zavosh.itfamily.myviews.MyTextViewBold;
 import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListResult;
 
 import java.util.List;
 
-public class BlogListAdapter extends RecyclerView.Adapter {
+public class BlogListAdapter extends RecyclerView.Adapter<BlogListAdapter.BlogViewHolder> {
 
     private Activity activity;
     private List<BlogListResult> list;
@@ -29,15 +30,20 @@ public class BlogListAdapter extends RecyclerView.Adapter {
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_blog_list, parent, false);
+    public BlogViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_news_list, parent, false);
         return new BlogViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BlogViewHolder holder, int position) {
 
         BlogListResult blogItem = list.get(position);
+
+        holder.imageView.setPicasso(blogItem.getImage(), activity);
+        holder.tv_title.setText(blogItem.getTitle());
+        holder.tv_summery.setText(blogItem.getSummery());
+        holder.tv_like_count.setText(blogItem.getLinkeCount());
 
 
     }
@@ -49,14 +55,18 @@ public class BlogListAdapter extends RecyclerView.Adapter {
 
     public class BlogViewHolder extends RecyclerView.ViewHolder {
         MyImageView imageView;
-        MyTextView tv_title;
+        MyTextViewBold tv_title;
+        MyTextView tv_summery;
+        MyTextView tv_like_count;
         RelativeLayout ly_item;
 
         public BlogViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.iv_image);
             tv_title = itemView.findViewById(R.id.tv_title);
+            tv_summery = itemView.findViewById(R.id.tv_summery);
             ly_item = itemView.findViewById(R.id.ly_item);
+            tv_like_count = itemView.findViewById(R.id.tv_like_count);
         }
     }
 }

@@ -18,18 +18,18 @@ import com.zavosh.itfamily.helper.PageManager
 import kotlinx.android.synthetic.main.activity_home.*
 
 
-class HomeActivity : AppCompatActivity() ,Drawer.OnDrawerItemClickListener{
-    lateinit var drawer : Drawer
+class HomeActivity : AppCompatActivity(), Drawer.OnDrawerItemClickListener {
+    lateinit var drawer: Drawer
     override fun onItemClick(view: View?, position: Int, drawerItem: IDrawerItem<*>): Boolean {
-        Log.i("myDrawer","pos : "+position)
+        Log.i("myDrawer", "pos : " + position)
         //drawer.closeDrawer()
         return false
     }
 
 
-    companion object{
-        fun getInstance(context: Context) : Intent {
-            return Intent(context,HomeActivity::class.java)
+    companion object {
+        fun getInstance(context: Context): Intent {
+            return Intent(context, HomeActivity::class.java)
         }
     }
 
@@ -43,19 +43,27 @@ class HomeActivity : AppCompatActivity() ,Drawer.OnDrawerItemClickListener{
 
     private fun listeners() {
         btnTab.setOnClickMenuListener {
-            when(it.id){
-                1 ->{Log.i("tabId","1")
-                    PageManager.getInstance(this@HomeActivity,supportFragmentManager).goHomeFragment()
+            when (it.id) {
+                1 -> {
+                    Log.i("tabId", "1")
+                    PageManager.getInstance(this@HomeActivity, supportFragmentManager)
+                        .goHomeFragment()
                 }
-                2 ->{Log.i("tabId","2")
-                    PageManager.getInstance(this@HomeActivity,supportFragmentManager).goProfileFragment()
+                2 -> {
+                    Log.i("tabId", "2")
+                    PageManager.getInstance(this@HomeActivity, supportFragmentManager)
+                        .goProfileFragment()
                 }
-                3 ->{Log.i("tabId","3")
-                    PageManager.getInstance(this@HomeActivity,supportFragmentManager).goMagazinesFragment()
+                3 -> {
+                    Log.i("tabId", "3")
+                    PageManager.getInstance(this@HomeActivity, supportFragmentManager)
+                        .goMagazinesFragment()
                 }
-                4 ->{Log.i("tabId","4")
+                4 -> {
+                    Log.i("tabId", "4")
 
-                    PageManager.getInstance(this@HomeActivity,supportFragmentManager).goBlogsFragment()
+                    PageManager.getInstance(this@HomeActivity, supportFragmentManager)
+                        .goBlogsFragment()
                 }
             }
         }
@@ -69,20 +77,38 @@ class HomeActivity : AppCompatActivity() ,Drawer.OnDrawerItemClickListener{
         btnTab.add(MeowBottomNavigation.Model(4, R.drawable.news_icon))
 
         btnTab.show(1)
-        PageManager.getInstance(this@HomeActivity,supportFragmentManager).goHomeFragment()
+        PageManager.getInstance(this@HomeActivity, supportFragmentManager).goHomeFragment()
 
-        val item1 = PrimaryDrawerItem().withIdentifier(1).withName("سیاوش").withIcon(R.mipmap.app_icon).withOnDrawerItemClickListener(this)
-        val item2 = SecondaryDrawerItem().withIdentifier(2).withName("sia2").withIcon(R.mipmap.app_icon).withOnDrawerItemClickListener(this)
+        val item1 = PrimaryDrawerItem().withIdentifier(1).withName("لیست ویدیوها")
+            .withIcon(R.mipmap.app_icon).withOnDrawerItemClickListener(this)
+        val item2 =
+            SecondaryDrawerItem().withIdentifier(2).withName("sia2").withIcon(R.mipmap.app_icon)
+                .withOnDrawerItemClickListener(this)
 
         val drawer = DrawerBuilder()
             .withActivity(this)
             .addDrawerItems(
                 item1,
-                item1,
-                item1
+                item2,
+                item2
             )
             .withDrawerGravity(Gravity.END)
             .build()
+
+        drawer.onDrawerItemClickListener = object : Drawer.OnDrawerItemClickListener {
+            override fun onItemClick(
+                view: View?,
+                position: Int,
+                drawerItem: IDrawerItem<*>
+            ): Boolean {
+
+                when (position) {
+                    0 -> PageManager.getInstance().goVideoListFragment()
+                }
+                return false
+            }
+
+        }
 
 
 
