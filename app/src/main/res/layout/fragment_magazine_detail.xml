@@ -22,25 +22,25 @@ android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="@dimen/_520sdp"
         android:gravity="center_horizontal"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
 
 
         <androidx.cardview.widget.CardView
             android:layout_width="@dimen/_260sdp"
-            android:layout_height="@dimen/_170sdp"
+            android:layout_height="@dimen/_130sdp"
             app:cardCornerRadius="@dimen/_20sdp"
             app:cardElevation="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_50sdp"
 
             >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                >
+                android:gravity="bottom"
+                android:paddingLeft="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -51,14 +51,14 @@ android:layout_height="match_parent"
                     android:gravity="center"
                     >
 
-                    <TextView
+                    <com.zavosh.itfamily.myviews.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="9sp"
-                        android:text="منبع خبر"
-                        >
+                        android:textSize="@dimen/_10sdp"
+                        android:text="تاریخ نشر"
+                        android:layout_marginBottom="@dimen/_5sdp">
 
-                    </TextView>
+                    </com.zavosh.itfamily.myviews.MyTextView>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0.5dp"
@@ -67,99 +67,19 @@ android:layout_height="match_parent"
                         android:layout_marginLeft="8dp"
                         />
 
-                    <TextView
-                        android:id="@+id/tv_link_address"
+                    <com.zavosh.itfamily.myviews.MyTextViewBold
+                        android:id="@+id/link_address2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="9sp"
+                        android:textSize="@dimen/_12sdp"
                         >
 
-                    </TextView>
+                    </com.zavosh.itfamily.myviews.MyTextViewBold>
 
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.3"
-                    android:orientation="vertical"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="9sp"
-                        android:text="منبع خبر"
-                        >
-
-                    </TextView>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:background="#000000"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginLeft="8dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="9sp"
-                        android:id="@+id/tv_link_address2"
-                        >
-
-                    </TextView>
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.3"
-                    android:orientation="vertical"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="9sp"
-                        android:text="منبع خبر"
-                        >
-
-                    </TextView>
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:background="#000000"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginLeft="8dp"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="9sp"
-                        android:id="@+id/tv_link_address3"
-                        >
-
-                    </TextView>
-
-                </LinearLayout>
-
 
 
             </LinearLayout>
-
-
-
-            <!--                <include layout="@layout/stickers_layout"/>-->
-
-
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
@@ -258,6 +178,8 @@ android:layout_height="match_parent"
                         </com.zavosh.itfamily.myviews.MyTextView>
                     </LinearLayout>
                     <LinearLayout
+                        android:paddingRight="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_10sdp"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.15"
@@ -455,29 +377,97 @@ android:layout_height="match_parent"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.53"
-                        android:layout_gravity="right"
-                        android:paddingTop="@dimen/_70sdp"
-                        android:paddingRight="@dimen/_4sdp"
-                        android:gravity="center_vertical|right">
+                        android:layout_gravity="center"
+                        android:gravity="bottom"
+                        android:paddingRight="@dimen/_4sdp">
 
                         <com.zavosh.itfamily.myviews.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/_10sdp"
-                            android:text="در آخر نتیجه این تحقیقات نشان از آن دارد"
-                            >
-
-                        </com.zavosh.itfamily.myviews.MyTextView>
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textDirection="anyRtl"
+                            android:gravity="center"
+                            android:textColor="@color/textColor"
+                            android:text="test"
+                            android:textSize="@dimen/_10sdp"/>
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.12"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_margin="8dp"
                         android:background="@drawable/bg_corner_them"
-                        android:layout_margin="@dimen/_16sdp"
+
                         >
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15"
+                            >
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                            </ImageView>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15"
+                            >
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15"
+                            >
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                            </ImageView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.4"
+                            android:gravity="center"
+                            >
+                            <com.zavosh.itfamily.myviews.MyTextView
+                                android:id="@+id/tv_likes_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                >
+                            </com.zavosh.itfamily.myviews.MyTextView>
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15"
+                            >
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                            </ImageView>
+
+                        </LinearLayout>
+
 
                     </LinearLayout>
 
@@ -487,140 +477,7 @@ android:layout_height="match_parent"
             </androidx.cardview.widget.CardView>
 
 
-            <!--                <androidx.cardview.widget.CardView-->
-            <!--                    android:layout_width="@dimen/_265sdp"-->
-            <!--                    android:layout_height="@dimen/_220sdp"-->
-            <!--                    app:cardPreventCornerOverlap="true"-->
-            <!--                    app:cardCornerRadius="@dimen/_20sdp"-->
-            <!--                    android:layout_marginLeft="@dimen/_26sdp"-->
-            <!--                    android:layout_marginTop="@dimen/_250sdp"-->
-            <!--                    android:layout_marginBottom="@dimen/_16sdp"-->
-
-            <!--                    >-->
-
-            <!--                    <LinearLayout-->
-            <!--                        android:layout_width="match_parent"-->
-            <!--                        android:layout_height="match_parent"-->
-            <!--                        android:orientation="vertical"-->
-            <!--                        android:background="@android:color/transparent"-->
-            <!--                        >-->
-            <!--                        <LinearLayout-->
-            <!--                            android:layout_width="match_parent"-->
-            <!--                            android:layout_height="0dp"-->
-            <!--                            android:layout_weight="0.35"-->
-            <!--                            android:background="@android:color/transparent"-->
-            <!--                            >-->
-
-            <!--                        </LinearLayout>-->
-
-            <!--                        <LinearLayout-->
-            <!--                            android:layout_width="match_parent"-->
-            <!--                            android:layout_height="0dp"-->
-            <!--                            android:layout_weight="0.53"-->
-            <!--                            android:layout_gravity="right"-->
-            <!--                            android:paddingTop="@dimen/_55sdp"-->
-            <!--                            android:paddingRight="@dimen/_4sdp"-->
-            <!--                            android:gravity="top|right"-->
-            <!--                            android:background="@android:color/transparent"-->
-            <!--                            >-->
-
-            <!--                            <TextView-->
-            <!--                                android:layout_width="wrap_content"-->
-            <!--                                android:layout_height="wrap_content"-->
-            <!--                                android:textSize="@dimen/_10sdp"-->
-            <!--                                android:text="در آخر نتیجه این تحقیقات نشان از آن دارد"-->
-            <!--                                >-->
-
-            <!--                            </TextView>-->
-
-            <!--                        </LinearLayout>-->
-
-            <!--                        <LinearLayout-->
-            <!--                            android:layout_width="match_parent"-->
-            <!--                            android:layout_height="0dp"-->
-            <!--                            android:layout_weight="0.12"-->
-            <!--                            android:background="@drawable/bg_corner_them"-->
-            <!--                            android:layout_margin="@dimen/_12sdp"-->
-            <!--                            >-->
-
-
-
-            <!--                        </LinearLayout>-->
-
-
-            <!--                    </LinearLayout>-->
-
-            <!--                </androidx.cardview.widget.CardView>-->
-
-
         </RelativeLayout>
-
-        <!--            <LinearLayout-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="match_parent"-->
-        <!--                android:background="@android:color/transparent"-->
-        <!--                android:layout_alignParentBottom="true"-->
-        <!--                android:layout_centerHorizontal="true"-->
-
-        <!--                android:gravity="center"-->
-        <!--                >-->
-        <!--                <androidx.cardview.widget.CardView-->
-        <!--                    android:layout_width="@dimen/_230sdp"-->
-        <!--                    android:layout_height="@dimen/_230sdp"-->
-        <!--                    app:cardCornerRadius="25dp"-->
-        <!--                    app:cardElevation="10dp"-->
-        <!--                    android:backgroundTint="#456789"-->
-
-        <!--                    android:layout_marginTop="@dimen/_90sdp"-->
-        <!--                    >-->
-
-        <!--                    <LinearLayout-->
-        <!--                        android:layout_width="match_parent"-->
-        <!--                        android:layout_height="match_parent"-->
-        <!--                        android:orientation="vertical"-->
-
-        <!--                        >-->
-        <!--                        <LinearLayout-->
-        <!--                            android:layout_width="match_parent"-->
-        <!--                            android:layout_height="0dp"-->
-        <!--                            android:layout_weight="0.45"-->
-        <!--                            >-->
-
-        <!--                        </LinearLayout>-->
-
-
-        <!--                        <LinearLayout-->
-        <!--                            android:layout_width="match_parent"-->
-        <!--                            android:layout_height="0dp"-->
-        <!--                            android:layout_weight="0.3"-->
-        <!--                            >-->
-        <!--                            <TextView-->
-        <!--                                android:layout_width="wrap_content"-->
-        <!--                                android:layout_height="wrap_content"-->
-        <!--                                android:textSize="@dimen/_10sdp"-->
-        <!--                                >-->
-
-        <!--                            </TextView>-->
-        <!--                        </LinearLayout>-->
-
-
-        <!--                        <LinearLayout-->
-        <!--                            android:layout_width="match_parent"-->
-        <!--                            android:layout_height="0dp"-->
-        <!--                            android:layout_weight="0.15"-->
-        <!--                            android:background="@drawable/edit_text_background"-->
-        <!--                            android:layout_margin="@dimen/_8sdp"-->
-        <!--                            >-->
-
-        <!--                        </LinearLayout>-->
-
-        <!--                    </LinearLayout>-->
-
-
-        <!--                </androidx.cardview.widget.CardView>-->
-
-        <!--            </LinearLayout>-->
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -630,13 +487,10 @@ android:layout_height="match_parent"
             android:gravity="center_horizontal"
             android:background="@android:color/transparent"
             >
-
-
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/article_item_card"
-                android:layout_width="@dimen/_240sdp"
-                android:layout_height="@dimen/_350sdp"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_280sdp"
                 app:cardElevation="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 android:layout_margin="@dimen/_12sdp"
@@ -671,10 +525,8 @@ android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
                         android:background="@drawable/bg_shap"
                         android:gravity="bottom|right"
-                        android:orientation="vertical"
-                        >
-
-                        <TextView
+                        android:orientation="vertical">
+                        <com.zavosh.itfamily.myviews.MyTextView
                             android:id="@+id/tv_magazine_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -683,10 +535,7 @@ android:layout_height="match_parent"
                             android:layout_marginRight="@dimen/_10sdp"
                             android:layout_marginLeft="@dimen/_10sdp"
                             android:textStyle="bold"
-                            android:textColor="@color/white"
-                            >
-
-                        </TextView>
+                            android:textColor="@color/white"/>
 
                         <TextView
                             android:id="@+id/tv_magazine_summery"
@@ -697,101 +546,12 @@ android:layout_height="match_parent"
                             android:layout_marginRight="@dimen/_10sdp"
                             android:layout_marginLeft="@dimen/_10sdp"
                             android:textSize="@dimen/_10sdp"
-                            android:textColor="@color/white"
-                            >
-
-                        </TextView>
-
-
+                            android:textColor="@color/white"/>
                     </LinearLayout>
-
-
                 </RelativeLayout>
-
             </androidx.cardview.widget.CardView>
-
-
-
-            <!--    <LinearLayout-->
-            <!--        android:layout_width="300dp"-->
-            <!--        android:layout_height="110dp"-->
-            <!--        android:layout_marginTop="-30dp"-->
-            <!--        android:background="@android:color/transparent"-->
-            <!--        >-->
-
-            <!--        <androidx.cardview.widget.CardView-->
-            <!--            android:layout_width="match_parent"-->
-            <!--            android:layout_height="match_parent"-->
-            <!--            app:cardCornerRadius="30dp"-->
-            <!--            app:cardElevation="40dp"-->
-            <!--            android:elevation="30dp"-->
-
-            <!--            >-->
-            <!--            <LinearLayout-->
-            <!--                android:layout_marginTop="10dp"-->
-            <!--                android:layout_width="280dp"-->
-            <!--                android:layout_height="40dp"-->
-            <!--                android:layout_gravity="center"-->
-            <!--                android:orientation="horizontal"-->
-            <!--                android:background="@drawable/edit_text_background"-->
-            <!--                >-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:layout_width="0dp"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:layout_weight="0.1"-->
-            <!--                    >-->
-
-            <!--                </LinearLayout>-->
-
-
-            <!--                <LinearLayout-->
-            <!--                    android:layout_width="0dp"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:layout_weight="0.1"-->
-            <!--                    >-->
-
-            <!--                </LinearLayout>-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:layout_width="0dp"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:layout_weight="0.1"-->
-            <!--                    >-->
-
-            <!--                </LinearLayout>-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:layout_width="0dp"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:layout_weight="0.6"-->
-            <!--                    >-->
-
-            <!--                </LinearLayout>-->
-
-
-            <!--                <LinearLayout-->
-            <!--                    android:layout_width="0dp"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:layout_weight="0.1"-->
-            <!--                    >-->
-
-            <!--                </LinearLayout>-->
-
-
-
-
-            <!--            </LinearLayout>-->
-
-
-            <!--        </androidx.cardview.widget.CardView>-->
-
-            <!--    </LinearLayout>-->
-
         </LinearLayout>
     </RelativeLayout>
-
-
 
 </RelativeLayout>
 

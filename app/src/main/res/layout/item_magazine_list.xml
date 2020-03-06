@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:gravity="center">
 
     <RelativeLayout
         android:id="@+id/ly_item"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center">
 
@@ -19,7 +19,7 @@
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_300sdp"
             android:layout_marginLeft="38sp"
-            android:layout_marginTop="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_30sdp"
             android:foregroundGravity="center"
             app:cardCornerRadius="@dimen/_20sdp"
             app:cardElevation="@dimen/_20sdp"
@@ -41,7 +41,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:adjustViewBounds="true"
-                        android:scaleType="fitXY"
+                        android:scaleType="centerCrop"
                         app:riv_corner_radius="@dimen/_20sdp"
                         app:riv_corner_radius_bottom_left="@dimen/_20sdp"
                         app:riv_corner_radius_bottom_right="@dimen/_20sdp"
@@ -123,14 +123,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="@dimen/_200sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
                 android:layout_height="@dimen/_300sdp"
                 android:layout_marginLeft="@dimen/_55sdp"
-                android:layout_marginTop="@dimen/_138sdp"
+                android:layout_marginTop="@dimen/_68sdp"
                 android:elevation="30dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="20dp"
