@@ -12,25 +12,19 @@
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ParimagazinDetailsActivity">
 
+        <activity android:name=".activities.HomeActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".activities.VerifyActivity" />
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
-        <activity android:name=".MagazinDetailsActivity">
-        </activity>
-        <activity
-            android:name=".activities.HomeActivity"
-            android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".activities.VerifyActivity" />
-        <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.MainActivity"></activity>
     </application>
 
 </manifest>

@@ -67,7 +67,7 @@ public interface APIService {
     Call<QuestionListRequest> getQuestionList(@Header("Authorization") String token);
 
     @Headers("Content-Type: application/json")
-    @POST("Content/Getpodcasts")
+    @POST("SupportRequest/post")
     Call<PostQuestionRequest> postQuestion(@Header("Authorization") String token, @Body PostRequestSender postRequestSender);
 
 }
