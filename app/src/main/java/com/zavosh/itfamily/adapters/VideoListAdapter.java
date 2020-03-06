@@ -1,6 +1,7 @@
 package com.zavosh.itfamily.adapters;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zavosh.itfamily.R;
+import com.zavosh.itfamily.helper.PageManager;
 import com.zavosh.itfamily.myviews.MyImageView;
 import com.zavosh.itfamily.myviews.MyTextView;
 import com.zavosh.itfamily.myviews.MyTextViewBold;
@@ -37,12 +39,21 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
     @Override
     public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
 
-        VideoListResult videoItem = list.get(position);
+        final VideoListResult videoItem = list.get(position);
 
         holder.iv_image.setPicasso(videoItem.getImage(),activity);
         holder.tv_title.setText(videoItem.getTitle());
         holder.tv_summery.setText(videoItem.getSummery());
         holder.tv_like_count.setText(videoItem.getLinkeCount());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle=new Bundle();
+                bundle.putParcelable("video_detail",videoItem);
+                PageManager.getInstance().goVideoDetailFragment(bundle);
+            }
+        });
 
     }
 

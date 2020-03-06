@@ -12,6 +12,7 @@ import com.zavosh.itfamily.activities.LoginActivity;
 import com.zavosh.itfamily.activities.RegisterActivity;
 import com.zavosh.itfamily.activities.VerifyActivity;
 import com.zavosh.itfamily.fragments.BlogListFragment;
+import com.zavosh.itfamily.fragments.VideoDetailFragment;
 import com.zavosh.itfamily.fragments.HomeFragment;
 import com.zavosh.itfamily.fragments.MagazineDetailFragment;
 import com.zavosh.itfamily.fragments.MagazinesFragment;
@@ -115,6 +116,12 @@ public class PageManager implements PageManagerHelper{
         fragmentHandler.loadFragment(fragment,true);
     }
 
+
+    public void goVideoDetailFragment(Bundle bundle) {
+        VideoDetailFragment fragment = new VideoDetailFragment();
+        fragmentHandler.loadFragment(fragment,true,bundle);
+    }
+
     @Override
     public void goPodcastFragment() {
         fragmentHandler.clearBack();
@@ -146,6 +153,5 @@ public class PageManager implements PageManagerHelper{
         fragmentHandler.loadFragment(fragment,true);
 
     }
-
 
 }

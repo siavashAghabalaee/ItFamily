@@ -16,6 +16,7 @@ public interface PageManagerHelper {
     void goBlogsFragment();
     void goMagazineDetailFragment(Bundle bundle);
     void goVideoListFragment();
+    void goVideoDetailFragment(Bundle bundle);
     void goPodcastFragment();
     void goPodcastDetailFragment(Bundle bundle);
     void goQuestionFragment();
