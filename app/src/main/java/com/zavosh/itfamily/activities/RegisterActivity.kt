@@ -36,11 +36,14 @@ class RegisterActivity : AppCompatActivity() {
 
             if (etv_name.text.toString().isEmpty()||etv_family.text.toString().isEmpty()||etv_mail.text.toString().isEmpty()||etv_password.text.toString().isEmpty()){
                 MyToast.showToast(this@RegisterActivity,"لطفا تمام فیلدها را وارد کنید")
-            }else{
-                if (chk_male.isChecked){
-                    sex=true.toString()
-                }else{
-                    sex=false.toString()
+            }else if (!chk_male.isChecked && !chk_female.isChecked) {
+
+                MyToast.showToast(this@RegisterActivity, "لطفا جنسیت را مشخص کنید")
+            } else {
+                if (chk_female.isChecked) {
+                    sex = false.toString()
+                } else if (chk_male.isChecked) {
+                    sex = true.toString()
                 }
                 sendRegisterRequest()
             }
