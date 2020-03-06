@@ -1,6 +1,7 @@
 package com.zavosh.itfamily.adapters;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zavosh.itfamily.R;
+import com.zavosh.itfamily.helper.PageManager;
 import com.zavosh.itfamily.myviews.MyImageView;
 import com.zavosh.itfamily.myviews.MyTextView;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.Podcast;
-import com.zavosh.itfamily.retrofit.mymodels.homeRequest.SliderContent;
 
 import java.util.List;
 
@@ -36,12 +37,24 @@ public class AdapterHomePodcast  extends RecyclerView.Adapter{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, final int position) {
         if (viewHolder instanceof PodcastViewHolder){
-            Podcast podcast = list.get(position);
+            final Podcast podcast = list.get(position);
             PodcastViewHolder holder = (PodcastViewHolder) viewHolder;
             holder.imageView.setPicasso(podcast.getImage(),activity);
             holder.tv_title.setText(podcast.getTitle());
+
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("podcast_home", podcast);
+                    PageManager.getInstance().goPodcastDetailFragment(bundle);
+                }
+            });
+
+
         }
     }
 

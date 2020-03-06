@@ -1,7 +1,7 @@
 package com.zavosh.itfamily.adapters;
 
 import android.app.Activity;
-import android.util.Log;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zavosh.itfamily.R;
+import com.zavosh.itfamily.helper.PageManager;
 import com.zavosh.itfamily.myviews.MyImageView;
 import com.zavosh.itfamily.myviews.MyTextView;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.BlogContent;
@@ -21,7 +22,7 @@ import com.zavosh.itfamily.retrofit.mymodels.homeRequest.Video;
 
 import java.util.List;
 
-public class HomeAdapters extends RecyclerView.Adapter{
+public class HomeAdapters extends RecyclerView.Adapter {
     private Activity activity;
     private List<SliderContent> list;
     private List<Podcast> list_pod;
@@ -37,7 +38,7 @@ public class HomeAdapters extends RecyclerView.Adapter{
     private final int TYPE_MAGAZINES = 5;
     private final int TYPE_SPACe = 6;
 
-    public HomeAdapters(Activity activity, List<SliderContent> list, Video video, List<Podcast> list_pod, BlogContent blogContent,List<Magzine> list_mag) {
+    public HomeAdapters(Activity activity, List<SliderContent> list, Video video, List<Podcast> list_pod, BlogContent blogContent, List<Magzine> list_mag) {
         this.activity = activity;
         this.list = list;
         this.video = video;
@@ -47,25 +48,25 @@ public class HomeAdapters extends RecyclerView.Adapter{
     }
 
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        if (viewType == TYPE_NEWS){
+        if (viewType == TYPE_NEWS) {
             View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_home_news, viewGroup, false);
             return new NewsViewHolder(itemView);
-        }else if (viewType == TYPE_VIDEO){
+        } else if (viewType == TYPE_VIDEO) {
             View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_video, viewGroup, false);
             return new VideoViewHolder(itemView);
-        }else if (viewType == TYPE_POD){
+        } else if (viewType == TYPE_POD) {
             View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_home_pod, viewGroup, false);
             return new PodcastViewHolder(itemView);
-        }else if (viewType == TYPE_BLOG){
+        } else if (viewType == TYPE_BLOG) {
             View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_blog, viewGroup, false);
             return new BlogViewHolder(itemView);
-        }else if (viewType == TYPE_TITLE){
+        } else if (viewType == TYPE_TITLE) {
             View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_home_title, viewGroup, false);
             return new TitleViewHolder(itemView);
-        }else if (viewType == TYPE_MAGAZINES){
+        } else if (viewType == TYPE_MAGAZINES) {
             View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_magazine, viewGroup, false);
             return new MagViewHolder(itemView);
-        }else if (viewType == TYPE_SPACe){
+        } else if (viewType == TYPE_SPACe) {
             View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_space, viewGroup, false);
             return new TitleViewHolder(itemView);
         }
@@ -73,66 +74,89 @@ public class HomeAdapters extends RecyclerView.Adapter{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
-        if (viewHolder instanceof NewsViewHolder){
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, final int position) {
+        if (viewHolder instanceof NewsViewHolder) {
             NewsViewHolder holder = (NewsViewHolder) viewHolder;
             LinearLayoutManager layoutManager = new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, true);
-            AdapterHomeNews adapterHomeNews = new AdapterHomeNews(activity,list);
+            AdapterHomeNews adapterHomeNews = new AdapterHomeNews(activity, list);
             holder.recyclerView.setLayoutManager(layoutManager);
             holder.recyclerView.setAdapter(adapterHomeNews);
-        }else if (viewHolder instanceof VideoViewHolder){
+        } else if (viewHolder instanceof VideoViewHolder) {
             VideoViewHolder holder = (VideoViewHolder) viewHolder;
-            holder.iv_image.setPicasso(video.getImage(),activity);
+            holder.iv_image.setPicasso(video.getImage(), activity);
             holder.tv_title.setText(video.getTitle());
-        }else if (viewHolder instanceof PodcastViewHolder){
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("video_home", video);
+                    PageManager.getInstance().goVideoDetailFragment(bundle);
+                }
+            });
+
+        } else if (viewHolder instanceof PodcastViewHolder) {
             PodcastViewHolder holder = (PodcastViewHolder) viewHolder;
             LinearLayoutManager layoutManager = new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, true);
-            AdapterHomePodcast adapterHomeNews = new AdapterHomePodcast(activity,list_pod);
+            AdapterHomePodcast adapterHomeNews = new AdapterHomePodcast(activity, list_pod);
             holder.recyclerView.setLayoutManager(layoutManager);
             holder.recyclerView.setAdapter(adapterHomeNews);
-        }else if (viewHolder instanceof BlogViewHolder){
+        } else if (viewHolder instanceof BlogViewHolder) {
             try {
                 BlogViewHolder holder = (BlogViewHolder) viewHolder;
-                holder.iv_image.setPicasso(blogContent.getImage(),activity);
+                holder.iv_image.setPicasso(blogContent.getImage(), activity);
                 holder.tv_title.setText(blogContent.getTitle());
-            }catch (Exception e){}
 
-        }else if (viewHolder instanceof MagViewHolder){
+            } catch (Exception e) {
+            }
+
+        } else if (viewHolder instanceof MagViewHolder) {
             try {
                 int pos = position - 5;
-                Magzine magzine = list_mag.get(pos);
+                final Magzine magzine = list_mag.get(pos);
                 MagViewHolder holder = (MagViewHolder) viewHolder;
-                holder.iv_image.setPicasso(magzine.getImage(),activity);
+                holder.iv_image.setPicasso(magzine.getImage(), activity);
 
                 holder.tv_title.setText(magzine.getTitle());
                 holder.tv_date.setText(magzine.getPublishDate());
 
-            }catch (Exception e){}
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        PageManager.getInstance().goMagazineFragmentWithBackStack();
+                    }
+                });
+
+
+            } catch (Exception e) {
+            }
 
         }
+
+
     }
 
 
     @Override
     public int getItemCount() {
-        return 6+list_mag.size();
+        return 6 + list_mag.size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        switch (position){
-            case 0 :
+        switch (position) {
+            case 0:
                 return TYPE_NEWS;
-            case 1 :
+            case 1:
                 return TYPE_VIDEO;
-            case 2 :
+            case 2:
                 return TYPE_POD;
-            case 3 :
+            case 3:
                 return TYPE_BLOG;
-            case 4 :
+            case 4:
                 return TYPE_TITLE;
             default:
-                if (position == 5+list_mag.size())
+                if (position == 5 + list_mag.size())
                     return TYPE_SPACe;
                 else
                     return TYPE_MAGAZINES;
@@ -140,47 +164,56 @@ public class HomeAdapters extends RecyclerView.Adapter{
 
     }
 
-    public class NewsViewHolder extends RecyclerView.ViewHolder{
+    public class NewsViewHolder extends RecyclerView.ViewHolder {
         public RecyclerView recyclerView;
+
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
             recyclerView = itemView.findViewById(R.id.recyclerView_news);
         }
     }
-    public class VideoViewHolder extends RecyclerView.ViewHolder{
+
+    public class VideoViewHolder extends RecyclerView.ViewHolder {
         public MyImageView iv_image;
         public MyTextView tv_title;
+
         public VideoViewHolder(@NonNull View itemView) {
             super(itemView);
             iv_image = itemView.findViewById(R.id.iv_image);
             tv_title = itemView.findViewById(R.id.tv_title);
         }
     }
-    public class PodcastViewHolder extends RecyclerView.ViewHolder{
+
+    public class PodcastViewHolder extends RecyclerView.ViewHolder {
         public RecyclerView recyclerView;
+
         public PodcastViewHolder(@NonNull View itemView) {
             super(itemView);
             recyclerView = itemView.findViewById(R.id.recyclerView_news);
         }
     }
-    public class BlogViewHolder extends RecyclerView.ViewHolder{
+
+    public class BlogViewHolder extends RecyclerView.ViewHolder {
         public MyImageView iv_image;
         public MyTextView tv_title;
+
         public BlogViewHolder(@NonNull View itemView) {
             super(itemView);
             iv_image = itemView.findViewById(R.id.iv_image_blog);
             tv_title = itemView.findViewById(R.id.tv_titleBlog);
         }
     }
-    public class TitleViewHolder extends RecyclerView.ViewHolder{
+
+    public class TitleViewHolder extends RecyclerView.ViewHolder {
         public TitleViewHolder(@NonNull View itemView) {
             super(itemView);
         }
     }
 
-    public class MagViewHolder extends RecyclerView.ViewHolder{
+    public class MagViewHolder extends RecyclerView.ViewHolder {
         public MyImageView iv_image;
-        MyTextView tv_title , tv_date;
+        MyTextView tv_title, tv_date;
+
         public MagViewHolder(@NonNull View itemView) {
             super(itemView);
             iv_image = itemView.findViewById(R.id.iv_image);

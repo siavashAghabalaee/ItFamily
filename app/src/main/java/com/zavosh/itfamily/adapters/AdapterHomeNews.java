@@ -1,6 +1,7 @@
 package com.zavosh.itfamily.adapters;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zavosh.itfamily.R;
+import com.zavosh.itfamily.helper.PageManager;
 import com.zavosh.itfamily.myviews.MyImageView;
 import com.zavosh.itfamily.myviews.MyTextView;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.SliderContent;
@@ -36,13 +38,23 @@ public class AdapterHomeNews extends RecyclerView.Adapter{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, final int position) {
         if (viewHolder instanceof NewsViewHolder){
             SliderContent sliderContent = list.get(position);
             NewsViewHolder holder = (NewsViewHolder) viewHolder;
             Log.i("aeaijwdaiojd",sliderContent.getImage());
             holder.imageView.setPicasso(sliderContent.getImage(),activity);
             holder.tv_title.setText(sliderContent.getTitle());
+
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("blog_home", list.get(position));
+                    PageManager.getInstance().goBlogsDetailsFragment(bundle);
+                }
+            });
         }
     }
 

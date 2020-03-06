@@ -1,10 +1,13 @@
 
 package com.zavosh.itfamily.retrofit.mymodels.homeRequest;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Podcast {
+public class Podcast implements Parcelable {
 
     @SerializedName("id")
     @Expose
@@ -36,6 +39,31 @@ public class Podcast {
     @SerializedName("commentCount")
     @Expose
     private String commentCount;
+
+    protected Podcast(Parcel in) {
+        id = in.readString();
+        image = in.readString();
+        title = in.readString();
+        summery = in.readString();
+        linkeCount = in.readString();
+        body = in.readString();
+        linkAddress = in.readString();
+        publishDate = in.readString();
+        contentSource = in.readString();
+        commentCount = in.readString();
+    }
+
+    public static final Creator<Podcast> CREATOR = new Creator<Podcast>() {
+        @Override
+        public Podcast createFromParcel(Parcel in) {
+            return new Podcast(in);
+        }
+
+        @Override
+        public Podcast[] newArray(int size) {
+            return new Podcast[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -117,4 +145,22 @@ public class Podcast {
         this.commentCount = commentCount;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(image);
+        dest.writeString(title);
+        dest.writeString(summery);
+        dest.writeString(linkeCount);
+        dest.writeString(body);
+        dest.writeString(linkAddress);
+        dest.writeString(publishDate);
+        dest.writeString(contentSource);
+        dest.writeString(commentCount);
+    }
 }

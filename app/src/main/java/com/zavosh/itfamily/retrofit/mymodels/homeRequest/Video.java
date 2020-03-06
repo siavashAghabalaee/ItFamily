@@ -1,10 +1,13 @@
 
 package com.zavosh.itfamily.retrofit.mymodels.homeRequest;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Video {
+public class Video implements Parcelable {
 
     @SerializedName("id")
     @Expose
@@ -36,6 +39,31 @@ public class Video {
     @SerializedName("commentCount")
     @Expose
     private String commentCount;
+
+    protected Video(Parcel in) {
+        id = in.readString();
+        image = in.readString();
+        title = in.readString();
+        summery = in.readString();
+        linkeCount = in.readString();
+        body = in.readString();
+        linkAddress = in.readString();
+        publishDate = in.readString();
+        contentSource = in.readString();
+        commentCount = in.readString();
+    }
+
+    public static final Creator<Video> CREATOR = new Creator<Video>() {
+        @Override
+        public Video createFromParcel(Parcel in) {
+            return new Video(in);
+        }
+
+        @Override
+        public Video[] newArray(int size) {
+            return new Video[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -117,4 +145,22 @@ public class Video {
         this.commentCount = commentCount;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(image);
+        dest.writeString(title);
+        dest.writeString(summery);
+        dest.writeString(linkeCount);
+        dest.writeString(body);
+        dest.writeString(linkAddress);
+        dest.writeString(publishDate);
+        dest.writeString(contentSource);
+        dest.writeString(commentCount);
+    }
 }

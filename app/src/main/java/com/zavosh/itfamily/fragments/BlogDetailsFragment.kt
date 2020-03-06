@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.zavosh.itfamily.R
 import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListResult
+import com.zavosh.itfamily.retrofit.mymodels.homeRequest.BlogContent
 import kotlinx.android.synthetic.main.fragment_blog_detail.view.*
 
 class BlogDetailsFragment : Fragment() {
@@ -33,16 +34,24 @@ class BlogDetailsFragment : Fragment() {
 
     private fun setup() {
 
-        val blog_detail = bundle.getParcelable<BlogListResult>("blog_detail")
+        try {
+            val blog_detail = bundle.getParcelable<BlogListResult>("blog_detail")
+            bindViews(blog_detail)
+        } catch (e: Exception) {
 
-        bindViews(blog_detail)
+        }
+
+        try {
+            val blog_detail = bundle.getParcelable<BlogContent>("blog_home")
+            bindViewsFromHome(blog_detail)
+        }catch (e:Exception){
+
+        }
 
 
     }
 
     private fun bindViews(blog_detail: BlogListResult) {
-
-
         rootView.img_blog_detail.setPicasso(blog_detail.image ?: "", activity)
         rootView.blog_detail_title.text = blog_detail.title ?: ""
         rootView.blog_detail_summery.text = blog_detail.summery ?: ""
@@ -50,7 +59,17 @@ class BlogDetailsFragment : Fragment() {
         rootView.link_address_blog1.text = blog_detail.linkAddress ?: ""
         rootView.link_address_blog2.text = blog_detail.linkAddress ?: ""
         rootView.link_address_blog3.text = blog_detail.linkAddress ?: ""
+    }
 
+
+    private fun bindViewsFromHome(blog_detail: BlogContent) {
+        rootView.img_blog_detail.setPicasso(blog_detail.image ?: "", activity)
+        rootView.blog_detail_title.text = blog_detail.title ?: ""
+        rootView.blog_detail_summery.text = blog_detail.summery ?: ""
+        rootView.blog_detail_comments.text = blog_detail.commentCount ?: ""
+        rootView.link_address_blog1.text = blog_detail.linkAddress ?: ""
+        rootView.link_address_blog2.text = blog_detail.linkAddress ?: ""
+        rootView.link_address_blog3.text = blog_detail.linkAddress ?: ""
     }
 
 

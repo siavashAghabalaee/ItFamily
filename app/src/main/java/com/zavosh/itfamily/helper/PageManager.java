@@ -98,6 +98,13 @@ public class PageManager implements PageManagerHelper{
     }
 
     @Override
+    public void goMagazineFragmentWithBackStack() {
+        fragmentHandler.clearBack();
+        MagazinesFragment fragment = new MagazinesFragment();
+        fragmentHandler.loadFragment(fragment,true);
+    }
+
+    @Override
     public void goMagazineDetailFragment(Bundle bundle) {
         MagazineDetailFragment fragment = new MagazineDetailFragment();
         fragmentHandler.loadFragment(fragment,true,bundle);
@@ -113,7 +120,7 @@ public class PageManager implements PageManagerHelper{
     @Override
     public void goBlogsDetailsFragment(Bundle bundle) {
         BlogDetailsFragment fragment = new BlogDetailsFragment();
-        fragmentHandler.loadFragment(fragment,false,bundle);
+        fragmentHandler.loadFragment(fragment,true,bundle);
     }
 
     @Override

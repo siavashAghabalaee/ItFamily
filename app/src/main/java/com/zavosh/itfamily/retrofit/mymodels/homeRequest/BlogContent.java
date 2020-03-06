@@ -1,10 +1,13 @@
 
 package com.zavosh.itfamily.retrofit.mymodels.homeRequest;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BlogContent {
+public class BlogContent implements Parcelable {
 
     @SerializedName("id")
     @Expose
@@ -36,6 +39,31 @@ public class BlogContent {
     @SerializedName("commentCount")
     @Expose
     private String commentCount;
+
+    protected BlogContent(Parcel in) {
+        id = in.readString();
+        image = in.readString();
+        title = in.readString();
+        summery = in.readString();
+        linkeCount = in.readString();
+        body = in.readString();
+        linkAddress = in.readString();
+        publishDate = in.readString();
+        contentSource = in.readString();
+        commentCount = in.readString();
+    }
+
+    public static final Creator<BlogContent> CREATOR = new Creator<BlogContent>() {
+        @Override
+        public BlogContent createFromParcel(Parcel in) {
+            return new BlogContent(in);
+        }
+
+        @Override
+        public BlogContent[] newArray(int size) {
+            return new BlogContent[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -115,5 +143,24 @@ public class BlogContent {
 
     public void setCommentCount(String commentCount) {
         this.commentCount = commentCount;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(image);
+        dest.writeString(title);
+        dest.writeString(summery);
+        dest.writeString(linkeCount);
+        dest.writeString(body);
+        dest.writeString(linkAddress);
+        dest.writeString(publishDate);
+        dest.writeString(contentSource);
+        dest.writeString(commentCount);
     }
 }

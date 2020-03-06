@@ -1,10 +1,13 @@
 
 package com.zavosh.itfamily.retrofit.mymodels.homeRequest;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SliderContent {
+public class SliderContent implements Parcelable {
 
     @SerializedName("id")
     @Expose
@@ -36,6 +39,24 @@ public class SliderContent {
     @SerializedName("commentCount")
     @Expose
     private Object commentCount;
+
+    protected SliderContent(Parcel in) {
+        id = in.readString();
+        image = in.readString();
+        title = in.readString();
+    }
+
+    public static final Creator<SliderContent> CREATOR = new Creator<SliderContent>() {
+        @Override
+        public SliderContent createFromParcel(Parcel in) {
+            return new SliderContent(in);
+        }
+
+        @Override
+        public SliderContent[] newArray(int size) {
+            return new SliderContent[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -115,5 +136,17 @@ public class SliderContent {
 
     public void setCommentCount(Object commentCount) {
         this.commentCount = commentCount;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(image);
+        dest.writeString(title);
     }
 }

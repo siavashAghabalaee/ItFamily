@@ -33,10 +33,12 @@ class MagazineDetailFragment : Fragment() {
 
     private fun setup() {
 
+        try{
         val magazine_detail = bundle.getParcelable<MagazineResult>("magazine_detail")
-
         bindViews(magazine_detail)
+        }catch (e:Exception){
 
+        }
 
     }
 
