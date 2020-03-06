@@ -1,10 +1,13 @@
 
 package com.zavosh.itfamily.retrofit.mymodels.magazinerequest;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class MagazineResult {
+public class MagazineResult implements Parcelable {
 
     @SerializedName("id")
     @Expose
@@ -33,6 +36,29 @@ public class MagazineResult {
     @SerializedName("commentCount")
     @Expose
     private String commentCount;
+
+    protected MagazineResult(Parcel in) {
+        id = in.readString();
+        title = in.readString();
+        image = in.readString();
+        linkeCount = in.readString();
+        linkAddress = in.readString();
+        publishDate = in.readString();
+        contentSource = in.readString();
+        commentCount = in.readString();
+    }
+
+    public static final Creator<MagazineResult> CREATOR = new Creator<MagazineResult>() {
+        @Override
+        public MagazineResult createFromParcel(Parcel in) {
+            return new MagazineResult(in);
+        }
+
+        @Override
+        public MagazineResult[] newArray(int size) {
+            return new MagazineResult[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -106,4 +132,20 @@ public class MagazineResult {
         this.commentCount = commentCount;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(title);
+        dest.writeString(image);
+        dest.writeString(linkeCount);
+        dest.writeString(linkAddress);
+        dest.writeString(publishDate);
+        dest.writeString(contentSource);
+        dest.writeString(commentCount);
+    }
 }

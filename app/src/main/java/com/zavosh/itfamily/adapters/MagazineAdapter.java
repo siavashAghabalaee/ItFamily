@@ -39,7 +39,7 @@ public class MagazineAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, final int position) {
 
         if (viewHolder instanceof MagazineViewHolder) {
-            MagazineResult sliderContent = list.get(position);
+            final MagazineResult sliderContent = list.get(position);
             MagazineViewHolder holder = (MagazineViewHolder) viewHolder;
             holder.imageView.setPicasso(sliderContent.getImage(), activity);
             holder.tv_title.setText(sliderContent.getTitle());
@@ -49,16 +49,8 @@ public class MagazineAdapter extends RecyclerView.Adapter {
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
 
+                    bundle.putParcelable("my",sliderContent);
 
-                    bundle.putString("getTitle", list.get(position).getTitle());
-//                    bundle.putString("getSummery", list.get(position).getSummery().toString());
-                    bundle.putString("getLinkeCount", list.get(position).getLinkeCount());
-                    bundle.putString("getLinkAddress", list.get(position).getLinkAddress());
-                    bundle.putString("getCommentCount", list.get(position).getCommentCount());
-                    bundle.putString("getContentSource", list.get(position).getContentSource());
-                    bundle.putString("getId", list.get(position).getId());
-                    bundle.putString("getImage", list.get(position).getImage());
-                    bundle.putString("getPublishDate", list.get(position).getPublishDate());
                     PageManager.getInstance().goMagazineDetailFragment(bundle);
                 }
             });

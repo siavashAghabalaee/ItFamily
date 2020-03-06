@@ -1,6 +1,7 @@
 package com.zavosh.itfamily.adapters;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zavosh.itfamily.R;
+import com.zavosh.itfamily.helper.PageManager;
 import com.zavosh.itfamily.helper.PublicMethods;
 import com.zavosh.itfamily.myviews.MyImageView;
 import com.zavosh.itfamily.myviews.MyTextView;
@@ -35,10 +37,21 @@ public class PodcastAdapter extends RecyclerView.Adapter<PodcastAdapter.PodcastV
     @Override
     public void onBindViewHolder(@NonNull PodcastViewHolder holder, int position) {
 
-        PodcastListResult podcastItem = list.get(position);
+        final PodcastListResult podcastItem = list.get(position);
         holder.iv_image.setPicasso(podcastItem.getImage(),activity);
         holder.tv_podcast_title.setText(podcastItem.getTitle());
         holder.tv_date.setText(PublicMethods.getDate(podcastItem.getPublishDate()));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle bundle=new Bundle();
+                bundle.putParcelable("podcast_detail",podcastItem);
+                PageManager.getInstance().goPodcastDetailFragment(bundle);
+
+            }
+        });
 
     }
 

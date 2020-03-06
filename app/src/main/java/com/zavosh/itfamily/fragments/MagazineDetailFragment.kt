@@ -1,11 +1,13 @@
 package com.zavosh.itfamily.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.zavosh.itfamily.R
+import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineResult
 
 class MagazineDetailFragment : Fragment() {
 
@@ -15,7 +17,7 @@ class MagazineDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        bundle= arguments
+        bundle = arguments
 
     }
 
@@ -31,15 +33,8 @@ class MagazineDetailFragment : Fragment() {
 
     private fun setup() {
 
-
-        bundle?.getString("getTitle")
-        bundle?.getString("getLinkeCount")
-        bundle?.getString("getLinkAddress")
-        bundle?.getString("getCommentCount")
-        bundle?.getString("getContentSource")
-        bundle?.getString("getId")
-        bundle?.getString("getImage")
-        bundle?.getString("getPublishDate")
+        val parcelable = bundle?.getParcelable<MagazineResult>("my")
+        Log.i("log", "" + parcelable?.title)
 
     }
 
