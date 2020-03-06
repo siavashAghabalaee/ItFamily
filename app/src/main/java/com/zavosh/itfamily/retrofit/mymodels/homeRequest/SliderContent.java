@@ -20,25 +20,25 @@ public class SliderContent implements Parcelable {
     private String title;
     @SerializedName("summery")
     @Expose
-    private Object summery;
+    private String summery;
     @SerializedName("linkeCount")
     @Expose
-    private Object linkeCount;
+    private String linkeCount;
     @SerializedName("body")
     @Expose
-    private Object body;
+    private String body;
     @SerializedName("linkAddress")
     @Expose
-    private Object linkAddress;
+    private String linkAddress;
     @SerializedName("publishDate")
     @Expose
-    private Object publishDate;
+    private String publishDate;
     @SerializedName("contentSource")
     @Expose
-    private Object contentSource;
+    private String contentSource;
     @SerializedName("commentCount")
     @Expose
-    private Object commentCount;
+    private String commentCount;
 
     protected SliderContent(Parcel in) {
         id = in.readString();
@@ -82,59 +82,59 @@ public class SliderContent implements Parcelable {
         this.title = title;
     }
 
-    public Object getSummery() {
+    public String getSummery() {
         return summery;
     }
 
-    public void setSummery(Object summery) {
+    public void setSummery(String summery) {
         this.summery = summery;
     }
 
-    public Object getLinkeCount() {
+    public String getLinkeCount() {
         return linkeCount;
     }
 
-    public void setLinkeCount(Object linkeCount) {
+    public void setLinkeCount(String linkeCount) {
         this.linkeCount = linkeCount;
     }
 
-    public Object getBody() {
+    public String getBody() {
         return body;
     }
 
-    public void setBody(Object body) {
+    public void setBody(String body) {
         this.body = body;
     }
 
-    public Object getLinkAddress() {
+    public String getLinkAddress() {
         return linkAddress;
     }
 
-    public void setLinkAddress(Object linkAddress) {
+    public void setLinkAddress(String linkAddress) {
         this.linkAddress = linkAddress;
     }
 
-    public Object getPublishDate() {
+    public String getPublishDate() {
         return publishDate;
     }
 
-    public void setPublishDate(Object publishDate) {
+    public void setPublishDate(String publishDate) {
         this.publishDate = publishDate;
     }
 
-    public Object getContentSource() {
+    public String getContentSource() {
         return contentSource;
     }
 
-    public void setContentSource(Object contentSource) {
+    public void setContentSource(String contentSource) {
         this.contentSource = contentSource;
     }
 
-    public Object getCommentCount() {
+    public String getCommentCount() {
         return commentCount;
     }
 
-    public void setCommentCount(Object commentCount) {
+    public void setCommentCount(String commentCount) {
         this.commentCount = commentCount;
     }
 

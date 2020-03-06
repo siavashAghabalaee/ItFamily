@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.zavosh.itfamily.R
 import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListResult
-import com.zavosh.itfamily.retrofit.mymodels.homeRequest.BlogContent
+import com.zavosh.itfamily.retrofit.mymodels.homeRequest.SliderContent
 import kotlinx.android.synthetic.main.fragment_blog_detail.view.*
 
 class BlogDetailsFragment : Fragment() {
@@ -42,7 +42,7 @@ class BlogDetailsFragment : Fragment() {
         }
 
         try {
-            val blog_detail = bundle.getParcelable<BlogContent>("blog_home")
+            val blog_detail = bundle.getParcelable<SliderContent>("blog_home")
             bindViewsFromHome(blog_detail)
         }catch (e:Exception){
 
@@ -62,7 +62,7 @@ class BlogDetailsFragment : Fragment() {
     }
 
 
-    private fun bindViewsFromHome(blog_detail: BlogContent) {
+    private fun bindViewsFromHome(blog_detail: SliderContent) {
         rootView.img_blog_detail.setPicasso(blog_detail.image ?: "", activity)
         rootView.blog_detail_title.text = blog_detail.title ?: ""
         rootView.blog_detail_summery.text = blog_detail.summery ?: ""
