@@ -50,5 +50,4 @@ public class Magzine {
     public void setPublishDate(String publishDate) {
         this.publishDate = publishDate;
     }
-
 }
