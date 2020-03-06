@@ -17,7 +17,7 @@ public class MagazineResult implements Parcelable {
     private String title;
     @SerializedName("summery")
     @Expose
-    private Object summery;
+    private String summery;
     @SerializedName("image")
     @Expose
     private String image;
@@ -76,11 +76,11 @@ public class MagazineResult implements Parcelable {
         this.title = title;
     }
 
-    public Object getSummery() {
+    public String getSummery() {
         return summery;
     }
 
-    public void setSummery(Object summery) {
+    public void setSummery(String summery) {
         this.summery = summery;
     }
 
