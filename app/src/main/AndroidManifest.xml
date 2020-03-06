@@ -12,8 +12,11 @@
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".activities.HomeActivity"
+        <activity
+            android:name=".activities.VideoPlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenLayout|screenSize" />
+        <activity
+            android:name=".activities.HomeActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".activities.VerifyActivity" />
         <activity android:name=".activities.RegisterActivity" />

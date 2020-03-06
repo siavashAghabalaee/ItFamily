@@ -339,6 +339,7 @@
             </RelativeLayout>
 
             <LinearLayout
+                android:id="@+id/ly_play_video"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -357,6 +358,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent">
+
                         <com.zavosh.itfamily.myviews.MyImageView
                             android:id="@+id/img_video_detail"
                             android:layout_width="match_parent"
@@ -366,6 +368,16 @@
                             app:riv_corner_radius_top_left="@dimen/_20sdp"
                             >
                         </com.zavosh.itfamily.myviews.MyImageView>
+
+
+                        <ImageView
+                            android:id="@+id/play_btn"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/play_button"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"/>
+
+
 
                         <com.zavosh.itfamily.myviews.MyTextViewBold
                             android:textColor="@color/white"
