@@ -47,11 +47,14 @@ class VideoDetailFragment : Fragment() {
 
         rootView.video_detail_title.text = video_detail.title ?: ""
         rootView.video_detail_summery.text = video_detail.summery ?: ""
-        rootView.video_detail_comments.text = video_detail.commentCount ?: ""
+        rootView.video_detail_comments.text = (video_detail.commentCount ?: "") + " نفر نظر داده اند "
+        rootView.tv_like.text = (video_detail.linkeCount ?: "") + " نفر پسندیده اند "
         //rootView.video_detail_address_link.text = video_detail.linkAddress ?: ""
         //rootView.video_detail_address_link2.text = video_detail.linkAddress ?: ""
         //rootView.video_detail_address_link3.text = video_detail.linkAddress ?: ""
         rootView.img_video_detail.setPicasso(video_detail.image ?: "", activity)
+
+
 
         rootView.ly_play_video.setOnClickListener {
 
