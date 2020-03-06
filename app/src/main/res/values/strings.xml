@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ItFamily</string>
     <string name="enter_code">کد ارسال شده را وارد نمایید</string>
-    <string name="enter_phone">شماره مبایل خود را وارد نمایید</string>
+    <string name="enter_phone">شماره موبایل خود را وارد نمایید</string>
     <string name="error">خطا</string>
     <string name="skip">رد شدن</string>
 

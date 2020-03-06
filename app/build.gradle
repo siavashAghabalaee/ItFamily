@@ -51,4 +51,5 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.1.0-beta04"
     implementation "androidx.annotation:annotation:1.0.0-alpha01"
     implementation "com.google.android.material:material:1.1.0-alpha10"
+    implementation 'com.github.jeancsanchez:JcPlayer:2.6.16'
 }
