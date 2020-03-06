@@ -49,7 +49,7 @@ public class MagazineAdapter extends RecyclerView.Adapter {
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
 
-                    bundle.putParcelable("my",sliderContent);
+                    bundle.putParcelable("magazine_detail",sliderContent);
 
                     PageManager.getInstance().goMagazineDetailFragment(bundle);
                 }

@@ -126,7 +126,6 @@ public class PageManager implements PageManagerHelper{
 
     @Override
     public void goPodcastDetailFragment(Bundle bundle) {
-        fragmentHandler.clearBack();
         PodcastDetailFragment fragment = new PodcastDetailFragment();
         fragmentHandler.loadFragment(fragment,true,bundle);
     }
