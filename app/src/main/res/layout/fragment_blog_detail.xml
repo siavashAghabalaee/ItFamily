@@ -69,10 +69,10 @@
                             />
 
                         <TextView
+                            android:id="@+id/link_address_blog1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="9sp"
-                            android:text="www.it.com"
                             >
 
                         </TextView>
@@ -108,7 +108,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="9sp"
-                            android:text="www.it.com"
+                            android:id="@+id/link_address_blog2"
                             >
 
                         </TextView>
@@ -145,7 +145,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="9sp"
-                            android:text="www.it.com"
+                            android:id="@+id/link_address_blog3"
                             >
 
                         </TextView>
@@ -249,9 +249,9 @@
                             >
 
                             <com.zavosh.itfamily.myviews.MyTextView
+                                android:id="@+id/blog_detail_comments"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="۴۷ نظرات ثبت شده"
                                 android:textSize="@dimen/_10sdp"
                                 >
 
@@ -389,37 +389,37 @@
 
 
                     <!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:orientation="vertical"-->
-<!--                        android:background="@android:color/transparent"-->
-<!--                        >-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="match_parent"-->
+                    <!--                        android:orientation="vertical"-->
+                    <!--                        android:background="@android:color/transparent"-->
+                    <!--                        >-->
 
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="0dp"-->
-<!--                            android:layout_weight="0.6"-->
-<!--                            >-->
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="0dp"-->
+                    <!--                            android:layout_weight="0.6"-->
+                    <!--                            >-->
 
-<!--                        </LinearLayout>-->
+                    <!--                        </LinearLayout>-->
 
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="0dp"-->
-<!--                            android:layout_weight="0.38">-->
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="0dp"-->
+                    <!--                            android:layout_weight="0.38">-->
 
-<!--                        </LinearLayout>-->
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="0dp"-->
-<!--                            android:layout_weight="0.12"-->
-<!--                            android:layout_margin="@dimen/_8sdp"-->
-<!--                            android:background="@drawable/cardview_background"-->
-<!--                            >-->
+                    <!--                        </LinearLayout>-->
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="0dp"-->
+                    <!--                            android:layout_weight="0.12"-->
+                    <!--                            android:layout_margin="@dimen/_8sdp"-->
+                    <!--                            android:background="@drawable/cardview_background"-->
+                    <!--                            >-->
 
-<!--                        </LinearLayout>-->
+                    <!--                        </LinearLayout>-->
 
-<!--                    </LinearLayout>-->
+                    <!--                    </LinearLayout>-->
 
 
                 </androidx.cardview.widget.CardView>
@@ -428,7 +428,7 @@
 
 
 
-                android:layout_width="@dimen/_236sdp"
+                    android:layout_width="@dimen/_236sdp"
                     android:layout_height="@dimen/_220sdp"
                     app:cardPreventCornerOverlap="true"
                     app:cardCornerRadius="@dimen/_20sdp"
@@ -464,7 +464,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/_10sdp"
-                                android:text="در آخر نتیجه این تحقیقات نشان از آن دارد"
                                 >
 
                             </TextView>
@@ -486,118 +485,118 @@
 
 
                     <!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:orientation="vertical"-->
-<!--                        android:background="@android:color/transparent"-->
-<!--                        >-->
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="0dp"-->
-<!--                            android:layout_weight="0.35">-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="match_parent"-->
+                    <!--                        android:orientation="vertical"-->
+                    <!--                        android:background="@android:color/transparent"-->
+                    <!--                        >-->
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="0dp"-->
+                    <!--                            android:layout_weight="0.35">-->
 
-<!--                        </LinearLayout>-->
+                    <!--                        </LinearLayout>-->
 
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="0dp"-->
-<!--                            android:layout_weight="0.53"-->
-<!--                            android:layout_gravity="right"-->
-<!--                            android:paddingTop="@dimen/_70sdp"-->
-<!--                            android:paddingRight="@dimen/_4sdp"-->
-<!--                            android:gravity="center_vertical|right">-->
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="0dp"-->
+                    <!--                            android:layout_weight="0.53"-->
+                    <!--                            android:layout_gravity="right"-->
+                    <!--                            android:paddingTop="@dimen/_70sdp"-->
+                    <!--                            android:paddingRight="@dimen/_4sdp"-->
+                    <!--                            android:gravity="center_vertical|right">-->
 
-<!--                            <com.zavosh.itfamily.myviews.MyTextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:textSize="@dimen/_10sdp"-->
-<!--                                android:text="در آخر نتیجه این تحقیقات نشان از آن دارد"-->
-<!--                                >-->
+                    <!--                            <com.zavosh.itfamily.myviews.MyTextView-->
+                    <!--                                android:layout_width="wrap_content"-->
+                    <!--                                android:layout_height="wrap_content"-->
+                    <!--                                android:textSize="@dimen/_10sdp"-->
+                    <!--                                android:text="در آخر نتیجه این تحقیقات نشان از آن دارد"-->
+                    <!--                                >-->
 
-<!--                            </com.zavosh.itfamily.myviews.MyTextView>-->
+                    <!--                            </com.zavosh.itfamily.myviews.MyTextView>-->
 
-<!--                        </LinearLayout>-->
+                    <!--                        </LinearLayout>-->
 
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="0dp"-->
-<!--                            android:layout_weight="0.12"-->
-<!--                            android:background="@drawable/bg_corner_them"-->
-<!--                            android:layout_margin="@dimen/_16sdp"-->
-<!--                            >-->
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="0dp"-->
+                    <!--                            android:layout_weight="0.12"-->
+                    <!--                            android:background="@drawable/bg_corner_them"-->
+                    <!--                            android:layout_margin="@dimen/_16sdp"-->
+                    <!--                            >-->
 
-<!--                        </LinearLayout>-->
+                    <!--                        </LinearLayout>-->
 
 
-<!--                    </LinearLayout>-->
+                    <!--                    </LinearLayout>-->
 
                 </androidx.cardview.widget.CardView>
 
 
                 <!--                <androidx.cardview.widget.CardView-->
-<!--                    android:layout_width="@dimen/_265sdp"-->
-<!--                    android:layout_height="@dimen/_220sdp"-->
-<!--                    app:cardPreventCornerOverlap="true"-->
-<!--                    app:cardCornerRadius="@dimen/_20sdp"-->
-<!--                    android:layout_marginLeft="@dimen/_26sdp"-->
-<!--                    android:layout_marginTop="@dimen/_250sdp"-->
-<!--                    android:layout_marginBottom="@dimen/_16sdp"-->
+                <!--                    android:layout_width="@dimen/_265sdp"-->
+                <!--                    android:layout_height="@dimen/_220sdp"-->
+                <!--                    app:cardPreventCornerOverlap="true"-->
+                <!--                    app:cardCornerRadius="@dimen/_20sdp"-->
+                <!--                    android:layout_marginLeft="@dimen/_26sdp"-->
+                <!--                    android:layout_marginTop="@dimen/_250sdp"-->
+                <!--                    android:layout_marginBottom="@dimen/_16sdp"-->
 
-<!--                    >-->
+                <!--                    >-->
 
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:orientation="vertical"-->
-<!--                        android:background="@android:color/transparent"-->
-<!--                        >-->
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="0dp"-->
-<!--                            android:layout_weight="0.35"-->
-<!--                            android:background="@android:color/transparent"-->
-<!--                            >-->
+                <!--                    <LinearLayout-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        android:orientation="vertical"-->
+                <!--                        android:background="@android:color/transparent"-->
+                <!--                        >-->
+                <!--                        <LinearLayout-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="0dp"-->
+                <!--                            android:layout_weight="0.35"-->
+                <!--                            android:background="@android:color/transparent"-->
+                <!--                            >-->
 
-<!--                        </LinearLayout>-->
+                <!--                        </LinearLayout>-->
 
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="0dp"-->
-<!--                            android:layout_weight="0.53"-->
-<!--                            android:layout_gravity="right"-->
-<!--                            android:paddingTop="@dimen/_55sdp"-->
-<!--                            android:paddingRight="@dimen/_4sdp"-->
-<!--                            android:gravity="top|right"-->
-<!--                            android:background="@android:color/transparent"-->
-<!--                            >-->
+                <!--                        <LinearLayout-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="0dp"-->
+                <!--                            android:layout_weight="0.53"-->
+                <!--                            android:layout_gravity="right"-->
+                <!--                            android:paddingTop="@dimen/_55sdp"-->
+                <!--                            android:paddingRight="@dimen/_4sdp"-->
+                <!--                            android:gravity="top|right"-->
+                <!--                            android:background="@android:color/transparent"-->
+                <!--                            >-->
 
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:textSize="@dimen/_10sdp"-->
-<!--                                android:text="در آخر نتیجه این تحقیقات نشان از آن دارد"-->
-<!--                                >-->
+                <!--                            <TextView-->
+                <!--                                android:layout_width="wrap_content"-->
+                <!--                                android:layout_height="wrap_content"-->
+                <!--                                android:textSize="@dimen/_10sdp"-->
+                <!--                                android:text="در آخر نتیجه این تحقیقات نشان از آن دارد"-->
+                <!--                                >-->
 
-<!--                            </TextView>-->
+                <!--                            </TextView>-->
 
-<!--                        </LinearLayout>-->
+                <!--                        </LinearLayout>-->
 
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="0dp"-->
-<!--                            android:layout_weight="0.12"-->
-<!--                            android:background="@drawable/bg_corner_them"-->
-<!--                            android:layout_margin="@dimen/_12sdp"-->
-<!--                            >-->
-
-
-
-<!--                        </LinearLayout>-->
+                <!--                        <LinearLayout-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="0dp"-->
+                <!--                            android:layout_weight="0.12"-->
+                <!--                            android:background="@drawable/bg_corner_them"-->
+                <!--                            android:layout_margin="@dimen/_12sdp"-->
+                <!--                            >-->
 
 
-<!--                    </LinearLayout>-->
 
-<!--                </androidx.cardview.widget.CardView>-->
+                <!--                        </LinearLayout>-->
+
+
+                <!--                    </LinearLayout>-->
+
+                <!--                </androidx.cardview.widget.CardView>-->
 
 
             </RelativeLayout>
@@ -700,14 +699,15 @@
                             >
 
 
-                            <com.makeramen.roundedimageview.RoundedImageView
+                            <com.zavosh.itfamily.myviews.MyImageView
+                                android:id="@+id/img_blog_detail"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:scaleType="fitXY"
+                                android:scaleType="centerCrop"
                                 app:riv_corner_radius_top_right="@dimen/_20sdp"
                                 app:riv_corner_radius_top_left="@dimen/_20sdp"
                                 >
-                            </com.makeramen.roundedimageview.RoundedImageView>
+                            </com.zavosh.itfamily.myviews.MyImageView>
 
                         </RelativeLayout>
 
@@ -722,10 +722,10 @@
                             >
 
                             <TextView
+                                android:id="@+id/blog_detail_title"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentBottom="true"
-                                android:text="مقاله آی تی شماره یک"
                                 android:layout_marginBottom="@dimen/_10sdp"
                                 android:layout_marginRight="@dimen/_10sdp"
                                 android:layout_marginLeft="@dimen/_10sdp"
@@ -736,10 +736,10 @@
                             </TextView>
 
                             <TextView
+                                android:id="@+id/blog_detail_summery"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentBottom="true"
-                                android:text="در آخر این تحقیقات نشان از آن دارد که قدرت تمرکز این افراد از ۸ ثانیه به ۱۲ ثانیه اضافه می شود..."
                                 android:layout_marginBottom="20dp"
                                 android:layout_marginRight="@dimen/_10sdp"
                                 android:layout_marginLeft="@dimen/_10sdp"

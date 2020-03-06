@@ -11,6 +11,7 @@ import com.zavosh.itfamily.activities.HomeActivity;
 import com.zavosh.itfamily.activities.LoginActivity;
 import com.zavosh.itfamily.activities.RegisterActivity;
 import com.zavosh.itfamily.activities.VerifyActivity;
+import com.zavosh.itfamily.fragments.BlogDetailsFragment;
 import com.zavosh.itfamily.fragments.BlogListFragment;
 import com.zavosh.itfamily.fragments.VideoDetailFragment;
 import com.zavosh.itfamily.fragments.HomeFragment;
@@ -107,6 +108,12 @@ public class PageManager implements PageManagerHelper{
         fragmentHandler.clearBack();
         BlogListFragment fragment = new BlogListFragment();
         fragmentHandler.loadFragment(fragment,false);
+    }
+
+    @Override
+    public void goBlogsDetailsFragment(Bundle bundle) {
+        BlogDetailsFragment fragment = new BlogDetailsFragment();
+        fragmentHandler.loadFragment(fragment,false,bundle);
     }
 
     @Override

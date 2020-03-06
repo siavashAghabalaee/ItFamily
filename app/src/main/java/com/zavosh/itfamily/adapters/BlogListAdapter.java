@@ -1,6 +1,7 @@
 package com.zavosh.itfamily.adapters;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zavosh.itfamily.R;
+import com.zavosh.itfamily.helper.PageManager;
 import com.zavosh.itfamily.myviews.MyImageView;
 import com.zavosh.itfamily.myviews.MyTextView;
 import com.zavosh.itfamily.myviews.MyTextViewBold;
@@ -38,12 +40,24 @@ public class BlogListAdapter extends RecyclerView.Adapter<BlogListAdapter.BlogVi
     @Override
     public void onBindViewHolder(@NonNull BlogViewHolder holder, int position) {
 
-        BlogListResult blogItem = list.get(position);
+        final BlogListResult blogItem = list.get(position);
 
         holder.imageView.setPicasso(blogItem.getImage(), activity);
         holder.tv_title.setText(blogItem.getTitle());
         holder.tv_summery.setText(blogItem.getSummery());
         holder.tv_like_count.setText(blogItem.getLinkeCount());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle bundle=new Bundle();
+                bundle.putParcelable("blog_detail",blogItem);
+                PageManager.getInstance().goBlogsDetailsFragment(bundle);
+            }
+        });
+
+
 
 
     }
