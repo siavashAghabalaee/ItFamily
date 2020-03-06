@@ -1,6 +1,7 @@
 package com.zavosh.itfamily.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,10 +47,12 @@ class MagazineDetailFragment : Fragment() {
 
         rootView.tv_magazine_title.text = magazineDetail.title ?: ""
         rootView.tv_magazine_summery.text = magazineDetail.summery ?: ""
-        rootView.tv_link_address.text = magazineDetail.linkAddress?: ""
-        rootView.tv_link_address2.text = magazineDetail.linkAddress ?: ""
-        rootView.tv_link_address3.text = magazineDetail.linkAddress?: ""
+        //rootView.tv_link_address.text = magazineDetail.linkAddress?: ""
+        //rootView.tv_link_address2.text = magazineDetail.linkAddress ?: ""
+        //rootView.tv_link_address3.text = magazineDetail.linkAddress?: ""
         rootView.tv_comments_count.text = magazineDetail.commentCount ?: ""
+
+        Log.i("eijaoiwajdid",magazineDetail.linkAddress)
 
     }
 
