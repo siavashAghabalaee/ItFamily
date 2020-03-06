@@ -1,6 +1,7 @@
 package com.zavosh.itfamily.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,6 +51,13 @@ class PodcastDetailFragment: Fragment() {
         rootView.link_address.text=podcastDetail?.linkAddress?:""
         rootView.link_address2.text=podcastDetail?.linkAddress?:""
         rootView.link_address3.text=podcastDetail?.linkAddress?:""
+
+
+        rootView.img_play.setOnClickListener {
+
+            Log.i("log","link : "+podcastDetail?.linkAddress)
+
+        }
 
     }
 }

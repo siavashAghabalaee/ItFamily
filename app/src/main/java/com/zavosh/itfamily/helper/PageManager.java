@@ -97,7 +97,6 @@ public class PageManager implements PageManagerHelper{
 
     @Override
     public void goMagazineDetailFragment(Bundle bundle) {
-        fragmentHandler.clearBack();
         MagazineDetailFragment fragment = new MagazineDetailFragment();
         fragmentHandler.loadFragment(fragment,true,bundle);
     }

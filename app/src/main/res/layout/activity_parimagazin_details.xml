@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ParimagazinDetailsActivity">
+   >
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -68,10 +68,10 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_link_address"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="9sp"
-                            android:text="www.it.com"
                             >
 
                         </TextView>
@@ -107,7 +107,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="9sp"
-                            android:text="www.it.com"
+                            android:id="@+id/tv_link_address2"
                             >
 
                         </TextView>
@@ -144,7 +144,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="9sp"
-                            android:text="www.it.com"
+                            android:id="@+id/tv_link_address3"
                             >
 
                         </TextView>
@@ -249,9 +249,9 @@
                             >
 
                             <com.zavosh.itfamily.myviews.MyTextView
+                                android:id="@+id/tv_comments_count"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="۴۷ نظرات ثبت شده"
                                 android:textSize="@dimen/_10sdp"
                                 >
 
@@ -675,10 +675,10 @@
                             >
 
                             <TextView
+                                android:id="@+id/tv_magazine_title"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentBottom="true"
-                                android:text="مقاله آی تی شماره یک"
                                 android:layout_marginBottom="@dimen/_10sdp"
                                 android:layout_marginRight="@dimen/_10sdp"
                                 android:layout_marginLeft="@dimen/_10sdp"
@@ -689,10 +689,10 @@
                             </TextView>
 
                             <TextView
+                                android:id="@+id/tv_magazine_summery"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentBottom="true"
-                                android:text="در آخر این تحقیقات نشان از آن دارد که قدرت تمرکز این افراد از ۸ ثانیه به ۱۲ ثانیه اضافه می شود..."
                                 android:layout_marginBottom="20dp"
                                 android:layout_marginRight="@dimen/_10sdp"
                                 android:layout_marginLeft="@dimen/_10sdp"
