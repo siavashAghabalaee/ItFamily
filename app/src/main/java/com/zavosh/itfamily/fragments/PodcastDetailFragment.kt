@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.zavosh.itfamily.R
 import com.zavosh.itfamily.retrofit.mymodels.podcastlistrequest.PodcastListResult
-import kotlinx.android.synthetic.main.activity_pari_pod_details.view.*
+import kotlinx.android.synthetic.main.fragment_pod_detail.view.*
 
 class PodcastDetailFragment: Fragment() {
 
@@ -28,7 +28,7 @@ class PodcastDetailFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.activity_pari_pod_details, container, false)
+        rootView = inflater.inflate(R.layout.fragment_pod_detail, container, false)
         setup()
         return rootView
     }
