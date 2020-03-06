@@ -21,7 +21,7 @@ class ProfileFragment : Fragment() {
 
     private lateinit var fragmentView: View
 
-    private var sex: Boolean? = null
+    private var sex= ""
 
 
     override fun onCreateView(
@@ -45,9 +45,9 @@ class ProfileFragment : Fragment() {
                 MyToast.showToast(activity, "لطفا نام و ایمیل خود را وارد کنید")
             } else {
                 if (fragmentView.chk_female.isChecked) {
-                    sex = false
+                    sex = false.toString()
                 } else if (fragmentView.chk_male.isChecked) {
-                    sex = true
+                    sex = true.toString()
                 }
                 getProfileData()
             }
@@ -66,6 +66,7 @@ class ProfileFragment : Fragment() {
             object : Callback.PostProfile {
                 override fun callback(result: String?) {
 
+                    MyToast.showToast(activity,result)
 
                 }
 
