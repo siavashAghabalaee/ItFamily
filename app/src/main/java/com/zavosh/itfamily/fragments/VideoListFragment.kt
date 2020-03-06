@@ -31,6 +31,11 @@ class VideoListFragment:Fragment() {
 
     private fun setup() {
 
+        rootview.img_back.setOnClickListener {
+
+            activity?.onBackPressed()
+        }
+
         getVideoList()
     }
 

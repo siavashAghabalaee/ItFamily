@@ -67,6 +67,7 @@ class HomeActivity : AppCompatActivity(), Drawer.OnDrawerItemClickListener {
                 }
             }
         }
+
     }
 
     private fun setup() {
@@ -127,6 +128,14 @@ class HomeActivity : AppCompatActivity(), Drawer.OnDrawerItemClickListener {
 
         supportActionBar?.setDisplayShowHomeEnabled(false)
         drawer.actionBarDrawerToggle?.isDrawerIndicatorEnabled = true
+
+
+       /* img_menu.setOnClickListener {
+            drawer.openDrawer()
+        }*/
+
+
+
 
     }
 }

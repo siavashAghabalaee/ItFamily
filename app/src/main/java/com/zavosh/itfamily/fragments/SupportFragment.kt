@@ -27,6 +27,12 @@ class SupportFragment : Fragment() {
     private fun setup() {
 
 
+        rootView.img_back.setOnClickListener {
+
+            activity?.onBackPressed()
+        }
+
+
         rootView.submit_button.setOnClickListener {
 
             if (rootView.etv_message.text.toString().isEmpty() || rootView.etv_subject.text.toString().isEmpty()) {

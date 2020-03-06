@@ -27,6 +27,13 @@ class PodCastFragment : Fragment() {
     }
 
     private fun setup() {
+
+
+        rootView.img_back.setOnClickListener {
+
+            activity?.onBackPressed()
+        }
+
         getPodcasts()
     }
 
