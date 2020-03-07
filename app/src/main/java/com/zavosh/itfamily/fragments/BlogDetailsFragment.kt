@@ -67,6 +67,10 @@ class BlogDetailsFragment : Fragment() {
         rootView.tv_comments_count.text = (blog_detail.commentCount ?: "") + " نفر نظر داده اند"
         rootView.tv_likes_count.text = (blog_detail.linkeCount ?: "") + " نفر پسندیده اند "
         rootView.publish_date_txt.text = PublicMethods.getDate(blog_detail.publishDate)
+        rootView.img_detail.setPicasso(blog_detail.image, activity)
+
+
+        rootView.pdf_icon.setOnClickListener {  }
 
     }
 
@@ -80,6 +84,7 @@ class BlogDetailsFragment : Fragment() {
         rootView.link_address_blog2.text = blog_detail.linkAddress ?: ""
         rootView.link_address_blog3.text = blog_detail.linkAddress ?: ""*/
 
+        rootView.pdf_icon.setOnClickListener {  }
 
 
         rootView.tv_magazine_title.text = blog_detail.title ?: ""
@@ -87,6 +92,8 @@ class BlogDetailsFragment : Fragment() {
         rootView.tv_comments_count.text = (blog_detail.commentCount ?: "") + " نفر نظر داده اند"
         rootView.tv_likes_count.text = (blog_detail.linkeCount ?: "") + " نفر پسندیده اند "
         rootView.publish_date_txt.text = PublicMethods.getDate(blog_detail.publishDate)
+        rootView.img_detail.setPicasso(blog_detail.image, activity)
+
     }
 
 

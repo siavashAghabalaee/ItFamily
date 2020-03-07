@@ -51,6 +51,10 @@ class MagazineDetailFragment : Fragment() {
         rootView.tv_comments_count.text = (magazineDetail.commentCount ?: "") + " نفر نظر داده اند"
         rootView.tv_likes_count.text = (magazineDetail.linkeCount ?: "") + " نفر پسندیده اند "
         rootView.publish_date_txt.text = PublicMethods.getDate(magazineDetail.publishDate)
+        rootView.img_detail.setPicasso(magazineDetail.image, activity)
+
+
+        rootView.pdf_icon.setOnClickListener {  }
 
         Log.i("eijaoiwajdid", magazineDetail.linkAddress)
 
