@@ -1,11 +1,13 @@
 package com.zavosh.itfamily.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.zavosh.itfamily.R
+import com.zavosh.itfamily.activities.PdfViewerActivity
 import com.zavosh.itfamily.helper.PublicMethods
 import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListResult
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.SliderContent
@@ -70,7 +72,12 @@ class BlogDetailsFragment : Fragment() {
         rootView.img_detail.setPicasso(blog_detail.image, activity)
 
 
-        rootView.pdf_icon.setOnClickListener {  }
+        rootView.pdf_icon.setOnClickListener {
+
+            val intent = Intent(activity, PdfViewerActivity::class.java)
+            intent.putExtra("pdf_link", blog_detail.linkAddress)
+            activity?.startActivity(intent)
+        }
 
     }
 
@@ -84,7 +91,12 @@ class BlogDetailsFragment : Fragment() {
         rootView.link_address_blog2.text = blog_detail.linkAddress ?: ""
         rootView.link_address_blog3.text = blog_detail.linkAddress ?: ""*/
 
-        rootView.pdf_icon.setOnClickListener {  }
+        rootView.pdf_icon.setOnClickListener {
+
+            val intent = Intent(activity, PdfViewerActivity::class.java)
+            intent.putExtra("pdf_link", blog_detail.linkAddress)
+            activity?.startActivity(intent)
+        }
 
 
         rootView.tv_magazine_title.text = blog_detail.title ?: ""

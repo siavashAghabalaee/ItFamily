@@ -16,7 +16,7 @@
             android:layout_alignParentTop="true"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            android:background="@color/white">
+            >
 
             <LinearLayout
                 android:id="@+id/img_back"
@@ -47,7 +47,13 @@
                     android:textSize="15sp"/>
             </LinearLayout>
 
+            <View
+                android:background="@color/md_black_1000"
+                android:layout_width="2dp"
+                android:layout_height="wrap_content"/>
+
             <ImageView
+                android:src="@drawable/profile_icon"
                 android:id="@+id/img_menu"
                 android:layout_width="48dp"
                 android:layout_height="48dp"

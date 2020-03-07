@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="#865DCF"
-    >
-
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/actionbar"
-        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/white">
+        android:layout_alignParentTop="true">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:id="@+id/img_back"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
-                android:src="@drawable/back_arrow"/>
+                android:src="@drawable/back_arrow" />
 
         </LinearLayout>
 
@@ -41,22 +37,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                android:gravity="center"
-                android:text="@string/app_name"
-                android:textColor="@color/md_black_1000"
-                android:textSize="15sp"/>
+                android:gravity="right|center"
+                android:text="سوالات متداول"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
         </LinearLayout>
 
-        <!--<ImageView
-            android:src="@drawable/menu_icon"
+        <View
+            android:background="@color/white"
+            android:layout_width="2dp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
             android:id="@+id/img_menu"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="center"
             android:padding="12dp"
-            />-->
+            android:src="@drawable/news1_icon" />
     </LinearLayout>
-
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -66,14 +65,13 @@
 
         <ProgressBar
             android:id="@+id/loader_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -81,32 +79,28 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.17"
-            />
+            app:layout_constraintGuide_percent="0.17" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/register_bottom"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.60"
-            />
+            app:layout_constraintGuide_percent="0.60" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/register_right"
             android:layout_width="0.5dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.9"
-            />
+            app:layout_constraintGuide_percent="0.9" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/register_left"
             android:layout_width="0.5dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.1"
-            />
+            app:layout_constraintGuide_percent="0.1" />
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -114,66 +108,62 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.06"
-            />
+            app:layout_constraintGuide_percent="0.06" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/title_help_bottom"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.1"
-            />
+            app:layout_constraintGuide_percent="0.1" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/title_help_top"
-            app:layout_constraintBottom_toTopOf="@id/title_help_bottom"
-            android:gravity="right"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="سوالات متداول"
-                android:textSize="12sp"
-                android:layout_marginRight="4dp"
-                android:textColor="#000"
-                />
+        <!-- <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="0dp"
+             android:orientation="horizontal"
+             app:layout_constraintTop_toBottomOf="@id/title_help_top"
+             app:layout_constraintBottom_toTopOf="@id/title_help_bottom"
+             android:gravity="right"
+             >
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="سوالات متداول"
+                 android:textSize="12sp"
+                 android:layout_marginRight="4dp"
+                 android:textColor="#000"
+                 />
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="#000"
-                />
+             <View
+                 android:layout_width="1dp"
+                 android:layout_height="match_parent"
+                 android:background="#000"
+                 />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_edit_black_24dp"
-                android:adjustViewBounds="true"
+             <ImageView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:src="@drawable/ic_edit_black_24dp"
+                 android:adjustViewBounds="true"
 
-                />
+                 />
 
 
-        </LinearLayout>
+         </LinearLayout>-->
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/left_button"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.34"
-            />
+            app:layout_constraintGuide_percent="0.34" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/right_button"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.66"
-            />
+            app:layout_constraintGuide_percent="0.66" />
 
 
         <!--    <androidx.cardview.widget.CardView-->
@@ -184,18 +174,17 @@
         <!--        -->
         <!--        >-->
         <LinearLayout
-            app:layout_constraintTop_toBottomOf="@id/register_top"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/register_right"
-            app:layout_constraintLeft_toRightOf="@id/register_left"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:orientation="vertical"
             android:background="@drawable/cardview_background"
-            >
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/register_left"
+            app:layout_constraintRight_toLeftOf="@id/register_right"
+            app:layout_constraintTop_toBottomOf="@id/register_top">
 
 
-/>
+            />
             <!--        <androidx.constraintlayout.widget.Guideline-->
             <!--            android:id="@+id/name_top"-->
             <!--            android:layout_width="0.5dp"-->
@@ -278,7 +267,6 @@
             <!--            />-->
 
 
-
             <!--        <EditText-->
             <!--            android:id="@+id/name_register"-->
             <!--            android:layout_width="0dp"-->
@@ -336,11 +324,9 @@
                 android:id="@+id/rec_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                >
+                android:layout_margin="16dp">
 
             </androidx.recyclerview.widget.RecyclerView>
-
 
 
         </LinearLayout>
@@ -348,8 +334,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
     <!--    </androidx.cardview.widget.CardView>-->
 
 
-</LinearLayout>
+</RelativeLayout>

@@ -54,4 +54,9 @@ dependencies {
     implementation 'com.github.jeancsanchez:JcPlayer:2.6.16'
 
     implementation 'com.github.halilozercan:BetterVideoPlayer:kotlin-SNAPSHOT'
+
+    //pdf
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+
+//    implementation 'es.voghdev.pdfviewpager:library:1.1.0'
 }
