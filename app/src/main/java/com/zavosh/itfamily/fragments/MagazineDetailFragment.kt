@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.zavosh.itfamily.R
+import com.zavosh.itfamily.helper.PublicMethods
 import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineResult
 import kotlinx.android.synthetic.main.fragment_magazine_detail.view.*
 
@@ -34,10 +35,10 @@ class MagazineDetailFragment : Fragment() {
 
     private fun setup() {
 
-        try{
-        val magazine_detail = bundle.getParcelable<MagazineResult>("magazine_detail")
-        bindViews(magazine_detail)
-        }catch (e:Exception){
+        try {
+            val magazine_detail = bundle.getParcelable<MagazineResult>("magazine_detail")
+            bindViews(magazine_detail)
+        } catch (e: Exception) {
 
         }
 
@@ -47,12 +48,11 @@ class MagazineDetailFragment : Fragment() {
 
         rootView.tv_magazine_title.text = magazineDetail.title ?: ""
         rootView.tv_magazine_summery.text = magazineDetail.summery ?: ""
-        //rootView.tv_link_address.text = magazineDetail.linkAddress?: ""
-        //rootView.tv_link_address2.text = magazineDetail.linkAddress ?: ""
-        //rootView.tv_link_address3.text = magazineDetail.linkAddress?: ""
-        rootView.tv_comments_count.text = magazineDetail.commentCount ?: ""
+        rootView.tv_comments_count.text = (magazineDetail.commentCount ?: "") + " نفر نظر داده اند"
+        rootView.tv_likes_count.text = (magazineDetail.linkeCount ?: "") + " نفر پسندیده اند "
+        rootView.publish_date_txt.text = PublicMethods.getDate(magazineDetail.publishDate)
 
-        Log.i("eijaoiwajdid",magazineDetail.linkAddress)
+        Log.i("eijaoiwajdid", magazineDetail.linkAddress)
 
     }
 
