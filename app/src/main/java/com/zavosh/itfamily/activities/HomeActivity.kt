@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 
 class HomeActivity : AppCompatActivity(), Drawer.OnDrawerItemClickListener {
-    lateinit var drawer: Drawer
+
     override fun onItemClick(view: View?, position: Int, drawerItem: IDrawerItem<*>): Boolean {
         Log.i("myDrawer", "pos : " + position)
         //drawer.closeDrawer()
@@ -28,6 +28,9 @@ class HomeActivity : AppCompatActivity(), Drawer.OnDrawerItemClickListener {
 
 
     companion object {
+
+        lateinit var drawer: Drawer
+
         fun getInstance(context: Context): Intent {
             return Intent(context, HomeActivity::class.java)
         }
@@ -95,7 +98,7 @@ class HomeActivity : AppCompatActivity(), Drawer.OnDrawerItemClickListener {
             SecondaryDrawerItem().withIdentifier(4).withName("پشتیبانی").withIcon(R.mipmap.app_icon)
                 .withOnDrawerItemClickListener(this)
 
-        val drawer = DrawerBuilder()
+         drawer = DrawerBuilder()
             .withActivity(this)
             .addDrawerItems(
                 item1,
