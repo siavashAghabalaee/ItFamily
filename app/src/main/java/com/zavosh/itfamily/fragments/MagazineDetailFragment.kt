@@ -1,6 +1,5 @@
 package com.zavosh.itfamily.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.zavosh.itfamily.R
-import com.zavosh.itfamily.activities.PdfViewerActivity
+import com.zavosh.itfamily.helper.PageManager
 import com.zavosh.itfamily.helper.PublicMethods
 import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineResult
 import kotlinx.android.synthetic.main.fragment_magazine_detail.view.*
@@ -58,9 +57,7 @@ class MagazineDetailFragment : Fragment() {
 
         rootView.pdf_icon.setOnClickListener {
 
-            val intent = Intent(activity, PdfViewerActivity::class.java)
-            intent.putExtra("pdf_link", magazineDetail.linkAddress)
-            activity?.startActivity(intent)
+            PageManager.getInstance().goPdfViewerActivity(activity,magazineDetail.linkAddress)
 
         }
 
