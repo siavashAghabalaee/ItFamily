@@ -1,7 +1,6 @@
 package com.zavosh.itfamily.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,8 +45,6 @@ class QuestionFragment: Fragment() {
 
         Server.getInstance(activity).getQuestionList(rootView.loader_question,object : Callback.QuestionList {
             override fun callback(result: MutableList<QuestionListResult>?) {
-
-                Log.i("log",""+result?.size)
 
                 var adapter = QuestionAdapter(activity,result)
                 rootView.rec_question.layoutManager = LinearLayoutManager(context)

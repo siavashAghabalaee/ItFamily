@@ -85,8 +85,6 @@ class BlogDetailsFragment : Fragment() {
 
         }
 
-
-
         rootView.tv_magazine_title.text = blog_detail.title ?: ""
         rootView.tv_magazine_summery.text = blog_detail.summery ?: ""
         rootView.tv_comments_count.text = (blog_detail.commentCount ?: "") + " نفر نظر داده اند"

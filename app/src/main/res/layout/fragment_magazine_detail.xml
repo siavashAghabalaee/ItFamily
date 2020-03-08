@@ -392,24 +392,28 @@ android:layout_height="match_parent"
 
                     </LinearLayout>
 
-                    <LinearLayout
+                    <ScrollView
+                        android:layout_marginBottom="@dimen/_4sdp"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.53"
                         android:layout_gravity="center"
                         android:gravity="bottom"
-                        android:paddingRight="@dimen/_4sdp">
+                        android:padding="@dimen/_4sdp">
 
                         <com.zavosh.itfamily.myviews.MyTextView
+                            android:padding="@dimen/_4sdp"
+                            android:justificationMode="inter_word"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:id="@+id/tv_magazine_summery"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:textDirection="anyRtl"
                             android:gravity="center"
                             android:textColor="@color/textColor"
-                            android:text="test"
                             android:textSize="@dimen/_10sdp"/>
 
-                    </LinearLayout>
+                    </ScrollView>
 
                     <LinearLayout
                         android:layout_marginTop="10dp"
@@ -560,7 +564,6 @@ android:layout_height="match_parent"
                             android:textColor="@color/white"/>
 
                         <TextView
-                            android:id="@+id/tv_magazine_summery"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"

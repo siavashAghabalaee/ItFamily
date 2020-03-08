@@ -224,7 +224,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:hint="شماره موبایل"
+                android:hint="موضوع"
                 android:singleLine="true"
                 android:textColor="@color/textColor"
                 android:textSize="12sp"
