@@ -43,19 +43,40 @@ class ProfileFragment : Fragment() {
         fragmentView.phone_register.setText(Memory.loadPhone() ?: "")
 
 
+        fragmentView.chk_male.setOnCheckedChangeListener { buttonView, isChecked ->
+
+            if (isChecked){
+                sex=true.toString()
+                if (chk_female.isChecked) {
+                    chk_female.isChecked = false
+                }
+            }
+
+
+        }
+
+        fragmentView.chk_female.setOnCheckedChangeListener { buttonView, isChecked ->
+
+            if (isChecked){
+                sex=false.toString()
+                if (chk_male.isChecked) {
+                    chk_male.isChecked = false
+                }
+            }
+
+
+        }
+
         fragmentView.btn_submit.setOnClickListener {
 
             if (fragmentView.name_register.text.isEmpty() || fragmentView.email_register.text.isEmpty()) {
                 MyToast.showToast(activity, "لطفا نام و ایمیل خود را وارد کنید")
-            } else if (!chk_male.isChecked && !chk_female.isChecked) {
+            }
+           else if (!chk_male.isChecked && !chk_female.isChecked) {
 
                 MyToast.showToast(context, "لطفا جنسیت را مشخص کنید")
-            } else {
-                if (fragmentView.chk_female.isChecked) {
-                    sex = false.toString()
-                } else if (fragmentView.chk_male.isChecked) {
-                    sex = true.toString()
-                }
+            }
+            else {
                 getProfileData()
             }
 
@@ -66,15 +87,12 @@ class ProfileFragment : Fragment() {
 
     private fun getProfileData() {
 
-
         Server.getInstance(context).sendProfile(fragmentView.name_register.text.toString().trim(),
             fragmentView.email_register.text.toString().trim(),
-            sex.toString(), loader,
+            sex, loader,
             object : Callback.PostProfile {
                 override fun callback(result: String?) {
-
                     MyToast.showToast(activity, result)
-
                 }
 
             })
