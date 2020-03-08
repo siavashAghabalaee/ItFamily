@@ -1,13 +1,12 @@
 package com.zavosh.itfamily.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.zavosh.itfamily.R
-import com.zavosh.itfamily.activities.VideoPlayerActivity
+import com.zavosh.itfamily.helper.PageManager
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.Video
 import com.zavosh.itfamily.retrofit.mymodels.videolistrequest.VideoListResult
 import kotlinx.android.synthetic.main.fragment_video_detail.view.*
@@ -71,11 +70,7 @@ class VideoDetailFragment : Fragment() {
 
 
         rootView.ly_play_video.setOnClickListener {
-
-            val intent = Intent(activity, VideoPlayerActivity::class.java)
-            intent.putExtra("video_link", video_detail.linkAddress)
-            startActivity(intent)
-
+            PageManager.getInstance().goVideoPlayerActivity(activity,video_detail.linkAddress)
         }
 
 
@@ -95,11 +90,7 @@ class VideoDetailFragment : Fragment() {
 
 
         rootView.ly_play_video.setOnClickListener {
-
-            val intent = Intent(activity, VideoPlayerActivity::class.java)
-            intent.putExtra("video_link", video_detail.linkAddress)
-            startActivity(intent)
-
+            PageManager.getInstance().goVideoPlayerActivity(activity,video_detail.linkAddress)
         }
 
 

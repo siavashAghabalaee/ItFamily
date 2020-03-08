@@ -1,5 +1,7 @@
 package com.zavosh.itfamily.activities
 
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -11,11 +13,24 @@ class VideoPlayerActivity : AppCompatActivity() {
     lateinit var player: BetterVideoPlayer
 
 
+    companion object {
+
+
+        private const val ARG_INTENT_VIDEO_LINK = "video_link"
+
+        fun getInstance(context: Context, pdfLink: String): Intent {
+            val intent = Intent(context, VideoPlayerActivity::class.java)
+            intent.putExtra(ARG_INTENT_VIDEO_LINK, pdfLink)
+            return intent
+        }
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_player)
 
-        val video_link = intent?.extras?.getString("video_link")
+        val video_link = intent?.extras?.getString(ARG_INTENT_VIDEO_LINK)
 
         player = findViewById(R.id.player)
         // Set the source to the HTTP URL held in the TEST_URL variable.

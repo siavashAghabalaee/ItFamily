@@ -8,6 +8,8 @@ public interface PageManagerHelper {
     void goRegisterActivity(Context context);
     void goVerifyActivity(Context context);
     void goHomeActivity(Context context);
+    void goVideoPlayerActivity(Context context,String videoLink);
+    void goPdfViewerActivity(Context context, String pdfLink);
 
     //---fragments
     void goHomeFragment();

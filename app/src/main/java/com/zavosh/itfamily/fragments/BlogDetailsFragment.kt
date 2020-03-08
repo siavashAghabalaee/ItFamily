@@ -1,13 +1,12 @@
 package com.zavosh.itfamily.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.zavosh.itfamily.R
-import com.zavosh.itfamily.activities.PdfViewerActivity
+import com.zavosh.itfamily.helper.PageManager
 import com.zavosh.itfamily.helper.PublicMethods
 import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListResult
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.SliderContent
@@ -47,7 +46,7 @@ class BlogDetailsFragment : Fragment() {
         try {
             val blog_detail = bundle.getParcelable<SliderContent>("blog_home")
             bindViewsFromHome(blog_detail)
-        }catch (e:Exception){
+        } catch (e: Exception) {
 
         }
 
@@ -55,13 +54,13 @@ class BlogDetailsFragment : Fragment() {
     }
 
     private fun bindViews(blog_detail: BlogListResult) {
-     /*   rootView.img_blog_detail.setPicasso(blog_detail.image ?: "", activity)
-        rootView.blog_detail_title.text = blog_detail.title ?: ""
-        rootView.blog_detail_summery.text = blog_detail.summery ?: ""
-        rootView.blog_detail_comments.text = blog_detail.commentCount ?: ""
-        rootView.link_address_blog1.text = blog_detail.linkAddress ?: ""
-        rootView.link_address_blog2.text = blog_detail.linkAddress ?: ""
-        rootView.link_address_blog3.text = blog_detail.linkAddress ?: ""*/
+        /*   rootView.img_blog_detail.setPicasso(blog_detail.image ?: "", activity)
+           rootView.blog_detail_title.text = blog_detail.title ?: ""
+           rootView.blog_detail_summery.text = blog_detail.summery ?: ""
+           rootView.blog_detail_comments.text = blog_detail.commentCount ?: ""
+           rootView.link_address_blog1.text = blog_detail.linkAddress ?: ""
+           rootView.link_address_blog2.text = blog_detail.linkAddress ?: ""
+           rootView.link_address_blog3.text = blog_detail.linkAddress ?: ""*/
 
 
         rootView.tv_magazine_title.text = blog_detail.title ?: ""
@@ -74,29 +73,27 @@ class BlogDetailsFragment : Fragment() {
 
         rootView.pdf_icon.setOnClickListener {
 
-            val intent = Intent(activity, PdfViewerActivity::class.java)
-            intent.putExtra("pdf_link", blog_detail.linkAddress)
-            activity?.startActivity(intent)
+            PageManager.getInstance().goPdfViewerActivity(activity, blog_detail.linkAddress)
         }
 
     }
 
 
     private fun bindViewsFromHome(blog_detail: SliderContent) {
-       /* rootView.img_blog_detail.setPicasso(blog_detail.image ?: "", activity)
-        rootView.blog_detail_title.text = blog_detail.title ?: ""
-        rootView.blog_detail_summery.text = blog_detail.summery ?: ""
-        rootView.blog_detail_comments.text = blog_detail.commentCount ?: ""
-        rootView.link_address_blog1.text = blog_detail.linkAddress ?: ""
-        rootView.link_address_blog2.text = blog_detail.linkAddress ?: ""
-        rootView.link_address_blog3.text = blog_detail.linkAddress ?: ""*/
+        /* rootView.img_blog_detail.setPicasso(blog_detail.image ?: "", activity)
+         rootView.blog_detail_title.text = blog_detail.title ?: ""
+         rootView.blog_detail_summery.text = blog_detail.summery ?: ""
+         rootView.blog_detail_comments.text = blog_detail.commentCount ?: ""
+         rootView.link_address_blog1.text = blog_detail.linkAddress ?: ""
+         rootView.link_address_blog2.text = blog_detail.linkAddress ?: ""
+         rootView.link_address_blog3.text = blog_detail.linkAddress ?: ""*/
 
         rootView.pdf_icon.setOnClickListener {
 
-            val intent = Intent(activity, PdfViewerActivity::class.java)
-            intent.putExtra("pdf_link", blog_detail.linkAddress)
-            activity?.startActivity(intent)
+            PageManager.getInstance().goPdfViewerActivity(activity, blog_detail.linkAddress)
+
         }
+
 
 
         rootView.tv_magazine_title.text = blog_detail.title ?: ""
