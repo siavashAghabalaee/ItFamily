@@ -2,6 +2,7 @@ package com.zavosh.itfamily.activities
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -34,7 +35,7 @@ class RegisterActivity : AppCompatActivity() {
         iv_register.setOnClickListener {
 
 
-            if (etv_name.text.toString().isEmpty()||etv_family.text.toString().isEmpty()||etv_mail.text.toString().isEmpty()||etv_password.text.toString().isEmpty()){
+            if (etv_name.text.toString().isEmpty()||etv_mail.text.toString().isEmpty()||etv_password.text.toString().isEmpty()){
                 MyToast.showToast(this@RegisterActivity,"لطفا تمام فیلدها را وارد کنید")
             }else if (!chk_male.isChecked && !chk_female.isChecked) {
 
@@ -58,7 +59,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun sendRegisterRequest() {
 
-       Server.getInstance(this@RegisterActivity).sendProfile(etv_name.text.toString().trim()+" "+etv_family.text.toString().trim(),etv_mail.text.toString().trim(),
+       Server.getInstance(this@RegisterActivity).sendProfile(etv_name.text.toString().trim(),etv_mail.text.toString().trim(),
            sex,register_loader,
            object : Callback.PostProfile {
                override fun callback(result: String?) {
@@ -73,6 +74,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun setup() {
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
         //hide statusBar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
     }

@@ -33,10 +33,10 @@ class PdfViewerActivity : AppCompatActivity() {
 
         Log.i("log", "" + pdfLink)
 
-        pdfView.fromUri(Uri.parse(pdfLink))
+        /*pdfView.fromUri(Uri.parse(pdfLink))
             .enableSwipe(true) // allows to block changing pages using swipe
             .swipeHorizontal(true)
             .enableDoubletap(true)
-            .load()
+            .load()*/
     }
 }

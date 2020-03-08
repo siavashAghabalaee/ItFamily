@@ -2,6 +2,7 @@ package com.zavosh.itfamily.activities
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -74,7 +75,7 @@ class HomeActivity : AppCompatActivity(), Drawer.OnDrawerItemClickListener {
     }
 
     private fun setup() {
-
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
         btnTab.add(MeowBottomNavigation.Model(1, R.drawable.home_icon))
         btnTab.add(MeowBottomNavigation.Model(2, R.drawable.user_icon))
         btnTab.add(MeowBottomNavigation.Model(3, R.drawable.magazine_icon))
