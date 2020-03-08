@@ -36,6 +36,8 @@ class BlogDetailsFragment : Fragment() {
 
     private fun setup() {
 
+        rootView.img_back.setOnClickListener { activity?.onBackPressed() }
+
         try {
             val blog_detail = bundle.getParcelable<BlogListResult>("blog_detail")
             bindViews(blog_detail)
@@ -54,14 +56,6 @@ class BlogDetailsFragment : Fragment() {
     }
 
     private fun bindViews(blog_detail: BlogListResult) {
-        /*   rootView.img_blog_detail.setPicasso(blog_detail.image ?: "", activity)
-           rootView.blog_detail_title.text = blog_detail.title ?: ""
-           rootView.blog_detail_summery.text = blog_detail.summery ?: ""
-           rootView.blog_detail_comments.text = blog_detail.commentCount ?: ""
-           rootView.link_address_blog1.text = blog_detail.linkAddress ?: ""
-           rootView.link_address_blog2.text = blog_detail.linkAddress ?: ""
-           rootView.link_address_blog3.text = blog_detail.linkAddress ?: ""*/
-
 
         rootView.tv_magazine_title.text = blog_detail.title ?: ""
         rootView.tv_magazine_summery.text = blog_detail.summery ?: ""
@@ -73,24 +67,17 @@ class BlogDetailsFragment : Fragment() {
 
         rootView.pdf_icon.setOnClickListener {
 
-            PageManager.getInstance().goPdfViewerActivity(activity, blog_detail.linkAddress)
+            PageManager.getInstance().goPdfViewerActivity(activity, blog_detail.linkAddress?:"")
         }
 
     }
 
 
     private fun bindViewsFromHome(blog_detail: SliderContent) {
-        /* rootView.img_blog_detail.setPicasso(blog_detail.image ?: "", activity)
-         rootView.blog_detail_title.text = blog_detail.title ?: ""
-         rootView.blog_detail_summery.text = blog_detail.summery ?: ""
-         rootView.blog_detail_comments.text = blog_detail.commentCount ?: ""
-         rootView.link_address_blog1.text = blog_detail.linkAddress ?: ""
-         rootView.link_address_blog2.text = blog_detail.linkAddress ?: ""
-         rootView.link_address_blog3.text = blog_detail.linkAddress ?: ""*/
 
         rootView.pdf_icon.setOnClickListener {
 
-            PageManager.getInstance().goPdfViewerActivity(activity, blog_detail.linkAddress)
+            PageManager.getInstance().goPdfViewerActivity(activity, blog_detail.linkAddress?:"")
 
         }
 

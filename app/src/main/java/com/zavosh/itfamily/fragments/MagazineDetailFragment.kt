@@ -36,6 +36,8 @@ class MagazineDetailFragment : Fragment() {
 
     private fun setup() {
 
+        rootView.img_back.setOnClickListener { activity?.onBackPressed() }
+
         try {
             val magazine_detail = bundle.getParcelable<MagazineResult>("magazine_detail")
             bindViews(magazine_detail)
@@ -57,7 +59,7 @@ class MagazineDetailFragment : Fragment() {
 
         rootView.pdf_icon.setOnClickListener {
 
-            PageManager.getInstance().goPdfViewerActivity(activity,magazineDetail.linkAddress)
+            PageManager.getInstance().goPdfViewerActivity(activity,magazineDetail.linkAddress?:"")
 
         }
 

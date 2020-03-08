@@ -36,6 +36,7 @@ class PodcastDetailFragment: Fragment() {
     }
 
     private fun setup() {
+        rootView.img_back.setOnClickListener { activity?.onBackPressed() }
 
 
         try {

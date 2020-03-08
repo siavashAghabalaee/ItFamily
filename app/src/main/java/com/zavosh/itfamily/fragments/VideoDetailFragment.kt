@@ -36,6 +36,8 @@ class VideoDetailFragment : Fragment() {
 
     private fun setup() {
 
+        rootView.img_back.setOnClickListener { activity?.onBackPressed() }
+
         try {
 
         val video_detail = bundle.getParcelable<VideoListResult>("video_detail")
