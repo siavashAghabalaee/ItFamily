@@ -2,9 +2,7 @@ package com.zavosh.itfamily.activities
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.zavosh.itfamily.R
 import kotlinx.android.synthetic.main.activity_pdf_viewer.*
@@ -31,12 +29,7 @@ class PdfViewerActivity : AppCompatActivity() {
 
         val pdfLink = intent?.extras?.getString(ARG_INTENT_PDF_LINK)
 
-        Log.i("log", "" + pdfLink)
-
-        /*pdfView.fromUri(Uri.parse(pdfLink))
-            .enableSwipe(true) // allows to block changing pages using swipe
-            .swipeHorizontal(true)
-            .enableDoubletap(true)
-            .load()*/
+        pdfView.settings.javaScriptEnabled = true
+        pdfView.loadUrl("https://drive.google.com/viewerng/viewer?embedded=true&url="+pdfLink)
     }
 }
