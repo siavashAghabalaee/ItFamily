@@ -59,7 +59,8 @@
 
                     <com.zavosh.itfamily.myviews.MyTextViewBold
                         android:id="@+id/tv_title"
-                        android:layout_width="wrap_content"
+                        android:textDirection="anyRtl"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_marginLeft="@dimen/_10sdp"
@@ -72,10 +73,13 @@
 
                     <com.zavosh.itfamily.myviews.MyTextView
                         android:id="@+id/tv_summery"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textDirection="anyRtl"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginRight="@dimen/_15sdp"
+                        android:maxLines="2"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:paddingLeft="@dimen/_15sdp"
                         android:textColor="@color/white">
@@ -114,37 +118,41 @@
                 <LinearLayout
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="@dimen/_35sdp"
                     android:layout_gravity="bottom"
                     android:orientation="horizontal"
+                    android:gravity="center"
                     android:layout_margin="@dimen/_8sdp"
                     android:background="@drawable/bg_corner_them"
                     >
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.1"
-                        >
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:src="@drawable/like"
+                        android:scaleType="fitXY"
+                        android:padding="@dimen/_5sdp"
+                        android:background="@drawable/bg_corner_white"/>
 
-                    </LinearLayout>
 
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:src="@drawable/comment"
+                        android:scaleType="fitXY"
+                        android:padding="@dimen/_5sdp"
+                        android:background="@drawable/bg_corner_white"/>
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.1"
-                        >
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.1"
-                        >
-
-                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:src="@drawable/send"
+                        android:scaleType="fitXY"
+                        android:padding="@dimen/_5sdp"
+                        android:background="@drawable/bg_corner_white"/>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -163,13 +171,15 @@
                     </LinearLayout>
 
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.1"
-                        >
-
-                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:src="@drawable/download"
+                        android:scaleType="fitXY"
+                        android:padding="@dimen/_5sdp"
+                        android:background="@drawable/bg_corner_white"/>
 
 
 

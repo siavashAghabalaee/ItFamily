@@ -1,491 +1,534 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.core.widget.NestedScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_profile"
+    android:background="@drawable/bg_home"
     >
-
-
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:background="@android:color/transparent"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:layout_marginTop="@dimen/_380sdp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-            <androidx.cardview.widget.CardView
-                android:layout_width="@dimen/_230sdp"
-                android:layout_height="@dimen/_100sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardElevation="@dimen/_10sdp"
-                android:layout_margin="@dimen/_16sdp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="bottom"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.3"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        >
-
-                        <com.zavosh.itfamily.myviews.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/_10sdp"
-                            android:text="تاریخ نشر"
-                            android:layout_marginBottom="@dimen/_5sdp">
-
-                        </com.zavosh.itfamily.myviews.MyTextView>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="0.5dp"
-                            android:background="#000000"
-                            android:layout_marginRight="8dp"
-                            android:layout_marginLeft="8dp"
-                            />
-
-                        <com.zavosh.itfamily.myviews.MyTextViewBold
-                            android:id="@+id/link_address2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/_12sdp"
-                           android:layout_marginTop="@dimen/_10sdp" >
-
-                        </com.zavosh.itfamily.myviews.MyTextViewBold>
-
-                    </LinearLayout>
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/actionbar"
-            android:layout_alignParentTop="true"
-            android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
-            >
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/img_back"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="8dp"
-                    android:src="@drawable/back_arrow"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <com.zavosh.itfamily.myviews.MyTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    android:text="ویدیوها"
-                    android:gravity="right|center"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"/>
-            </LinearLayout>
-
-            <View
-                android:background="@drawable/ic_next_black"
-                android:layout_width="2dp"
-                android:layout_height="wrap_content"/>
-
-            <ImageView
-                android:src="@drawable/profile_icon"
-                android:id="@+id/img_menu"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:padding="12dp"
-                />
-        </LinearLayout>
-
+        android:background="@color/white"
+        android:elevation="@dimen/_4sdp"
+        android:contentInsetStart="0dp"
+        android:contentInsetLeft="0dp"
+        android:contentInsetRight="0dp"
+        android:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetEnd="0dp">
         <RelativeLayout
-            android:layout_below="@+id/actionbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:background="@android:color/transparent"
-            >
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/back"
+                android:id="@+id/img_back"
+                android:padding="@dimen/_10sdp"
+                android:scaleType="fitXY"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_centerVertical="true"/>
 
-            <RelativeLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@android:color/transparent">
+                android:gravity="center"
+                android:text="IT FAMILI"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/colorPrimaryDark"/>
+
+            <ImageView
+                android:src="@drawable/menu"
+                android:id="@+id/menu"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="@dimen/_380sdp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
                 <androidx.cardview.widget.CardView
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="@dimen/_210sdp"
-                    android:layout_height="@dimen/_250sdp"
-                    android:layout_marginTop="@dimen/_150sdp"
+                    android:layout_width="@dimen/_230sdp"
+                    android:layout_height="@dimen/_100sdp"
                     app:cardCornerRadius="@dimen/_20sdp"
-                    app:cardElevation="@dimen/_20sdp"
-                    android:layout_marginBottom="@dimen/_12sdp"
-                    app:cardPreventCornerOverlap="false"
-                    >
+                    app:cardElevation="@dimen/_10sdp"
+                    android:layout_margin="@dimen/_16sdp">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:background="@android:color/transparent"
-                        >
-
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="0.6"
-                            >
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="0.35"
-                            android:layout_gravity="bottom"
-                            android:gravity="bottom|right"
-                            android:padding="@dimen/_2sdp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:orientation="vertical"
+                            android:gravity="center"
                             >
 
                             <com.zavosh.itfamily.myviews.MyTextView
-                                android:id="@+id/video_detail_comments"
-                                android:layout_width="match_parent"
-                                android:padding="@dimen/_5sdp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textDirection="anyRtl"
-                                android:textColor="@color/textColor"
-                                android:textSize="@dimen/_10sdp"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="0.15"
-                            android:paddingRight="@dimen/_10sdp"
-                            android:paddingLeft="@dimen/_10sdp"
-                            android:layout_margin="@dimen/_8sdp"
-                            android:background="@drawable/cardview_background"
-                            >
+                                android:textSize="@dimen/_10sdp"
+                                android:text="تاریخ نشر"
+                                android:layout_marginBottom="@dimen/_5sdp">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.1"
-                                android:gravity="center"
-                                android:padding="@dimen/_1sdp"
-                                >
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_favorite_border_black_24dp"
-                                    >
+                            </com.zavosh.itfamily.myviews.MyTextView>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dp"
+                                android:background="#000000"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginLeft="8dp"
+                                />
 
-                                </ImageView>
+                            <com.zavosh.itfamily.myviews.MyTextViewBold
+                                android:id="@+id/link_address2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_10sdp" >
 
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.8"
-                                android:orientation="vertical"
-                                >
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="0.5"
-                                    android:orientation="horizontal"
-                                    android:layout_gravity="center"
-                                    android:gravity="center|right"
-                                    >
-
-                                    <com.zavosh.itfamily.myviews.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textSize="@dimen/_10sdp"/>
-
-
-
-
-                                    <com.zavosh.itfamily.myviews.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textColor="@color/textColor"
-                                        android:textSize="@dimen/_12sdp"
-                                        android:paddingLeft="@dimen/_5sdp"
-                                        android:id="@+id/tv_comments"/>
-
-
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="0.5"
-                                    android:orientation="vertical"
-                                    android:layout_gravity="right"
-                                    android:gravity="right"
-                                    android:visibility="gone">
-
-                                    <com.zavosh.itfamily.myviews.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textSize="@dimen/_8sdp"/>
-
-                                    <com.zavosh.itfamily.myviews.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textSize="@dimen/_8sdp"
-                                        >
-
-                                    </com.zavosh.itfamily.myviews.MyTextView>
-
-
-                                </LinearLayout>
-
-
-                            </LinearLayout>
-
-
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.1"
-                                android:padding="@dimen/_1sdp"
-                                android:gravity="center"
-                                >
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/ic_insert_emoticon_black_24dp"
-                                    >
-
-                                </ImageView>
-
-                            </LinearLayout>
-
+                            </com.zavosh.itfamily.myviews.MyTextViewBold>
 
                         </LinearLayout>
-
                     </LinearLayout>
 
-
                 </androidx.cardview.widget.CardView>
-                <androidx.cardview.widget.CardView
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="@dimen/_236sdp"
-                    android:layout_height="@dimen/_290sdp"
-                    app:cardPreventCornerOverlap="true"
-                    app:cardCornerRadius="@dimen/_20sdp"
-                    app:cardElevation="@dimen/_30sdp"
-                    android:layout_marginLeft="@dimen/_32sdp"
-                    android:layout_marginTop="@dimen/_30sdp"
-                    android:layout_marginBottom="@dimen/_16sdp">
-                    <LinearLayout
+
+            </LinearLayout>
+
+            <!--<LinearLayout
+                android:id="@+id/actionbar"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/back_arrow"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.zavosh.itfamily.myviews.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:background="@android:color/transparent">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="0.7">
+                        android:layout_margin="8dp"
+                        android:text="ویدیوها"
+                        android:gravity="right|center"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"/>
+                </LinearLayout>
 
-                        </LinearLayout>
-                        <TextView
-                            android:textColor="@color/textColor"
-                            android:layout_height="0dp"
-                            android:layout_weight="0.2"
-                            android:maxLines="2"
-                            android:textDirection="anyRtl"
-                            android:padding="@dimen/_5sdp"
-                            android:gravity="center"
-                            android:id="@+id/video_detail_summery"
-                            android:layout_width="match_parent"
-                            android:textSize="@dimen/_10sdp"/>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_35sdp"
-                            android:layout_margin="8dp"
-                            android:background="@drawable/bg_corner_them"
+                <View
+                    android:background="@drawable/ic_next_black"
+                    android:layout_width="2dp"
+                    android:layout_height="wrap_content"/>
 
-                            >
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.15"
-                                >
+                <ImageView
+                    android:src="@drawable/profile_icon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:padding="12dp"
+                    />
+            </LinearLayout>-->
 
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
-
-                                </ImageView>
-
-                            </LinearLayout>
-
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.15"
-                                >
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.15"
-                                >
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
-
-                                </ImageView>
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.4"
-                                android:gravity="center"
-                                >
-                                <com.zavosh.itfamily.myviews.MyTextView
-                                    android:id="@+id/tv_like"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/white"
-                                    >
-                                </com.zavosh.itfamily.myviews.MyTextView>
-
-
-                            </LinearLayout>
-
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.15"
-                                >
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
-
-                                </ImageView>
-
-                            </LinearLayout>
-
-
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/ly_play_video"
+            <RelativeLayout
+                android:layout_below="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_gravity="center"
                 android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:background="@android:color/transparent"
                 >
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/article_item_card"
-                    android:layout_width="@dimen/_270sdp"
-                    android:layout_height="@dimen/_200sdp"
-                    app:cardElevation="@dimen/_20sdp"
-                    app:cardCornerRadius="@dimen/_20sdp"
-                    android:layout_margin="@dimen/_12sdp">
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent">
 
-                        <com.zavosh.itfamily.myviews.MyImageView
-                            android:id="@+id/img_video_detail"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent">
+                    <androidx.cardview.widget.CardView
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="@dimen/_210sdp"
+                        android:layout_height="@dimen/_250sdp"
+                        android:layout_marginTop="@dimen/_150sdp"
+                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardElevation="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_12sdp"
+                        app:cardPreventCornerOverlap="false"
+                        >
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            app:riv_corner_radius_top_right="@dimen/_20sdp"
-                            app:riv_corner_radius_top_left="@dimen/_20sdp"
+                            android:orientation="vertical"
+                            android:background="@android:color/transparent"
                             >
-                        </com.zavosh.itfamily.myviews.MyImageView>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.6"
+                                >
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.35"
+                                android:layout_gravity="bottom"
+                                android:gravity="bottom|right"
+                                android:padding="@dimen/_2sdp"
+                                >
+
+                                <com.zavosh.itfamily.myviews.MyTextView
+                                    android:id="@+id/video_detail_comments"
+                                    android:layout_width="match_parent"
+                                    android:padding="@dimen/_5sdp"
+                                    android:layout_height="wrap_content"
+                                    android:textDirection="anyRtl"
+                                    android:textColor="@color/textColor"
+                                    android:textSize="@dimen/_10sdp"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.15"
+                                android:paddingRight="@dimen/_10sdp"
+                                android:paddingLeft="@dimen/_10sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:background="@drawable/cardview_background"
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.1"
+                                    android:gravity="center"
+                                    android:padding="@dimen/_1sdp"
+                                    >
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/ic_favorite_border_black_24dp"
+                                        >
+
+                                    </ImageView>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.8"
+                                    android:orientation="vertical"
+                                    >
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="0.5"
+                                        android:orientation="horizontal"
+                                        android:layout_gravity="center"
+                                        android:gravity="center|right"
+                                        >
+
+                                        <com.zavosh.itfamily.myviews.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textSize="@dimen/_10sdp"/>
 
 
-                        <ImageView
-                            android:id="@+id/play_btn"
-                            android:layout_centerInParent="true"
-                            android:src="@drawable/play_button"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"/>
+
+
+                                        <com.zavosh.itfamily.myviews.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/textColor"
+                                            android:textSize="@dimen/_12sdp"
+                                            android:paddingLeft="@dimen/_5sdp"
+                                            android:id="@+id/tv_comments"/>
 
 
 
-                        <com.zavosh.itfamily.myviews.MyTextViewBold
-                            android:textColor="@color/white"
-                            android:id="@+id/video_detail_title"
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="0.5"
+                                        android:orientation="vertical"
+                                        android:layout_gravity="right"
+                                        android:gravity="right"
+                                        android:visibility="gone">
+
+                                        <com.zavosh.itfamily.myviews.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textSize="@dimen/_8sdp"/>
+
+                                        <com.zavosh.itfamily.myviews.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textSize="@dimen/_8sdp"
+                                            >
+
+                                        </com.zavosh.itfamily.myviews.MyTextView>
+
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.1"
+                                    android:padding="@dimen/_1sdp"
+                                    android:gravity="center"
+                                    >
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/ic_insert_emoticon_black_24dp"
+                                        >
+
+                                    </ImageView>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="@dimen/_236sdp"
+                        android:layout_height="@dimen/_290sdp"
+                        app:cardPreventCornerOverlap="true"
+                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardElevation="@dimen/_30sdp"
+                        android:layout_marginLeft="@dimen/_32sdp"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginBottom="@dimen/_16sdp">
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_alignParentRight="true"
-                            android:padding="@dimen/_18sdp"
-                            >
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@android:color/transparent">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.7">
 
-                        </com.zavosh.itfamily.myviews.MyTextViewBold>
+                            </LinearLayout>
+                            <TextView
+                                android:textColor="@color/textColor"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.2"
+                                android:maxLines="2"
+                                android:textDirection="anyRtl"
+                                android:padding="@dimen/_5sdp"
+                                android:gravity="center"
+                                android:id="@+id/video_detail_summery"
+                                android:layout_width="match_parent"
+                                android:textSize="@dimen/_10sdp"/>
+                            <LinearLayout
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_gravity="bottom"
+                                android:orientation="horizontal"
+                                android:gravity="center"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:background="@drawable/bg_corner_them"
+                                >
+
+                                <ImageView
+                                    android:layout_width="@dimen/_25sdp"
+                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_marginLeft="@dimen/_5sdp"
+                                    android:src="@drawable/like"
+                                    android:scaleType="fitXY"
+                                    android:padding="@dimen/_5sdp"
+                                    android:background="@drawable/bg_corner_white"/>
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_25sdp"
+                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_marginLeft="@dimen/_5sdp"
+                                    android:src="@drawable/comment"
+                                    android:scaleType="fitXY"
+                                    android:padding="@dimen/_5sdp"
+                                    android:background="@drawable/bg_corner_white"/>
+
+                                <ImageView
+                                    android:layout_width="@dimen/_25sdp"
+                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_marginLeft="@dimen/_5sdp"
+                                    android:src="@drawable/send"
+                                    android:scaleType="fitXY"
+                                    android:padding="@dimen/_5sdp"
+                                    android:background="@drawable/bg_corner_white"/>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.6"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center_vertical|right"
+                                    >
+
+                                    <com.zavosh.itfamily.myviews.MyTextView
+                                        android:id="@+id/tv_likes_count"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/white" />
+
+                                </LinearLayout>
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/_25sdp"
+                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_marginLeft="@dimen/_5sdp"
+                                    android:layout_marginRight="@dimen/_5sdp"
+                                    android:src="@drawable/download"
+                                    android:scaleType="fitXY"
+                                    android:padding="@dimen/_5sdp"
+                                    android:background="@drawable/bg_corner_white"/>
 
 
 
 
-                    </RelativeLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>
 
-                </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:id="@+id/ly_play_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    >
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/article_item_card"
+                        android:layout_width="@dimen/_270sdp"
+                        android:layout_height="@dimen/_200sdp"
+                        app:cardElevation="@dimen/_20sdp"
+                        app:cardCornerRadius="@dimen/_20sdp"
+                        android:layout_margin="@dimen/_12sdp">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent">
 
-            </LinearLayout>
+                            <com.zavosh.itfamily.myviews.MyImageView
+                                android:id="@+id/img_video_detail"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                app:riv_corner_radius_top_right="@dimen/_20sdp"
+                                app:riv_corner_radius_top_left="@dimen/_20sdp"
+                                >
+                            </com.zavosh.itfamily.myviews.MyImageView>
+
+
+                            <ImageView
+                                android:id="@+id/play_btn"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/play_button"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"/>
+
+
+
+                            <com.zavosh.itfamily.myviews.MyTextViewBold
+                                android:textColor="@color/white"
+                                android:id="@+id/video_detail_title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:padding="@dimen/_18sdp"
+                                >
+
+                            </com.zavosh.itfamily.myviews.MyTextViewBold>
+
+
+
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+
         </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
 
-    </RelativeLayout>
 
-</androidx.core.widget.NestedScrollView>
+</RelativeLayout>

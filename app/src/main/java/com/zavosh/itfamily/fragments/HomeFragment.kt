@@ -34,11 +34,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun setup() {
-
         rootView.img_menu.setOnClickListener {
-
             HomeActivity.drawer.openDrawer()
-
         }
 
         Log.i("tokennnnnnn", Memory.loadToken())

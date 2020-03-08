@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zavosh.itfamily.R
+import com.zavosh.itfamily.activities.HomeActivity
 import com.zavosh.itfamily.adapters.VideoListAdapter
 import com.zavosh.itfamily.retrofit.Server
 import com.zavosh.itfamily.retrofit.mymodels.Callback
@@ -30,6 +31,10 @@ class VideoListFragment:Fragment() {
     }
 
     private fun setup() {
+
+        rootview.menu.setOnClickListener {
+            HomeActivity.drawer.openDrawer()
+        }
 
         rootview.img_back.setOnClickListener {
 

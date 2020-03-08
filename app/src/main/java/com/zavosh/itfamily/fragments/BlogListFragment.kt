@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zavosh.itfamily.R
+import com.zavosh.itfamily.activities.HomeActivity
 import com.zavosh.itfamily.adapters.BlogListAdapter
 import com.zavosh.itfamily.retrofit.Server
 import com.zavosh.itfamily.retrofit.mymodels.Callback
@@ -28,7 +29,7 @@ class BlogListFragment:Fragment() {
     }
 
     private fun setup() {
-
+        rootView.img_menu.setOnClickListener {HomeActivity.drawer.openDrawer()}
        Server.getInstance(activity).getBlogList(rootView.loader_blog_list, object : Callback.BlogList {
            override fun callback(result: MutableList<BlogListResult>?) {
 

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zavosh.itfamily.R
+import com.zavosh.itfamily.activities.HomeActivity
 import com.zavosh.itfamily.adapters.PodcastAdapter
 import com.zavosh.itfamily.retrofit.Server
 import com.zavosh.itfamily.retrofit.mymodels.Callback
@@ -27,7 +28,9 @@ class PodCastFragment : Fragment() {
     }
 
     private fun setup() {
-
+        rootView.menu.setOnClickListener {
+            HomeActivity.drawer.openDrawer()
+        }
 
         rootView.img_back.setOnClickListener {
 

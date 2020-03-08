@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.zavosh.itfamily.R
+import com.zavosh.itfamily.activities.HomeActivity
 import com.zavosh.itfamily.helper.Memory
 import com.zavosh.itfamily.myviews.MyToast
 import com.zavosh.itfamily.retrofit.Server
@@ -35,6 +36,9 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setup() {
+        fragmentView.img_menu.setOnClickListener {
+            HomeActivity.drawer.openDrawer()
+        }
 
         fragmentView.phone_register.setText(Memory.loadPhone() ?: "")
 

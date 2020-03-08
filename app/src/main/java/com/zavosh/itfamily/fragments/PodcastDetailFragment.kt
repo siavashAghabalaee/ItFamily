@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.jean.jcplayer.model.JcAudio
 import com.zavosh.itfamily.R
+import com.zavosh.itfamily.activities.HomeActivity
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.Podcast
 import com.zavosh.itfamily.retrofit.mymodels.podcastlistrequest.PodcastListResult
 import kotlinx.android.synthetic.main.fragment_pod_detail.view.*
@@ -36,6 +37,9 @@ class PodcastDetailFragment: Fragment() {
     }
 
     private fun setup() {
+        rootView.menu.setOnClickListener {
+            HomeActivity.drawer.openDrawer()
+        }
         rootView.img_back.setOnClickListener { activity?.onBackPressed() }
 
 

@@ -150,110 +150,55 @@
             />
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             app:layout_constraintTop_toBottomOf="@id/register_top"
             app:layout_constraintBottom_toTopOf="@id/register_bottom"
             app:layout_constraintRight_toLeftOf="@id/register_right"
             app:layout_constraintLeft_toRightOf="@id/register_left"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:padding="@dimen/_10sdp"
+            android:gravity="center"
             android:orientation="vertical"
             android:background="@drawable/cardview_background"
             >
 
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/phone_top"
-                android:layout_width="0.5dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.07" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/phone_bottom"
-                android:layout_width="0.5dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.27" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/email_top"
-                android:layout_width="0.5dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.34" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/desc_bottom"
-                android:layout_width="0.5dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.94" />
-
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/register_card_right"
-                android:layout_width="0.5dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.95"
-                />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/register_card_left"
-                android:layout_width="0.5dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.05"
-                />
 
 
 
-
-
-            <EditText
+            <com.zavosh.itfamily.myviews.MyEditText
                 android:id="@+id/phone_register"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:hint="شماره موبایل"
                 android:singleLine="true"
-                android:textColor="@color/white"
+                android:textColor="@color/textColor"
                 android:textColorHint="@color/hint"
                 android:textSize="12sp"
-                app:layout_constraintTop_toBottomOf="@id/phone_top"
-                app:layout_constraintBottom_toTopOf="@id/phone_bottom"
-                android:background="@drawable/edit_text_background"
-                app:layout_constraintRight_toLeftOf="@id/register_card_right"
-                app:layout_constraintLeft_toRightOf="@id/register_card_left"
-                >
-
-            </EditText>
+                android:background="@drawable/edit_text_background"/>
 
 
 
-            <EditText
+            <com.zavosh.itfamily.myviews.MyEditText
                 android:id="@+id/desc_register"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
                 android:hint="توضیحات"
-                android:gravity="top"
-                android:lines="12"
-                android:textColor="@color/white"
-                android:textColorHint="@color/hint"
-                android:textSize="12sp"
-                app:layout_constraintTop_toBottomOf="@id/email_top"
-                app:layout_constraintBottom_toTopOf="@id/desc_bottom"
-                android:background="@drawable/edit_text_background"
-                app:layout_constraintRight_toLeftOf="@id/register_card_right"
-                app:layout_constraintLeft_toRightOf="@id/register_card_left"
-                >
+                android:maxLines="10"
+                android:minLines="3"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_12sdp"
+                android:background="@drawable/edit_text_background"/>
 
-            </EditText>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
 
         <ImageView
             android:layout_width="0dp"

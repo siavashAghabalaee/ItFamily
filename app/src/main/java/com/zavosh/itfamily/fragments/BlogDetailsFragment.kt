@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.zavosh.itfamily.R
+import com.zavosh.itfamily.activities.HomeActivity
 import com.zavosh.itfamily.helper.PageManager
 import com.zavosh.itfamily.helper.PublicMethods
 import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListResult
@@ -35,6 +36,9 @@ class BlogDetailsFragment : Fragment() {
     }
 
     private fun setup() {
+        rootView.menu.setOnClickListener {
+            HomeActivity.drawer.openDrawer()
+        }
 
         rootView.img_back.setOnClickListener { activity?.onBackPressed() }
 

@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/edit_text_background"
+        android:textColor="@color/textColor"
         android:padding="@dimen/_8sdp"
         android:textSize="@dimen/_12sdp"/>
 
@@ -19,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/_12sdp"
+        android:textColor="@color/textColor"
         android:padding="@dimen/_5sdp"
         />
 

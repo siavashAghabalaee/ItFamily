@@ -1,5 +1,7 @@
 package com.zavosh.itfamily.fragments
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,10 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.zavosh.itfamily.R
+import com.zavosh.itfamily.activities.HomeActivity
 import com.zavosh.itfamily.helper.PageManager
 import com.zavosh.itfamily.helper.PublicMethods
 import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineResult
 import kotlinx.android.synthetic.main.fragment_magazine_detail.view.*
+
 
 class MagazineDetailFragment : Fragment() {
 
@@ -37,13 +41,17 @@ class MagazineDetailFragment : Fragment() {
     private fun setup() {
 
         rootView.img_back.setOnClickListener { activity?.onBackPressed() }
-
+        rootView.menu.setOnClickListener {
+            HomeActivity.drawer.openDrawer()
+        }
         try {
             val magazine_detail = bundle.getParcelable<MagazineResult>("magazine_detail")
             bindViews(magazine_detail)
         } catch (e: Exception) {
 
         }
+
+
 
     }
 
@@ -64,6 +72,12 @@ class MagazineDetailFragment : Fragment() {
         }
 
         Log.i("eijaoiwajdid", magazineDetail.linkAddress)
+
+        rootView.im_dl.setOnClickListener {
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(magazineDetail.linkAddress)
+            activity?.startActivity(i)
+        }
 
     }
 
