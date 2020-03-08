@@ -1,5 +1,6 @@
 package com.zavosh.itfamily.activities
 
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setup() {
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
         //hide statusBar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
     }
