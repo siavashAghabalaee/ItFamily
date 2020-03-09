@@ -42,7 +42,6 @@ public class AdapterHomeNews extends RecyclerView.Adapter{
         if (viewHolder instanceof NewsViewHolder){
             SliderContent sliderContent = list.get(position);
             NewsViewHolder holder = (NewsViewHolder) viewHolder;
-            Log.i("aeaijwdaiojd",sliderContent.getImage());
             holder.imageView.setPicasso(sliderContent.getImage(),activity);
             holder.tv_title.setText(sliderContent.getTitle());
 

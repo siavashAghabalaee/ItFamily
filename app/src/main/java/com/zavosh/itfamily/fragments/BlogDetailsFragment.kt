@@ -1,6 +1,7 @@
 package com.zavosh.itfamily.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +31,7 @@ class BlogDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_magazine_detail, container, false)
+        rootView = inflater.inflate(R.layout.fragment_blog_detail, container, false)
         setup()
         return rootView
     }
@@ -62,7 +63,7 @@ class BlogDetailsFragment : Fragment() {
     private fun bindViews(blog_detail: BlogListResult) {
 
         rootView.tv_magazine_title.text = blog_detail.title ?: ""
-        rootView.tv_magazine_summery.text = blog_detail.summery ?: ""
+        rootView.tv_magazine_summery.text = blog_detail.body ?: ""
         rootView.tv_comments_count.text = (blog_detail.commentCount ?: "") + " نفر نظر داده اند"
         rootView.tv_likes_count.text = (blog_detail.linkeCount ?: "") + " نفر پسندیده اند "
         rootView.publish_date_txt.text = PublicMethods.getDate(blog_detail.publishDate)

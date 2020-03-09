@@ -201,6 +201,15 @@ public class HomeAdapters extends RecyclerView.Adapter {
             super(itemView);
             iv_image = itemView.findViewById(R.id.iv_image_blog);
             tv_title = itemView.findViewById(R.id.tv_titleBlog);
+
+            iv_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle=new Bundle();
+                    bundle.putParcelable("blog_detail",blogContent);
+                    PageManager.getInstance().goBlogsDetailsFragment(bundle);
+                }
+            });
         }
     }
 

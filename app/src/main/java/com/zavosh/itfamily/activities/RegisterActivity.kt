@@ -67,16 +67,13 @@ class RegisterActivity : AppCompatActivity() {
             }else{
                 sendRegisterRequest()
             }
-
         }
-
         tv_skip.setOnClickListener {
             PageManager.getInstance().goHomeActivity(this@RegisterActivity)
         }
     }
 
     private fun sendRegisterRequest() {
-
         Server.getInstance(this@RegisterActivity)
             .sendProfile(etv_name.text.toString().trim(), etv_mail.text.toString().trim(),
                 sex, register_loader,
@@ -85,12 +82,8 @@ class RegisterActivity : AppCompatActivity() {
                    MyToast.showToast(this@RegisterActivity,result)
                     }
                 }
-
-
             )
-
     }
-
     private fun setup() {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
         //hide statusBar

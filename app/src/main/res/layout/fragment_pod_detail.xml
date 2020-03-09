@@ -67,7 +67,7 @@
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="@dimen/_360sdp"
+            android:layout_marginTop="@dimen/_410sdp"
             android:gravity="center_horizontal"
             android:orientation="vertical">
             <androidx.cardview.widget.CardView
@@ -149,7 +149,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="@dimen/_230sdp"
                     android:layout_height="@dimen/_200sdp"
-                    android:layout_marginTop="@dimen/_170sdp"
+                    android:layout_marginTop="@dimen/_190sdp"
                     android:layout_centerHorizontal="true"
                     app:cardCornerRadius="@dimen/_20sdp"
                     app:cardElevation="@dimen/_10sdp"
@@ -403,6 +403,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:elevation="10dp"
+                        android:layout_marginBottom="@dimen/_20sdp"
                         android:background="@drawable/pod_background">
 
                         <LinearLayout
@@ -429,7 +430,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="@dimen/_5sdp"
-                                android:singleLine="true"
+                                android:minLines="3"
                                 android:gravity="center"
                                 android:text="dsa"
                                 android:textSize="@dimen/_10sdp"/>
@@ -513,8 +514,5 @@
 
             </LinearLayout>
         </RelativeLayout>
-
-
-
     </RelativeLayout>
 </androidx.core.widget.NestedScrollView>
