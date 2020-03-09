@@ -76,10 +76,10 @@ class HomeActivity : AppCompatActivity(), Drawer.OnDrawerItemClickListener {
 
     private fun setup() {
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
-        btnTab.add(MeowBottomNavigation.Model(1, R.drawable.home_icon))
-        btnTab.add(MeowBottomNavigation.Model(2, R.drawable.user_icon))
-        btnTab.add(MeowBottomNavigation.Model(3, R.drawable.magazine_icon))
-        btnTab.add(MeowBottomNavigation.Model(4, R.drawable.news_icon))
+        btnTab.add(MeowBottomNavigation.Model(1, R.mipmap.home_icon))
+        btnTab.add(MeowBottomNavigation.Model(2, R.mipmap.user_icon))
+        btnTab.add(MeowBottomNavigation.Model(3, R.mipmap.magazin_icon))
+        btnTab.add(MeowBottomNavigation.Model(4, R.mipmap.news_icon))
 
         btnTab.show(1)
         PageManager.getInstance(this@HomeActivity, supportFragmentManager).goHomeFragment()
