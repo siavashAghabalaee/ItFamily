@@ -44,17 +44,24 @@ public class SliderContent implements Parcelable {
         id = in.readString();
         image = in.readString();
         title = in.readString();
+        summery = in.readString();
+        linkeCount = in.readString();
+        body = in.readString();
+        linkAddress = in.readString();
+        publishDate = in.readString();
+        contentSource = in.readString();
+        commentCount = in.readString();
     }
 
-    public static final Creator<SliderContent> CREATOR = new Creator<SliderContent>() {
+    public static final Creator<BlogContent> CREATOR = new Creator<BlogContent>() {
         @Override
-        public SliderContent createFromParcel(Parcel in) {
-            return new SliderContent(in);
+        public BlogContent createFromParcel(Parcel in) {
+            return new BlogContent(in);
         }
 
         @Override
-        public SliderContent[] newArray(int size) {
-            return new SliderContent[size];
+        public BlogContent[] newArray(int size) {
+            return new BlogContent[size];
         }
     };
 
@@ -148,5 +155,12 @@ public class SliderContent implements Parcelable {
         dest.writeString(id);
         dest.writeString(image);
         dest.writeString(title);
+        dest.writeString(summery);
+        dest.writeString(linkeCount);
+        dest.writeString(body);
+        dest.writeString(linkAddress);
+        dest.writeString(publishDate);
+        dest.writeString(contentSource);
+        dest.writeString(commentCount);
     }
 }

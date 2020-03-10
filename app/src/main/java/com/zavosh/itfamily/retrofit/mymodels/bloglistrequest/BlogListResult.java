@@ -40,6 +40,19 @@ public class BlogListResult implements Parcelable {
     @Expose
     private String commentCount;
 
+    public BlogListResult(String id, String title, String summery, String image, String linkeCount, String body, String linkAddress, String publishDate, String contentSource, String commentCount) {
+        this.id = id;
+        this.title = title;
+        this.summery = summery;
+        this.image = image;
+        this.linkeCount = linkeCount;
+        this.body = body;
+        this.linkAddress = linkAddress;
+        this.publishDate = publishDate;
+        this.contentSource = contentSource;
+        this.commentCount = commentCount;
+    }
+
     protected BlogListResult(Parcel in) {
         id = in.readString();
         title = in.readString();

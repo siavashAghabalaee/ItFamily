@@ -2,6 +2,7 @@ package com.zavosh.itfamily.adapters;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.zavosh.itfamily.R;
 import com.zavosh.itfamily.helper.PageManager;
 import com.zavosh.itfamily.myviews.MyImageView;
 import com.zavosh.itfamily.myviews.MyTextView;
+import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListResult;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.BlogContent;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.Magzine;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.Podcast;
@@ -205,8 +207,13 @@ public class HomeAdapters extends RecyclerView.Adapter {
             iv_image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Log.i("dsdefef","123456");
+                    BlogListResult blog = new BlogListResult(blogContent.getId(),
+                            blogContent.getTitle(), blogContent.getSummery(), blogContent.getImage(),
+                            blogContent.getLinkeCount(),blogContent.getBody(),blogContent.getLinkAddress(),blogContent.getPublishDate(),blogContent.getContentSource(),
+                            blogContent.getCommentCount());
                     Bundle bundle=new Bundle();
-                    bundle.putParcelable("blog_detail",blogContent);
+                    bundle.putParcelable("blog_detail",blog);
                     PageManager.getInstance().goBlogsDetailsFragment(bundle);
                 }
             });

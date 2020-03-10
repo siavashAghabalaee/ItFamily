@@ -1,0 +1,109 @@
+{ 
+  "stories": [
+	{
+		
+		"refnum" : 1,
+		"chars":[
+			{
+				"index":0,
+				"distanceToRefCenter":0.4,
+				"placementDegreeToRefCenter":360,
+				"turningRelDegreesToRight": 15,
+				"turningRelDegreesToLeft": 0,
+				"turningDegreeToRefCenter":0,
+				"animationCount": 2,
+				"soundCount":2,
+				"interactableOnPlane": 1
+			}
+		],
+		"charDoubleRelation":
+		[
+			[1,2,3,4],
+			[5,6,7],
+			[8],
+			[9]
+		],
+		"sounds":
+		[
+			{
+				"index":0,
+				"vol":0.5
+			}
+		],
+		"storyboard":
+		{
+			"playSound":[
+				{
+					"soundIndex":0,
+					"pitch":0,
+					"timeOffset":2.4
+				}
+			],
+			"playCharAnim":[
+				{
+					"charIndex":0,
+					"speed":1,
+					"timeOffset":2.0,
+				}
+			],
+			"showChar":[
+				{
+					"charIndex":0,
+					"speed": 1,
+					"timeOffset":2.0
+				}
+			],
+			"hideChar":[
+				{
+					"charIndex":0,
+					"speed": 1,
+					"timeOffset":2.5
+				}
+			],
+			"lookRightChar":[
+				{
+					"charIndex":0,
+					"speed":1,
+					"relDegrees":10,
+					"timeOffset":2.2
+				}
+			],
+			"lookLeftChar":[
+				{
+					"charIndex":0,
+					"speed":1,
+					"relDegrees":10,
+					"timeOffset":2.2
+				}
+			],
+			"moveToPositionChar":[
+				{
+					"charIndex":0,
+					"speed":1,
+					"moveToPosition": {"x":2,"y":0,"z":3, "w":0},
+					"timeOffset": 2.2
+				}
+			],
+			"moveForwardChar":[
+				{
+					"charIndex":0,
+					"speed":1,
+					"moveDistance":10,
+					"timeOffset":2.2
+				}
+			],
+			"playTV":[
+				{
+					"videoIndex":0,
+					"timeOffset":2.3
+				}
+			]
+			
+			
+			
+			
+		}
+	},
+	{}
+  ]
+}

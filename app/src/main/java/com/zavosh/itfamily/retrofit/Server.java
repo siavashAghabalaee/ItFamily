@@ -39,10 +39,13 @@ public class Server implements RequestsManager {
         this.context = context;
     }
     public static Server getInstance(Context context){
-        if (server == null)
+        if (server == null) {
+            Log.i("oawdiadiwjawd", "121");
             return server = new Server(context);
-        else
+        }else {
+            Log.i("oawdiadiwjawd", "122");
             return server;
+        }
     }
 
     //id = 1
@@ -97,11 +100,15 @@ public class Server implements RequestsManager {
     //id = 3
     public void getHome(String version,String osType, final ProgressBar loader
             , final com.zavosh.itfamily.retrofit.mymodels.Callback.Home callback){
+        Log.i("oawdiadiwjawd", "123");
         this.loader = loader;   this.version = version;  this.osType = osType;  this.callbackHome = callback;
+        Log.i("oawdiadiwjawd", "124");
         this.loader.setVisibility(View.VISIBLE);
+        Log.i("oawdiadiwjawd", "125");
         apiService.getHome(Memory.loadToken(),new HomeSender(version,osType)).enqueue(new Callback<HomeRequest>() {
             @Override
             public void onResponse(Call<HomeRequest> call, Response<HomeRequest> response) {
+                Log.i("oawdiadiwjawd", "126");
                 Server.this.loader.setVisibility(View.GONE);
                 CheckResponse checkResponse = new CheckResponse(response.code(),context,3,Server.this);
                 if (checkResponse.checkRequestCode() && checkResponse.checkStatus(response.body().getStatus())){
@@ -111,6 +118,7 @@ public class Server implements RequestsManager {
 
             @Override
             public void onFailure(Call<HomeRequest> call, Throwable t) {
+                Log.i("oawdiadiwjawd", "127");
                 if (context!=null) {
                     loader.setVisibility(View.GONE);
                     MyToast.showToast(context, context.getString(R.string.error));

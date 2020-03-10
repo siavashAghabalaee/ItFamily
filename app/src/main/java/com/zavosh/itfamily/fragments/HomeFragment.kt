@@ -28,7 +28,9 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        Log.i("oawdiadiwjawd", "10")
         rootView = inflater.inflate(R.layout.fragment_home, container, false)
+        Log.i("oawdiadiwjawd", "11")
         setup()
         return rootView
     }
@@ -44,11 +46,11 @@ class HomeFragment : Fragment() {
 
 
     private fun getHomeData() {
-        Log.i("aeaijwdaiojd", "1")
+        Log.i("oawdiadiwjawd", "12")
         Server.getInstance(context!!)
             .getHome(PublicMethods.getAppVersion(context!!), "Android", rootView.loader_home,
                 Callback.Home {
-                    Log.i("aeaijwdaiojd", "ok")
+                    Log.i("oawdiadiwjawd", "13")
                     var adapter = HomeAdapters(
                         activity,
                         it.sliderContents,
@@ -57,9 +59,10 @@ class HomeFragment : Fragment() {
                         it.blogContent,
                         it.magzines
                     )
+                    Log.i("oawdiadiwjawd", "14")
                     rootView.recyclerView_home.layoutManager = LinearLayoutManager(context)
                     rootView.recyclerView_home.adapter = adapter
-
+                    Log.i("oawdiadiwjawd", "15")
                 })
     }
 }

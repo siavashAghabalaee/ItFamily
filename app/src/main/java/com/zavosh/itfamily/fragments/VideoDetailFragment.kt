@@ -65,7 +65,7 @@ class VideoDetailFragment : Fragment() {
     private fun bindViews(video_detail: VideoListResult) {
 
         rootView.video_detail_title.text = video_detail.title ?: ""
-        rootView.video_detail_summery.text = video_detail.summery ?: ""
+        rootView.video_detail_summery.text = video_detail.body ?: ""
         rootView.video_detail_comments.text = (video_detail.commentCount ?: "") + " نفر نظر داده اند "
         //rootView.tv_like.text = (video_detail.linkeCount ?: "") + " نفر پسندیده اند "
         //rootView.video_detail_address_link.text = video_detail.linkAddress ?: ""
