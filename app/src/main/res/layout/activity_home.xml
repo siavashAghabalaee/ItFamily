@@ -1,61 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:id="@+id/mDrawerLayout"
     tools:context=".activities.HomeActivity">
 
-  <!--  <LinearLayout
-        android:id="@+id/actionbar"
-        android:layout_alignParentTop="true"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/white">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:id="@+id/basket"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
-           &lt;!&ndash; <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="8dp"
-                android:src="@drawable/back_arrow"/>&ndash;&gt;
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <com.zavosh.itfamily.myviews.MyTextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:gravity="center"
-                android:text="@string/app_name"
-                android:textColor="@color/md_black_1000"
-                android:textSize="15sp"/>
-        </LinearLayout>
-
-        <ImageView
-            android:src="@drawable/menu_icon"
-            android:id="@+id/img_menu"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:padding="12dp"
-            />
-    </LinearLayout>-->
-
-
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -73,5 +31,15 @@
         app:mbn_rippleColor="#2f424242"
         app:mbn_selectedIconColor="#3c415e"
         app:mbn_shadowColor="#1f212121"/>
+  </RelativeLayout>
 
-</RelativeLayout>
+
+
+  <com.google.android.material.navigation.NavigationView
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:layout_gravity="end"
+      android:id="@+id/nNavigationView"
+      android:fitsSystemWindows="true"
+      app:menu="@menu/menu"/>
+</androidx.drawerlayout.widget.DrawerLayout >

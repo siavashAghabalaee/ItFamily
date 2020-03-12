@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zavosh.itfamily.R
@@ -37,7 +39,7 @@ class HomeFragment : Fragment() {
 
     private fun setup() {
         rootView.img_menu.setOnClickListener {
-            HomeActivity.drawer.openDrawer()
+            activity?.findViewById<DrawerLayout>(R.id.mDrawerLayout)!!.openDrawer(GravityCompat.END)
         }
 
         Log.i("tokennnnnnn", Memory.loadToken())

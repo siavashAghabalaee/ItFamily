@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zavosh.itfamily.R
@@ -30,7 +32,7 @@ class QuestionFragment: Fragment() {
     private fun setup() {
 
         rootView.menu.setOnClickListener {
-            HomeActivity.drawer.openDrawer()
+            activity?.findViewById<DrawerLayout>(R.id.mDrawerLayout)!!.openDrawer(GravityCompat.END)
         }
 
         rootView.img_back.setOnClickListener {

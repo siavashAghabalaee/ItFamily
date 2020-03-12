@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zavosh.itfamily.R
@@ -33,7 +35,7 @@ class VideoListFragment:Fragment() {
     private fun setup() {
 
         rootview.menu.setOnClickListener {
-            HomeActivity.drawer.openDrawer()
+            activity?.findViewById<DrawerLayout>(R.id.mDrawerLayout)!!.openDrawer(GravityCompat.END)
         }
 
         rootview.img_back.setOnClickListener {

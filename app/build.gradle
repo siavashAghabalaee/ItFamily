@@ -76,13 +76,13 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     //-------------parisa-------------
     //required support lib modules
-    implementation "com.mikepenz:materialdrawer-nav:7.0.0-rc07"
+    /*implementation "com.mikepenz:materialdrawer-nav:7.0.0-rc07"
     implementation "com.mikepenz:materialdrawer:7.0.0-rc07"
     implementation "androidx.recyclerview:recyclerview:1.1.0-beta04"
     implementation "androidx.annotation:annotation:1.0.0-alpha01"
-    implementation "com.google.android.material:material:1.1.0-alpha10"
-    implementation 'com.github.jeancsanchez:JcPlayer:2.6.16'
+    implementation "com.google.android.material:material:1.1.0-alpha10"*/
 
+    implementation 'com.github.jeancsanchez:JcPlayer:2.6.16'
     implementation 'com.github.halilozercan:BetterVideoPlayer:kotlin-SNAPSHOT'
 
     //pdf

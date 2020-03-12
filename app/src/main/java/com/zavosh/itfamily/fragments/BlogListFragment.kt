@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zavosh.itfamily.R
@@ -29,7 +31,9 @@ class BlogListFragment:Fragment() {
     }
 
     private fun setup() {
-        rootView.img_menu.setOnClickListener {HomeActivity.drawer.openDrawer()}
+        rootView.img_menu.setOnClickListener {
+            activity?.findViewById<DrawerLayout>(R.id.mDrawerLayout)!!.openDrawer(GravityCompat.END)
+        }
        Server.getInstance(activity).getBlogList(rootView.loader_blog_list, object : Callback.BlogList {
            override fun callback(result: MutableList<BlogListResult>?) {
 
