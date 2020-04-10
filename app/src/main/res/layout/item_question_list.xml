@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     >
 
-    <com.zavosh.itfamily.myviews.MyTextView
+    <com.zavosh.itfamili.myviews.MyTextView
         android:id="@+id/question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +15,7 @@
         android:padding="@dimen/_8sdp"
         android:textSize="@dimen/_12sdp"/>
 
-    <com.zavosh.itfamily.myviews.MyTextView
+    <com.zavosh.itfamili.myviews.MyTextView
         android:id="@+id/answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

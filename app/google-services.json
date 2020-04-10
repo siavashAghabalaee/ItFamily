@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "125839935565",
+    "firebase_url": "https://itfamili-6b709.firebaseio.com",
+    "project_id": "itfamili-6b709",
+    "storage_bucket": "itfamili-6b709.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125839935565:android:15732d14a13ee33ea17404",
+        "android_client_info": {
+          "package_name": "com.zavosh.itfamily"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "125839935565-se5r28s3qrkbv7sugkttpg4bijq01dgh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zavosh.itfamily",
+            "certificate_hash": "3b0f416191e9cbcd6d8a96334681851ca46a0b6e"
+          }
+        },
+        {
+          "client_id": "125839935565-4vvbf9gfk1q36lsmhvbi1en6altkf5o1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA21g96XOCv8vjweoUDC2fNozRR1UJe_Nw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "125839935565-4vvbf9gfk1q36lsmhvbi1en6altkf5o1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

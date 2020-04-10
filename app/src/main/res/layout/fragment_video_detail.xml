@@ -99,14 +99,14 @@
                             android:gravity="center"
                             >
 
-                            <com.zavosh.itfamily.myviews.MyTextView
+                            <com.zavosh.itfamili.myviews.MyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/_10sdp"
                                 android:text="تاریخ نشر"
                                 android:layout_marginBottom="@dimen/_5sdp">
 
-                            </com.zavosh.itfamily.myviews.MyTextView>
+                            </com.zavosh.itfamili.myviews.MyTextView>
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="0.5dp"
@@ -115,14 +115,14 @@
                                 android:layout_marginLeft="8dp"
                                 />
 
-                            <com.zavosh.itfamily.myviews.MyTextViewBold
+                            <com.zavosh.itfamili.myviews.MyTextViewBold
                                 android:id="@+id/link_address2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/_12sdp"
                                 android:layout_marginTop="@dimen/_10sdp" >
 
-                            </com.zavosh.itfamily.myviews.MyTextViewBold>
+                            </com.zavosh.itfamili.myviews.MyTextViewBold>
 
                         </LinearLayout>
                     </LinearLayout>
@@ -229,7 +229,7 @@
                                 android:padding="@dimen/_2sdp"
                                 >
 
-                                <com.zavosh.itfamily.myviews.MyTextView
+                                <com.zavosh.itfamili.myviews.MyTextView
                                     android:id="@+id/video_detail_comments"
                                     android:layout_width="match_parent"
                                     android:padding="@dimen/_5sdp"
@@ -281,7 +281,7 @@
                                         android:gravity="center|right"
                                         >
 
-                                        <com.zavosh.itfamily.myviews.MyTextView
+                                        <com.zavosh.itfamili.myviews.MyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:textSize="@dimen/_10sdp"/>
@@ -289,7 +289,7 @@
 
 
 
-                                        <com.zavosh.itfamily.myviews.MyTextView
+                                        <com.zavosh.itfamili.myviews.MyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/textColor"
@@ -310,18 +310,18 @@
                                         android:gravity="right"
                                         android:visibility="gone">
 
-                                        <com.zavosh.itfamily.myviews.MyTextView
+                                        <com.zavosh.itfamili.myviews.MyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:textSize="@dimen/_8sdp"/>
 
-                                        <com.zavosh.itfamily.myviews.MyTextView
+                                        <com.zavosh.itfamili.myviews.MyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:textSize="@dimen/_8sdp"
                                             >
 
-                                        </com.zavosh.itfamily.myviews.MyTextView>
+                                        </com.zavosh.itfamili.myviews.MyTextView>
 
 
                                     </LinearLayout>
@@ -402,6 +402,7 @@
                                     android:layout_marginLeft="@dimen/_5sdp"
                                     android:src="@drawable/like"
                                     android:scaleType="fitXY"
+                                    android:id="@+id/iv_like"
                                     android:padding="@dimen/_5sdp"
                                     android:background="@drawable/bg_corner_white"/>
 
@@ -413,6 +414,7 @@
                                     android:src="@drawable/comment"
                                     android:scaleType="fitXY"
                                     android:padding="@dimen/_5sdp"
+                                    android:id="@+id/iv_comment"
                                     android:background="@drawable/bg_corner_white"/>
 
                                 <ImageView
@@ -432,7 +434,7 @@
                                     android:gravity="center_vertical|right"
                                     >
 
-                                    <com.zavosh.itfamily.myviews.MyTextView
+                                    <com.zavosh.itfamili.myviews.MyTextView
                                         android:id="@+id/tv_likes_count"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -480,7 +482,7 @@
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent">
 
-                            <com.zavosh.itfamily.myviews.MyImageView
+                            <com.zavosh.itfamili.myviews.MyImageView
                                 android:id="@+id/img_video_detail"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -488,7 +490,7 @@
                                 app:riv_corner_radius_top_right="@dimen/_20sdp"
                                 app:riv_corner_radius_top_left="@dimen/_20sdp"
                                 >
-                            </com.zavosh.itfamily.myviews.MyImageView>
+                            </com.zavosh.itfamili.myviews.MyImageView>
 
 
                             <ImageView
@@ -500,7 +502,7 @@
 
 
 
-                            <com.zavosh.itfamily.myviews.MyTextViewBold
+                            <com.zavosh.itfamili.myviews.MyTextViewBold
                                 android:textColor="@color/white"
                                 android:id="@+id/video_detail_title"
                                 android:layout_width="match_parent"
@@ -510,7 +512,7 @@
                                 android:padding="@dimen/_18sdp"
                                 >
 
-                            </com.zavosh.itfamily.myviews.MyTextViewBold>
+                            </com.zavosh.itfamili.myviews.MyTextViewBold>
 
 
 

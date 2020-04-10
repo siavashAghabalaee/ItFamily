@@ -86,14 +86,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"/>
 
-                    <com.zavosh.itfamily.myviews.MyTextView
+                    <com.zavosh.itfamili.myviews.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_10sdp"
                         android:text="تاریخ نشر"
                         android:layout_marginBottom="@dimen/_5sdp">
 
-                    </com.zavosh.itfamily.myviews.MyTextView>
+                    </com.zavosh.itfamili.myviews.MyTextView>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0.5dp"
@@ -102,14 +102,14 @@
                         android:layout_marginLeft="8dp"
                         />
 
-                    <com.zavosh.itfamily.myviews.MyTextViewBold
+                    <com.zavosh.itfamili.myviews.MyTextViewBold
                         android:id="@+id/publish_date_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_12sdp"
                         >
 
-                    </com.zavosh.itfamily.myviews.MyTextViewBold>
+                    </com.zavosh.itfamili.myviews.MyTextViewBold>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -141,7 +141,7 @@
                         android:gravity="bottom|right"
                         android:padding="@dimen/_2sdp">
 
-                        <com.zavosh.itfamily.myviews.MyTextView
+                        <com.zavosh.itfamili.myviews.MyTextView
                             android:id="@+id/tv_comments_count"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -192,32 +192,32 @@
                                 android:gravity="center|right"
                                 >
 
-                                <com.zavosh.itfamily.myviews.MyTextView
+                                <com.zavosh.itfamili.myviews.MyTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="مهدی حسنی زاده"
                                     android:textSize="@dimen/_10sdp"
                                     >
 
-                                </com.zavosh.itfamily.myviews.MyTextView>
+                                </com.zavosh.itfamili.myviews.MyTextView>
 
-                                <com.zavosh.itfamily.myviews.MyTextView
+                                <com.zavosh.itfamili.myviews.MyTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text=":"
                                     android:textSize="@dimen/_10sdp"
                                     >
 
-                                </com.zavosh.itfamily.myviews.MyTextView>
+                                </com.zavosh.itfamili.myviews.MyTextView>
 
-                                <com.zavosh.itfamily.myviews.MyTextView
+                                <com.zavosh.itfamili.myviews.MyTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="بسیار لذت بردم"
                                     android:textSize="@dimen/_10sdp"
                                     >
 
-                                </com.zavosh.itfamily.myviews.MyTextView>
+                                </com.zavosh.itfamili.myviews.MyTextView>
 
 
 
@@ -232,23 +232,23 @@
                                 android:gravity="right"
                                 >
 
-                                <com.zavosh.itfamily.myviews.MyTextView
+                                <com.zavosh.itfamili.myviews.MyTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="۲ دقیقه قبل"
                                     android:textSize="@dimen/_8sdp"
                                     >
 
-                                </com.zavosh.itfamily.myviews.MyTextView>
+                                </com.zavosh.itfamili.myviews.MyTextView>
 
-                                <com.zavosh.itfamily.myviews.MyTextView
+                                <com.zavosh.itfamili.myviews.MyTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="جواب"
                                     android:textSize="@dimen/_8sdp"
                                     >
 
-                                </com.zavosh.itfamily.myviews.MyTextView>
+                                </com.zavosh.itfamili.myviews.MyTextView>
 
 
                             </LinearLayout>
@@ -304,7 +304,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"/>
 
-                    <com.zavosh.itfamily.myviews.MyTextView
+                    <com.zavosh.itfamili.myviews.MyTextView
                         android:padding="@dimen/_10sdp"
                         android:justificationMode="inter_word"
                         android:layout_margin="@dimen/_4sdp"
@@ -316,6 +316,7 @@
                         android:textSize="@dimen/_12sdp"/>
 
                     <LinearLayout
+                        android:visibility="invisible"
                         android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_35sdp"
@@ -333,6 +334,7 @@
                             android:src="@drawable/like"
                             android:scaleType="fitXY"
                             android:padding="@dimen/_5sdp"
+                            android:id="@+id/iv_like"
                             android:background="@drawable/bg_corner_white"/>
 
 
@@ -362,7 +364,7 @@
                             android:gravity="center_vertical|right"
                             >
 
-                            <com.zavosh.itfamily.myviews.MyTextView
+                            <com.zavosh.itfamili.myviews.MyTextView
                                 android:id="@+id/tv_likes_count"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -408,14 +410,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent">
-                        <com.zavosh.itfamily.myviews.MyImageView
+                        <com.zavosh.itfamili.myviews.MyImageView
                             android:id="@+id/img_detail"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
                             app:riv_corner_radius_top_right="@dimen/_20sdp"
                             app:riv_corner_radius_top_left="@dimen/_20sdp">
-                        </com.zavosh.itfamily.myviews.MyImageView>
+                        </com.zavosh.itfamili.myviews.MyImageView>
                         <ImageView
                             android:visibility="gone"
                             android:id="@+id/pdf_icon"
@@ -434,7 +436,7 @@
                         android:background="@drawable/bg_shap"
                         android:gravity="bottom|right"
                         android:orientation="vertical">
-                        <com.zavosh.itfamily.myviews.MyTextView
+                        <com.zavosh.itfamili.myviews.MyTextView
                             android:id="@+id/tv_magazine_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

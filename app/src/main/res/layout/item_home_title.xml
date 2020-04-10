@@ -11,7 +11,7 @@
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_height="@dimen/_35sdp">
 
-        <com.zavosh.itfamily.myviews.MyTextView
+        <com.zavosh.itfamili.myviews.MyTextView
             android:layout_marginRight="@dimen/_5sdp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

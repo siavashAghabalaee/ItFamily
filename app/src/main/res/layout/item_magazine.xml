@@ -46,7 +46,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical">
-                <com.zavosh.itfamily.myviews.MyTextView
+                <com.zavosh.itfamili.myviews.MyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -55,7 +55,7 @@
                     android:text="fefseff"
                     android:padding="@dimen/_5sdp"
                     android:id="@+id/tv_title"/>
-                <com.zavosh.itfamily.myviews.MyTextView
+                <com.zavosh.itfamili.myviews.MyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -66,7 +66,7 @@
                     android:id="@+id/tv_date"/>
             </LinearLayout>
         </LinearLayout>
-        <com.zavosh.itfamily.myviews.MyImageView
+        <com.zavosh.itfamili.myviews.MyImageView
             android:layout_width="@dimen/_75sdp"
             android:layout_height="@dimen/_100sdp"
             app:riv_corner_radius="@dimen/_10sdp"

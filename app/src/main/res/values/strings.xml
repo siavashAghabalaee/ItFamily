@@ -24,4 +24,6 @@
     <string name="ar_pref_assetsstaged">assetsStaged</string>
     <string name="ar_fit_image_to_scan">Fit image to scan</string>
     <string name="ar_problem_with_db">Could not load AR database</string>
+    <string name="commentHint">متن نظر</string>
+    <string name="send">ارسال</string>
 </resources>

@@ -93,14 +93,14 @@
                         android:gravity="center"
                         >
 
-                        <com.zavosh.itfamily.myviews.MyTextView
+                        <com.zavosh.itfamili.myviews.MyTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/_10sdp"
                             android:text="تاریخ نشر"
                             android:layout_marginBottom="@dimen/_5sdp">
 
-                        </com.zavosh.itfamily.myviews.MyTextView>
+                        </com.zavosh.itfamili.myviews.MyTextView>
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="0.5dp"
@@ -109,14 +109,14 @@
                             android:layout_marginLeft="8dp"
                             />
 
-                        <com.zavosh.itfamily.myviews.MyTextViewBold
+                        <com.zavosh.itfamili.myviews.MyTextViewBold
                             android:id="@+id/link_address2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/_12sdp"
                             >
 
-                        </com.zavosh.itfamily.myviews.MyTextViewBold>
+                        </com.zavosh.itfamili.myviews.MyTextViewBold>
 
                     </LinearLayout>
 
@@ -172,7 +172,7 @@
                             android:layout_weight="0.35"
                             android:gravity="bottom|right">
 
-                            <com.zavosh.itfamily.myviews.MyTextView
+                            <com.zavosh.itfamili.myviews.MyTextView
                                 android:id="@+id/tv_comments"
                                 android:layout_width="match_parent"
                                 android:textDirection="anyRtl"
@@ -224,32 +224,32 @@
                                     android:gravity="center|right"
                                     >
 
-                                    <com.zavosh.itfamily.myviews.MyTextView
+                                    <com.zavosh.itfamili.myviews.MyTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text=""
                                         android:textSize="@dimen/_10sdp"
                                         >
 
-                                    </com.zavosh.itfamily.myviews.MyTextView>
+                                    </com.zavosh.itfamili.myviews.MyTextView>
 
-                                    <com.zavosh.itfamily.myviews.MyTextView
+                                    <com.zavosh.itfamili.myviews.MyTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text=""
                                         android:textSize="@dimen/_10sdp"
                                         >
 
-                                    </com.zavosh.itfamily.myviews.MyTextView>
+                                    </com.zavosh.itfamili.myviews.MyTextView>
 
-                                    <com.zavosh.itfamily.myviews.MyTextView
+                                    <com.zavosh.itfamili.myviews.MyTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text=""
                                         android:textSize="@dimen/_10sdp"
                                         >
 
-                                    </com.zavosh.itfamily.myviews.MyTextView>
+                                    </com.zavosh.itfamili.myviews.MyTextView>
 
 
 
@@ -264,23 +264,23 @@
                                     android:gravity="right"
                                     >
 
-                                    <com.zavosh.itfamily.myviews.MyTextView
+                                    <com.zavosh.itfamili.myviews.MyTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text=""
                                         android:textSize="@dimen/_8sdp"
                                         >
 
-                                    </com.zavosh.itfamily.myviews.MyTextView>
+                                    </com.zavosh.itfamili.myviews.MyTextView>
 
-                                    <com.zavosh.itfamily.myviews.MyTextView
+                                    <com.zavosh.itfamili.myviews.MyTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="جواب"
                                         android:textSize="@dimen/_8sdp"
                                         >
 
-                                    </com.zavosh.itfamily.myviews.MyTextView>
+                                    </com.zavosh.itfamili.myviews.MyTextView>
 
 
                                 </LinearLayout>
@@ -343,7 +343,7 @@
 
                         >
 
-                        <com.zavosh.itfamily.myviews.MyImageView
+                        <com.zavosh.itfamili.myviews.MyImageView
                             android:id="@+id/profile_avatar"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -351,7 +351,7 @@
 
                     </androidx.cardview.widget.CardView>
 
-                    <com.zavosh.itfamily.myviews.MyTextView
+                    <com.zavosh.itfamili.myviews.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/tv_title"
@@ -363,7 +363,7 @@
 
                         >
 
-                    </com.zavosh.itfamily.myviews.MyTextView>
+                    </com.zavosh.itfamili.myviews.MyTextView>
 
                     <!--<LinearLayout
                         android:layout_width="match_parent"
@@ -425,7 +425,7 @@
                                     android:layout_height="wrap_content"/>
                             </LinearLayout>
 
-                            <com.zavosh.itfamily.myviews.MyTextView
+                            <com.zavosh.itfamili.myviews.MyTextView
                                 android:id="@+id/tv_summery"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -453,6 +453,7 @@
                                     android:layout_marginLeft="@dimen/_5sdp"
                                     android:src="@drawable/like"
                                     android:scaleType="fitXY"
+                                    android:id="@+id/iv_like"
                                     android:padding="@dimen/_5sdp"
                                     android:background="@drawable/bg_corner_white"/>
 
@@ -483,7 +484,7 @@
                                     android:gravity="center_vertical|right"
                                     >
 
-                                    <com.zavosh.itfamily.myviews.MyTextView
+                                    <com.zavosh.itfamili.myviews.MyTextView
                                         android:id="@+id/tv_likes_count"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"

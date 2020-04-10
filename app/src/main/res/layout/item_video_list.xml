@@ -32,7 +32,7 @@
                 android:gravity="center"
                 android:background="@android:color/transparent"
                 >
-                <com.zavosh.itfamily.myviews.MyImageView
+                <com.zavosh.itfamili.myviews.MyImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
@@ -42,7 +42,7 @@
                     app:riv_corner_radius_top_left="@dimen/_20sdp"
                     app:riv_corner_radius_top_right="@dimen/_20sdp"/>
 
-                <com.zavosh.itfamily.myviews.MyImageView
+                <com.zavosh.itfamili.myviews.MyImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/bg_shap"
@@ -57,7 +57,7 @@
                     android:orientation="vertical"
                     android:gravity="bottom|right">
 
-                    <com.zavosh.itfamily.myviews.MyTextViewBold
+                    <com.zavosh.itfamili.myviews.MyTextViewBold
                         android:id="@+id/tv_title"
                         android:textDirection="anyRtl"
                         android:layout_width="match_parent"
@@ -69,9 +69,9 @@
                         android:textColor="@color/white"
                         android:textStyle="bold">
 
-                    </com.zavosh.itfamily.myviews.MyTextViewBold>
+                    </com.zavosh.itfamili.myviews.MyTextViewBold>
 
-                    <com.zavosh.itfamily.myviews.MyTextView
+                    <com.zavosh.itfamili.myviews.MyTextView
                         android:id="@+id/tv_summery"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
                         android:paddingLeft="@dimen/_15sdp"
                         android:textColor="@color/white">
 
-                    </com.zavosh.itfamily.myviews.MyTextView>
+                    </com.zavosh.itfamili.myviews.MyTextView>
 
                 </LinearLayout>
 
@@ -132,6 +132,7 @@
                         android:layout_marginLeft="@dimen/_5sdp"
                         android:src="@drawable/like"
                         android:scaleType="fitXY"
+                        android:id="@+id/iv_like"
                         android:padding="@dimen/_5sdp"
                         android:background="@drawable/bg_corner_white"/>
 
@@ -162,7 +163,7 @@
                         android:gravity="center_vertical|right"
                         >
 
-                        <com.zavosh.itfamily.myviews.MyTextView
+                        <com.zavosh.itfamili.myviews.MyTextView
                             android:id="@+id/tv_like_count"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
