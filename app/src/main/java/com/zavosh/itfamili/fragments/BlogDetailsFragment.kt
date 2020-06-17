@@ -1,6 +1,7 @@
 package com.zavosh.itfamili.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,18 @@ import com.zavosh.itfamili.helper.PublicMethods
 import com.zavosh.itfamili.retrofit.Server
 import com.zavosh.itfamili.retrofit.mymodels.bloglistrequest.BlogListResult
 import com.zavosh.itfamili.retrofit.mymodels.homeRequest.SliderContent
+import kotlinx.android.synthetic.main.fragment_blog_detail.view.*
 import kotlinx.android.synthetic.main.fragment_magazine_detail.view.*
+import kotlinx.android.synthetic.main.fragment_magazine_detail.view.img_back
+import kotlinx.android.synthetic.main.fragment_magazine_detail.view.img_detail
+import kotlinx.android.synthetic.main.fragment_magazine_detail.view.iv_like
+import kotlinx.android.synthetic.main.fragment_magazine_detail.view.menu
+import kotlinx.android.synthetic.main.fragment_magazine_detail.view.pdf_icon
+import kotlinx.android.synthetic.main.fragment_magazine_detail.view.publish_date_txt
+import kotlinx.android.synthetic.main.fragment_magazine_detail.view.tv_comments_count
+import kotlinx.android.synthetic.main.fragment_magazine_detail.view.tv_likes_count
+import kotlinx.android.synthetic.main.fragment_magazine_detail.view.tv_magazine_summery
+import kotlinx.android.synthetic.main.fragment_magazine_detail.view.tv_magazine_title
 
 class BlogDetailsFragment : Fragment() {
 
@@ -62,7 +74,6 @@ class BlogDetailsFragment : Fragment() {
     }
 
     private fun bindViews(blog_detail: BlogListResult) {
-
         rootView.tv_magazine_title.text = blog_detail.title ?: ""
         rootView.tv_magazine_summery.text = blog_detail.body ?: ""
         rootView.tv_comments_count.text = (blog_detail.commentCount ?: "") + " نفر نظر داده اند"
@@ -93,11 +104,16 @@ class BlogDetailsFragment : Fragment() {
             }
 
         }
+
+        rootView.iv_comment.setOnClickListener {
+            var bundle = Bundle()
+            bundle.putString("id",blog_detail.id)
+            PageManager.getInstance().goCommentFragment(bundle)
+        }
     }
 
 
     private fun bindViewsFromHome(blog_detail: SliderContent) {
-
         rootView.pdf_icon.setOnClickListener {
 
             PageManager.getInstance().goPdfViewerActivity(activity, blog_detail.linkAddress?:"")
@@ -105,7 +121,7 @@ class BlogDetailsFragment : Fragment() {
         }
 
         rootView.tv_magazine_title.text = blog_detail.title ?: ""
-        rootView.tv_magazine_summery.text = blog_detail.summery ?: ""
+        rootView.tv_magazine_summery.text = blog_detail.body ?: ""
         rootView.tv_comments_count.text = (blog_detail.commentCount ?: "") + " نفر نظر داده اند"
         rootView.tv_likes_count.text = (blog_detail.linkeCount ?: "") + " نفر پسندیده اند "
         rootView.publish_date_txt.text = PublicMethods.getDate(blog_detail.publishDate)
@@ -126,9 +142,13 @@ class BlogDetailsFragment : Fragment() {
                     rootView.iv_like?.setImageResource(R.drawable.like)
                 }
             }
+        }
 
+        rootView.iv_comment.setOnClickListener {
+            var bundle = Bundle()
+            bundle.putString("id",blog_detail.id)
+            PageManager.getInstance().goCommentFragment(bundle)
         }
     }
-
 
 }

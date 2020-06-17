@@ -151,6 +151,7 @@
                             android:textSize="@dimen/_10sdp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:visibility="invisible"
                         android:paddingRight="@dimen/_10sdp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:layout_width="match_parent"

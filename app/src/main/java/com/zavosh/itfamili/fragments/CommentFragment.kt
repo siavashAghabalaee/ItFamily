@@ -11,16 +11,25 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zavosh.itfamili.R
 import com.zavosh.itfamili.adapters.CommentsAdapter
+import com.zavosh.itfamili.helper.PublicMethods
+import com.zavosh.itfamili.interfaces.OnEndListListener
 import com.zavosh.itfamili.retrofit.Server
 import com.zavosh.itfamili.retrofit.mymodels.commentrequest.CommentResult
 import kotlinx.android.synthetic.main.fragment_comment.view.*
 
 
-class CommentFragment : Fragment() {
+class CommentFragment : Fragment() ,OnEndListListener{
     private var page = 1
+    var isRequestEnd = false
+
     private lateinit var rootView: View
     private lateinit var adapter : CommentsAdapter
     private var list = ArrayList<CommentResult>()
+
+    companion object{
+        var isExistNextPage = true
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -38,6 +47,7 @@ class CommentFragment : Fragment() {
 
     private fun listeners() {
         rootView.tv_send.setOnClickListener {
+            PublicMethods.hideKeyboard(activity)
             if (rootView.etv_comment.text().trim().length!=0){
                 val id = arguments?.getString("id")
                 var comment = rootView.etv_comment.text().trim()
@@ -59,7 +69,7 @@ class CommentFragment : Fragment() {
         }
 
 
-        adapter = CommentsAdapter(activity!!,list)
+        adapter = CommentsAdapter(activity!!,list,this)
         rootView.recyclerView_comment.layoutManager = LinearLayoutManager(context)
         rootView.recyclerView_comment.adapter = adapter
 
@@ -67,12 +77,28 @@ class CommentFragment : Fragment() {
     }
 
     private fun getComments(page : Int) {
+        isRequestEnd = false
         val id = arguments?.getString("id")
-        Log.i("sefsejfsioef",id)
         Server.getInstance(context).getComments(id,page,{
-            Log.i("sefsejfsioef","ok :"+ it.size)
             list.addAll(it)
+            isRequestEnd = true
+
+            if (it.size == 10){
+                Log.i("aohdwuh","true")
+                isExistNextPage = true
+            }else{
+                Log.i("aohdwuh","false")
+                isExistNextPage = false
+            }
+
             adapter.notifyDataSetChanged()
         })
+    }
+
+    override fun endList() {
+        if (isRequestEnd && isExistNextPage){
+            page++
+            getComments(page)
+        }
     }
 }

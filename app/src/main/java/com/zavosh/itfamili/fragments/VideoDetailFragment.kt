@@ -55,7 +55,6 @@ class VideoDetailFragment : Fragment() {
         }
 
         try {
-
             val video_detail = bundle.getParcelable<Video>("video_home")
             bindViewsFromHome(video_detail)
         }catch (e:Exception){

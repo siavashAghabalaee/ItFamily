@@ -41,7 +41,7 @@ public class Podcast implements Parcelable {
     private String commentCount;
     @SerializedName("isLike")
     @Expose
-    private String isLike;
+    private String isLike = "false";
 
     protected Podcast(Parcel in) {
         id = in.readString();

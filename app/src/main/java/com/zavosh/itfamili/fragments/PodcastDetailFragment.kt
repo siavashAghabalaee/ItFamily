@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.jean.jcplayer.model.JcAudio
 import com.zavosh.itfamili.R
+import com.zavosh.itfamili.helper.PageManager
 import com.zavosh.itfamili.retrofit.Server
 import com.zavosh.itfamili.retrofit.mymodels.homeRequest.Podcast
 import com.zavosh.itfamili.retrofit.mymodels.podcastlistrequest.PodcastListResult
@@ -95,6 +96,12 @@ class PodcastDetailFragment: Fragment() {
 
         }
 
+        rootView.iv_comment.setOnClickListener {
+            var bundle = Bundle()
+            bundle.putString("id",podcastDetail.id)
+            PageManager.getInstance().goCommentFragment(bundle)
+        }
+
     }
 
     private fun bindViewsFromHome(podcastDetail: Podcast?) {
@@ -108,6 +115,15 @@ class PodcastDetailFragment: Fragment() {
         rootView.link_address2.text=podcastDetail?.publishDate?:""
         //rootView.link_address3.text=podcastDetail?.linkAddress?:""
 
+        podcastDetail?.isLike?.let {
+
+            if (podcastDetail?.isLike?.toBoolean()!!){
+                rootView.iv_like?.setImageResource(R.mipmap.red_like)
+            }else{
+                rootView.iv_like?.setImageResource(R.drawable.like)
+            }
+        }
+
 
         /*rootView.img_play.setOnClickListener {
 
@@ -118,6 +134,26 @@ class PodcastDetailFragment: Fragment() {
         jcAudios.add(JcAudio.createFromURL("",podcastDetail?.linkAddress!!))
 
         rootView.jcplayer.initPlaylist(jcAudios)
+
+        rootView.iv_like?.setOnClickListener {
+            context?.let {
+                if (!podcastDetail?.isLike?.isNullOrEmpty()!!) {
+                    Server.getInstance(it).like(podcastDetail.id, !podcastDetail.isLike.toBoolean())
+                    if (!podcastDetail.isLike.toBoolean()) {
+                        rootView.iv_like?.setImageResource(R.mipmap.red_like)
+                    } else {
+                        rootView.iv_like?.setImageResource(R.drawable.like)
+                    }
+                }
+            }
+
+        }
+
+        rootView.iv_comment.setOnClickListener {
+            var bundle = Bundle()
+            bundle.putString("id",podcastDetail.id)
+            PageManager.getInstance().goCommentFragment(bundle)
+        }
 
     }
 
