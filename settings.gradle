@@ -1,1 +1,6 @@
-include ':app'
+include ':app', 'jcoola-ar-unity-binding', 'jcoola-itfamiliar-lib'
+rootProject.name='ItFamily'
+
+include ':unityLibrary'
+project(':unityLibrary').projectDir=
+        new File('C:\\Users\\Siavash\\AndroidStudioProjects\\ItFamily\\androidBuild\\unityLibrary')
