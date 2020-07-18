@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.zavosh.itfamily.R
+import com.zavosh.itfamily.helper.Memory
 import com.zavosh.itfamily.helper.PageManager
 import com.zavosh.itfamily.myviews.MyToast
 import com.zavosh.itfamily.retrofit.Server
@@ -35,36 +36,31 @@ class RegisterActivity : AppCompatActivity() {
     private fun listeners() {
 
         chk_male.setOnCheckedChangeListener { buttonView, isChecked ->
-
-
-            if (isChecked){
+            sex = isChecked.toString()
+            if (isChecked) {
                 if (chk_female.isChecked) {
                     chk_female.isChecked = false
                 }
             }
-
-
         }
 
         chk_female.setOnCheckedChangeListener { buttonView, isChecked ->
-
-            if (isChecked){
+            sex = isChecked.toString()
+            if (isChecked) {
                 if (chk_male.isChecked) {
                     chk_male.isChecked = false
                 }
             }
-
         }
 
 
         iv_register.setOnClickListener {
 
-            if (etv_name.text.toString().isEmpty() || etv_mail.text.toString().isEmpty() || etv_password.text.toString().isEmpty()) {
+            if (etv_name.text.toString().isEmpty() || etv_mail.text.toString().isEmpty()) {
                 MyToast.showToast(this@RegisterActivity, "لطفا تمام فیلدها را وارد کنید")
-            }
-           else if (!chk_male.isChecked && !chk_female.isChecked) {
+            } else if (!chk_male.isChecked && !chk_female.isChecked) {
                 MyToast.showToast(this@RegisterActivity, "لطفا جنسیت را مشخص کنید")
-            }else{
+            } else {
                 sendRegisterRequest()
             }
         }
@@ -74,16 +70,24 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun sendRegisterRequest() {
+        var name = etv_name.text.toString().trim()
+        var email =  etv_mail.text.toString().trim()
         Server.getInstance(this@RegisterActivity)
-            .sendProfile(etv_name.text.toString().trim(), etv_mail.text.toString().trim(),
+            .sendProfile(name,email,
                 sex, register_loader,
                 object : Callback.PostProfile {
                     override fun callback(result: String?) {
-                   MyToast.showToast(this@RegisterActivity,result)
+                        MyToast.showToast(this@RegisterActivity, result)
+                        Memory.saveName(name)
+                        Memory.saveEmail(email)
+                        Memory.saveGender(sex.toBoolean())
+
+                        PageManager.getInstance().goHomeActivity(this@RegisterActivity)
                     }
                 }
             )
     }
+
     private fun setup() {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
         //hide statusBar
