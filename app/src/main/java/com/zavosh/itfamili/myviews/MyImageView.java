@@ -23,14 +23,14 @@ public class MyImageView extends RoundedImageView {
 
     public void setPicasso (String url, Context context){
         imageUrl = url;
-        Picasso.with(context).load(url).into(this);
+        Picasso.get().load(url).into(this);
     }
     public void setPicasso (String url , int placeholder , int error ,Context context){
         imageUrl = url;
-        Picasso.with(context).load(url).placeholder(placeholder).error(error).into(this);
+        Picasso.get().load(url).placeholder(placeholder).error(error).into(this);
     }
     public void setPicasso (String url , int placeholder , int error ,Context context,int x , int y){
         imageUrl = url;
-        Picasso.with(context).load(url).resize(x,y).onlyScaleDown().placeholder(placeholder).error(error).into(this);
+        Picasso.get().load(url).resize(x,y).onlyScaleDown().placeholder(placeholder).error(error).into(this);
     }
 }
