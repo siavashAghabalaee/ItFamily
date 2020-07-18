@@ -21,6 +21,24 @@ public class Magzine implements Parcelable {
     @SerializedName("publishDate")
     @Expose
     private String publishDate;
+    @SerializedName("body")
+    @Expose
+    private String body;
+    @SerializedName("summery")
+    @Expose
+    private String summery;
+    @SerializedName("linkeCount")
+    @Expose
+    private String linkeCount;
+    @SerializedName("linkAddress")
+    @Expose
+    private String linkAddress;
+    @SerializedName("contentSource")
+    @Expose
+    private String contentSource;
+    @SerializedName("commentCount")
+    @Expose
+    private String commentCount;
 
     protected Magzine(Parcel in) {
         id = in.readString();
@@ -71,6 +89,54 @@ public class Magzine implements Parcelable {
 
     public void setPublishDate(String publishDate) {
         this.publishDate = publishDate;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public String getSummery() {
+        return summery;
+    }
+
+    public void setSummery(String summery) {
+        this.summery = summery;
+    }
+
+    public String getLinkeCount() {
+        return linkeCount;
+    }
+
+    public void setLinkeCount(String linkeCount) {
+        this.linkeCount = linkeCount;
+    }
+
+    public String getLinkAddress() {
+        return linkAddress;
+    }
+
+    public void setLinkAddress(String linkAddress) {
+        this.linkAddress = linkAddress;
+    }
+
+    public String getContentSource() {
+        return contentSource;
+    }
+
+    public void setContentSource(String contentSource) {
+        this.contentSource = contentSource;
+    }
+
+    public String getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(String commentCount) {
+        this.commentCount = commentCount;
     }
 
     @Override

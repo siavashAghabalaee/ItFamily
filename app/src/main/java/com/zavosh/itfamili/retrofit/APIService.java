@@ -3,6 +3,9 @@ package com.zavosh.itfamili.retrofit;
 import com.zavosh.itfamili.retrofit.mymodels.bloglistrequest.BlogListRequest;
 import com.zavosh.itfamili.retrofit.mymodels.commentrequest.CommentRequest;
 import com.zavosh.itfamili.retrofit.mymodels.commentrequest.CommentSender;
+import com.zavosh.itfamili.retrofit.mymodels.contentlist.ContentRequest;
+import com.zavosh.itfamili.retrofit.mymodels.grouprequest.GroupDetailsRequest;
+import com.zavosh.itfamili.retrofit.mymodels.grouprequest.GroupDetailsSender;
 import com.zavosh.itfamili.retrofit.mymodels.homeRequest.HomeRequest;
 import com.zavosh.itfamili.retrofit.mymodels.homeRequest.HomeSender;
 import com.zavosh.itfamili.retrofit.mymodels.likerequest.LikeRequest;
@@ -87,4 +90,12 @@ public interface APIService {
     @Headers("Content-Type: application/json")
     @POST("Content/PostComment")
     Call<SendCommentRequest> sendComment(@Header("Authorization") String token, @Body SendCommentSender sender);
+
+    @Headers("Content-Type: application/json")
+    @POST("ContentGroup/Get")
+    Call<ContentRequest> getContentList();
+
+    @Headers("Content-Type: application/json")
+    @POST("Content/GetContentByGroup")
+    Call<GroupDetailsRequest> getGroup(@Header("Authorization") String token, @Body GroupDetailsSender sender);
 }

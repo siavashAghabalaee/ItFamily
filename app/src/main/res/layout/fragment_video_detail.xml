@@ -425,6 +425,7 @@
                                     android:src="@drawable/send"
                                     android:scaleType="fitXY"
                                     android:padding="@dimen/_5sdp"
+                                    android:id="@+id/iv_share"
                                     android:background="@drawable/bg_corner_white"/>
 
                                 <LinearLayout
@@ -437,8 +438,10 @@
 
                                     <com.zavosh.itfamili.myviews.MyTextView
                                         android:id="@+id/tv_likes_count"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
+                                        android:layout_width="match_parent"
+                                        android:gravity="center"
+                                        android:textSize="@dimen/_12sdp"
+                                        android:layout_height="match_parent"
                                         android:textColor="@color/white" />
 
                                 </LinearLayout>

@@ -2,6 +2,8 @@ package com.zavosh.itfamili.retrofit.mymodels;
 
 import com.zavosh.itfamili.retrofit.mymodels.bloglistrequest.BlogListResult;
 import com.zavosh.itfamili.retrofit.mymodels.commentrequest.CommentResult;
+import com.zavosh.itfamili.retrofit.mymodels.contentlist.GroupItem;
+import com.zavosh.itfamili.retrofit.mymodels.grouprequest.GroupDetails;
 import com.zavosh.itfamili.retrofit.mymodels.homeRequest.HomeResult;
 import com.zavosh.itfamili.retrofit.mymodels.magazinerequest.MagazineResult;
 import com.zavosh.itfamili.retrofit.mymodels.podcastlistrequest.PodcastListResult;
@@ -10,6 +12,7 @@ import com.zavosh.itfamili.retrofit.mymodels.registerphone.RegisterResult;
 import com.zavosh.itfamili.retrofit.mymodels.verifycode.VerifyCodeResult;
 import com.zavosh.itfamili.retrofit.mymodels.videolistrequest.VideoListResult;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface Callback {
@@ -59,5 +62,13 @@ public interface Callback {
 
     interface SendComment{
         void callback();
+    }
+
+    interface SetContentList{
+        void callback(ArrayList<GroupItem> list);
+    }
+
+    interface SetGroupDetails{
+        void callback(ArrayList<GroupDetails> list);
     }
 }

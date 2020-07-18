@@ -7,10 +7,10 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
-import com.jcoola.itfamiliar.ArActivitySplash
-import com.jcoola.itfamiliar.ArSystem
+import com.shliama.augmentedvideotutorial.ArActivity
 import com.zavosh.itfamili.R
 import com.zavosh.itfamili.helper.PageManager
+import com.zavosh.itfamili.retrofit.ApiUtils
 import kotlinx.android.synthetic.main.activity_home.*
 
 
@@ -90,8 +90,15 @@ class HomeActivity : AppCompatActivity() {
                     //it.isChecked = true
                 }
                 R.id.navigation_item_5 ->{
-                    ArSystem.activityStackNumber = 1
-                    startActivity(Intent(this@HomeActivity,ArActivitySplash::class.java))
+
+                    PageManager.getInstance(this@HomeActivity, supportFragmentManager)
+                        .goGroupListFragment()
+                }
+                R.id.navigation_item_6 ->{
+                    var intent = Intent(this@HomeActivity,ArActivity::class.java)
+                   // intent.putExtra("base_url",ApiUtils.BASE_URL)
+                    startActivity(intent)
+                    //TODO start ar
                 }
             }
 

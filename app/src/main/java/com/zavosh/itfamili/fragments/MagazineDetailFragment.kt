@@ -13,7 +13,7 @@ import com.zavosh.itfamili.R
 import com.zavosh.itfamili.helper.PageManager
 import com.zavosh.itfamili.helper.PublicMethods
 import com.zavosh.itfamili.retrofit.mymodels.magazinerequest.MagazineResult
-import kotlinx.android.synthetic.main.fragment_magazine_detail.view.*
+import kotlinx.android.synthetic.main.fragment_blog_detail.view.*
 
 
 class MagazineDetailFragment : Fragment() {
@@ -33,7 +33,7 @@ class MagazineDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_magazine_detail, container, false)
+        rootView = inflater.inflate(R.layout.fragment_blog_detail, container, false)
         setup()
         return rootView
     }
@@ -57,10 +57,12 @@ class MagazineDetailFragment : Fragment() {
 
     private fun bindViews(magazineDetail: MagazineResult) {
 
+        rootView.iv_like.visibility = View.GONE
+        rootView.iv_comment.visibility = View.GONE
         rootView.tv_magazine_title.text = magazineDetail.title ?: ""
         rootView.tv_magazine_summery.text = magazineDetail.summery ?: ""
-        rootView.tv_comments_count.text = (magazineDetail.commentCount ?: "") + " نفر نظر داده اند"
-        rootView.tv_likes_count.text = (magazineDetail.linkeCount ?: "") + " نفر پسندیده اند "
+//        rootView.tv_comments_count.text = (magazineDetail.commentCount ?: "") + " نفر نظر داده اند"
+//        rootView.tv_likes_count.text = (magazineDetail.linkeCount ?: "") + " نفر پسندیده اند "
         rootView.publish_date_txt.text = PublicMethods.getDate(magazineDetail.publishDate)
         rootView.img_detail.setPicasso(magazineDetail.image, activity)
 
@@ -70,6 +72,10 @@ class MagazineDetailFragment : Fragment() {
             PageManager.getInstance().goPdfViewerActivity(activity,magazineDetail.linkAddress?:"")
 
         }
+        rootView.iv_share.setOnClickListener {
+            PublicMethods.share(magazineDetail.title,magazineDetail.linkAddress,context)
+        }
+
 
 
         rootView.im_dl.setOnClickListener {

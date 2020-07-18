@@ -1,6 +1,7 @@
 package com.zavosh.itfamili.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,13 +11,15 @@ import androidx.fragment.app.Fragment
 import com.example.jean.jcplayer.model.JcAudio
 import com.zavosh.itfamili.R
 import com.zavosh.itfamili.helper.PageManager
+import com.zavosh.itfamili.helper.PublicMethods
 import com.zavosh.itfamili.retrofit.Server
+import com.zavosh.itfamili.retrofit.mymodels.grouprequest.GroupDetails
 import com.zavosh.itfamili.retrofit.mymodels.homeRequest.Podcast
 import com.zavosh.itfamili.retrofit.mymodels.podcastlistrequest.PodcastListResult
 import kotlinx.android.synthetic.main.fragment_pod_detail.view.*
 
 
-class PodcastDetailFragment: Fragment() {
+class PodcastDetailFragment : Fragment() {
 
 
     private lateinit var rootView: View
@@ -47,12 +50,25 @@ class PodcastDetailFragment: Fragment() {
 
 
         try {
-        val podcastDetail = bundle?.getParcelable<PodcastListResult>("podcast_detail")
-        bindViews(podcastDetail)
+            val podcastDetail = bundle?.getParcelable<PodcastListResult>("podcast_detail")
+            if (podcastDetail!=null)
+            bindViews(podcastDetail)
+        } catch (e: Exception) {
 
-        }catch (e:Exception){
+        }
+
+        try {
             val podcastDetail = bundle?.getParcelable<Podcast>("podcast_home")
+            if (podcastDetail!=null)
             bindViewsFromHome(podcastDetail)
+        } catch (e: Exception) {
+        }
+
+        try {
+            val podcastDetail = bundle?.getParcelable<GroupDetails>("podcast_group")
+            if (podcastDetail!=null)
+            bindViewsFromGroup(podcastDetail)
+        } catch (e: Exception) {
         }
 
 
@@ -60,18 +76,19 @@ class PodcastDetailFragment: Fragment() {
 
     private fun bindViews(podcastDetail: PodcastListResult?) {
 
-        rootView.tv_likes_count.text=(podcastDetail?.linkeCount?:"")+" نفر پسندیده اند "
-        rootView.tv_comments.text= (podcastDetail?.commentCount?:"")+" نفر نظر داده اند "
-        rootView.tv_title.text=podcastDetail?.title?:""
-        rootView.tv_summery.text=podcastDetail?.summery?:""
-        rootView.profile_avatar.setPicasso(podcastDetail?.image,activity)
-        //rootView.link_address.text=podcastDetail?.linkAddress?:""
-        rootView.link_address2.text=podcastDetail?.publishDate?:""
-        //rootView.link_address3.text=podcastDetail?.linkAddress?:""
 
-        if (podcastDetail?.isLike?.toBoolean()!!){
+        rootView.tv_likes_count.text = (podcastDetail?.linkeCount ?: "") + " نفر پسندیده اند "
+
+        rootView.tv_comments.text = (podcastDetail?.commentCount ?: "") + " نفر نظر داده اند "
+        rootView.tv_title.text = podcastDetail?.title ?: ""
+        rootView.tv_summery.text = podcastDetail?.summery ?: ""
+        rootView.profile_avatar.setPicasso(podcastDetail?.image, activity)
+        //rootView.link_address.text=podcastDetail?.linkAddress?:""
+        rootView.link_address2.text = podcastDetail?.publishDate ?: ""
+        //rootView.link_address3.text=podcastDetail?.linkAddress?:""
+        if (podcastDetail?.isLike?.toBoolean()!!) {
             rootView.iv_like?.setImageResource(R.mipmap.red_like)
-        }else{
+        } else {
             rootView.iv_like?.setImageResource(R.drawable.like)
         }
         /*rootView.img_play.setOnClickListener {
@@ -80,17 +97,20 @@ class PodcastDetailFragment: Fragment() {
 
         }*/
         val jcAudios: ArrayList<JcAudio> = ArrayList()
-        jcAudios.add(JcAudio.createFromURL("",podcastDetail?.linkAddress!!))
+        jcAudios.add(JcAudio.createFromURL("", podcastDetail?.linkAddress!!))
 
+        rootView.jcplayer.createNotification()
         rootView.jcplayer.initPlaylist(jcAudios)
 
         rootView.iv_like?.setOnClickListener {
             context?.let {
-                Server.getInstance(it).like(podcastDetail.id , !podcastDetail.isLike.toBoolean())
-                if (!podcastDetail.isLike.toBoolean()){
+                Server.getInstance(it).like(podcastDetail.id, !podcastDetail.isLike.toBoolean())
+                if (!podcastDetail.isLike.toBoolean()) {
                     rootView.iv_like?.setImageResource(R.mipmap.red_like)
-                }else{
+                    podcastDetail.isLike = "true"
+                } else {
                     rootView.iv_like?.setImageResource(R.drawable.like)
+                    podcastDetail.isLike = "false"
                 }
             }
 
@@ -98,28 +118,84 @@ class PodcastDetailFragment: Fragment() {
 
         rootView.iv_comment.setOnClickListener {
             var bundle = Bundle()
-            bundle.putString("id",podcastDetail.id)
+            bundle.putString("id", podcastDetail.id)
             PageManager.getInstance().goCommentFragment(bundle)
+        }
+
+        rootView.iv_share.setOnClickListener {
+            PublicMethods.share(podcastDetail.title ?: "",podcastDetail.linkAddress ?: "",context)
+        }
+
+    }
+
+    private fun bindViewsFromGroup(podcastDetail: GroupDetails?) {
+
+        rootView.tv_likes_count.text = (podcastDetail?.linkeCount ?: "") + " نفر پسندیده اند "
+        rootView.tv_comments.text = (podcastDetail?.commentCount ?: "") + " نفر نظر داده اند "
+        rootView.tv_title.text = podcastDetail?.title ?: ""
+        rootView.tv_summery.text = podcastDetail?.summery ?: ""
+        rootView.profile_avatar.setPicasso(podcastDetail?.image, activity)
+        //rootView.link_address.text=podcastDetail?.linkAddress?:""
+        rootView.link_address2.text = podcastDetail?.publishDate ?: ""
+        //rootView.link_address3.text=podcastDetail?.linkAddress?:""
+
+        if (podcastDetail?.isLike!!) {
+            rootView.iv_like?.setImageResource(R.mipmap.red_like)
+        } else {
+            rootView.iv_like?.setImageResource(R.drawable.like)
+        }
+        /*rootView.img_play.setOnClickListener {
+
+            Log.i("log","link : "+podcastDetail?.linkAddress)
+
+        }*/
+        val jcAudios: ArrayList<JcAudio> = ArrayList()
+        jcAudios.add(JcAudio.createFromURL("", podcastDetail?.linkAddress!!))
+
+        rootView.jcplayer.createNotification()
+        rootView.jcplayer.initPlaylist(jcAudios)
+
+        rootView.iv_like?.setOnClickListener {
+            context?.let {
+                Server.getInstance(it).like(podcastDetail.id, !podcastDetail.isLike!!)
+                if (!podcastDetail.isLike!!) {
+                    rootView.iv_like?.setImageResource(R.mipmap.red_like)
+                    podcastDetail.isLike = true
+                } else {
+                    rootView.iv_like?.setImageResource(R.drawable.like)
+                    podcastDetail.isLike = false
+                }
+            }
+
+        }
+
+        rootView.iv_comment.setOnClickListener {
+            var bundle = Bundle()
+            bundle.putString("id", podcastDetail.id)
+            PageManager.getInstance().goCommentFragment(bundle)
+        }
+
+        rootView.iv_share.setOnClickListener {
+            PublicMethods.share(podcastDetail.title ?: "",podcastDetail.linkAddress ?: "",context)
         }
 
     }
 
     private fun bindViewsFromHome(podcastDetail: Podcast?) {
 
-        rootView.tv_likes_count.text=(podcastDetail?.linkeCount?:"")+" نفر پسندیده اند "
-        rootView.tv_comments.text= (podcastDetail?.commentCount?:"")+" نفر نظر داده اند "
-        rootView.tv_title.text=podcastDetail?.title?:""
-        rootView.tv_summery.text=podcastDetail?.summery?:""
-        rootView.profile_avatar.setPicasso(podcastDetail?.image,activity)
+        rootView.tv_likes_count.text = (podcastDetail?.linkeCount ?: "") + " نفر پسندیده اند "
+        rootView.tv_comments.text = (podcastDetail?.commentCount ?: "") + " نفر نظر داده اند "
+        rootView.tv_title.text = podcastDetail?.title ?: ""
+        rootView.tv_summery.text = podcastDetail?.summery ?: ""
+        rootView.profile_avatar.setPicasso(podcastDetail?.image, activity)
         //rootView.link_address.text=podcastDetail?.linkAddress?:""
-        rootView.link_address2.text=podcastDetail?.publishDate?:""
+        rootView.link_address2.text = podcastDetail?.publishDate ?: ""
         //rootView.link_address3.text=podcastDetail?.linkAddress?:""
 
         podcastDetail?.isLike?.let {
-
-            if (podcastDetail?.isLike?.toBoolean()!!){
+            if (podcastDetail?.isLike?.toBoolean()!!) {
                 rootView.iv_like?.setImageResource(R.mipmap.red_like)
-            }else{
+            } else {
                 rootView.iv_like?.setImageResource(R.drawable.like)
             }
         }
@@ -131,8 +207,9 @@ class PodcastDetailFragment: Fragment() {
 
         }*/
         val jcAudios: ArrayList<JcAudio> = ArrayList()
-        jcAudios.add(JcAudio.createFromURL("",podcastDetail?.linkAddress!!))
+        jcAudios.add(JcAudio.createFromURL("", podcastDetail?.linkAddress!!))
 
+        rootView.jcplayer.createNotification()
         rootView.jcplayer.initPlaylist(jcAudios)
 
         rootView.iv_like?.setOnClickListener {
@@ -140,9 +217,13 @@ class PodcastDetailFragment: Fragment() {
                 if (!podcastDetail?.isLike?.isNullOrEmpty()!!) {
                     Server.getInstance(it).like(podcastDetail.id, !podcastDetail.isLike.toBoolean())
                     if (!podcastDetail.isLike.toBoolean()) {
+                        Log.i("likeanee","1")
                         rootView.iv_like?.setImageResource(R.mipmap.red_like)
+                        podcastDetail.isLike = "true"
                     } else {
+                        Log.i("likeanee","2")
                         rootView.iv_like?.setImageResource(R.drawable.like)
+                        podcastDetail.isLike = "false"
                     }
                 }
             }
@@ -151,16 +232,19 @@ class PodcastDetailFragment: Fragment() {
 
         rootView.iv_comment.setOnClickListener {
             var bundle = Bundle()
-            bundle.putString("id",podcastDetail.id)
+            bundle.putString("id", podcastDetail.id)
             PageManager.getInstance().goCommentFragment(bundle)
+        }
+
+        rootView.iv_share.setOnClickListener {
+            PublicMethods.share(podcastDetail.title ?: "",podcastDetail.linkAddress ?: "",context)
         }
 
     }
 
     override fun onPause() {
         super.onPause()
-        rootView.jcplayer.kill()
-
+//        rootView.jcplayer.kill()
         //rootView.paus
     }
 }

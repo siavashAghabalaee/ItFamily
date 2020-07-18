@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,8 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.zavosh.itfamili.R;
 import com.zavosh.itfamili.helper.PageManager;
+import com.zavosh.itfamili.helper.PublicMethods;
 import com.zavosh.itfamili.myviews.MyImageView;
 import com.zavosh.itfamili.myviews.MyTextView;
+import com.zavosh.itfamili.myviews.MyToast;
 import com.zavosh.itfamili.retrofit.mymodels.bloglistrequest.BlogListResult;
 import com.zavosh.itfamili.retrofit.mymodels.homeRequest.BlogContent;
 import com.zavosh.itfamili.retrofit.mymodels.homeRequest.Magzine;
@@ -130,6 +133,20 @@ public class HomeAdapters extends RecyclerView.Adapter {
                 });
 
 
+                holder.ll_download.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        PublicMethods.openLink(magzine.getLinkAddress(),activity);
+                    }
+                });
+
+                holder.ll_download1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        PublicMethods.openLink(magzine.getLinkAddress(),activity);
+                    }
+                });
+
             } catch (Exception e) {
             }
 
@@ -228,12 +245,16 @@ public class HomeAdapters extends RecyclerView.Adapter {
     public class MagViewHolder extends RecyclerView.ViewHolder {
         public MyImageView iv_image;
         MyTextView tv_title, tv_date;
+        LinearLayout ll_download,ll_download1;
 
         public MagViewHolder(@NonNull View itemView) {
             super(itemView);
             iv_image = itemView.findViewById(R.id.iv_image);
             tv_title = itemView.findViewById(R.id.tv_title);
             tv_date = itemView.findViewById(R.id.tv_date);
+            ll_download = itemView.findViewById(R.id.ll_download);
+            ll_download1 = itemView.findViewById(R.id.ll_download1);
+
         }
     }
 }

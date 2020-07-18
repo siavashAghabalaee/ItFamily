@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:id="@+id/article_item_card"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_300sdp"
+        app:cardElevation="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:cardPreventCornerOverlap="true"
+        android:foregroundGravity="center"
+        android:layout_marginLeft="38sp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@android:color/transparent">
+            <com.zavosh.itfamili.myviews.MyImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                app:riv_corner_radius="@dimen/_20sdp"
+                android:id="@+id/iv_image"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius_top_left="@dimen/_20sdp"
+                app:riv_corner_radius_top_right="@dimen/_20sdp"/>
+
+            <com.zavosh.itfamili.myviews.MyImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_shap"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius_bottom_right="@dimen/_20sdp"
+                app:riv_corner_radius_bottom_left="@dimen/_20sdp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom|right">
+
+                <com.zavosh.itfamili.myviews.MyTextViewBold
+                    android:id="@+id/tv_title"
+                    android:textDirection="anyRtl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold">
+
+                </com.zavosh.itfamili.myviews.MyTextViewBold>
+
+                <com.zavosh.itfamili.myviews.MyTextView
+                    android:id="@+id/tv_summery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textDirection="anyRtl"
+                    android:layout_alignParentBottom="true"
+                    android:maxLines="2"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:textColor="@color/white">
+
+                </com.zavosh.itfamili.myviews.MyTextView>
+
+            </LinearLayout>
+
+
+
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

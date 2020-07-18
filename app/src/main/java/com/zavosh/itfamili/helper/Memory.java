@@ -8,6 +8,36 @@ public class Memory {
     public static String userCodKey = "userCode";
     public static String TOKEN = "TOKEN";
     public static String PasswordKey = "Password";
+    public static String Name = "Name";
+    public static String Email = "Email";
+    public static String gender = "gender";
+
+    public static void saveName(String name){
+        Hawk.put(Name,name);
+    }
+    public static String loadName(){
+        if (Hawk.contains(Name))
+            return Hawk.get(Name);
+        return "";
+    }
+
+    public static void saveEmail(String email){
+        Hawk.put(Email,email);
+    }
+    public static String loadEmail(){
+        if (Hawk.contains(Email))
+            return Hawk.get(Email);
+        return "";
+    }
+
+    public static void saveGender(boolean phone){
+        Hawk.put(gender,phone);
+    }
+    public static String loadGender(){
+        if (Hawk.contains(gender))
+            return Hawk.get(gender).toString();
+        return "";
+    }
 
     public static void savePhone(String phone){
         Hawk.put(phoneKey,phone);

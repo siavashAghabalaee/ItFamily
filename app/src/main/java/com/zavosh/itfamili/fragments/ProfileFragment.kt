@@ -2,6 +2,7 @@ package com.zavosh.itfamili.fragments
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,6 +44,20 @@ class ProfileFragment : Fragment() {
 
         fragmentView.phone_register.setText(Memory.loadPhone() ?: "")
 
+        fragmentView.email_register.setText(Memory.loadEmail())
+
+        fragmentView.name_register.setText(Memory.loadName())
+
+        if (!Memory.loadGender().isNullOrEmpty()) {
+            sex = Memory.loadGender()
+            if (Memory.loadGender().toBoolean()) {
+                fragmentView.chk_female.isChecked = false
+                fragmentView.chk_male.isChecked = true
+            } else {
+                fragmentView.chk_female.isChecked = true
+                fragmentView.chk_male.isChecked = false
+            }
+        }
 
         fragmentView.chk_male.setOnCheckedChangeListener { buttonView, isChecked ->
 
@@ -74,30 +89,31 @@ class ProfileFragment : Fragment() {
                 MyToast.showToast(activity, "لطفا نام و ایمیل خود را وارد کنید")
             }
            else if (!chk_male.isChecked && !chk_female.isChecked) {
-
                 MyToast.showToast(context, "لطفا جنسیت را مشخص کنید")
             }
             else {
-                getProfileData()
+                sendProfileData()
             }
-
         }
 
 
     }
 
-    private fun getProfileData() {
-
-        Server.getInstance(context).sendProfile(fragmentView.name_register.text.toString().trim(),
-            fragmentView.email_register.text.toString().trim(),
+    private fun sendProfileData() {
+        var name = fragmentView.name_register.text.toString().trim()
+        var email = fragmentView.email_register.text.toString().trim()
+        Server.getInstance(context).sendProfile(name,
+            email,
             sex, loader,
             object : Callback.PostProfile {
                 override fun callback(result: String?) {
                     MyToast.showToast(activity, result)
+                    Memory.saveName(name)
+                    Memory.saveEmail(email)
+                    Memory.saveGender(sex.toBoolean())
                 }
 
             })
     }
-
 
 }

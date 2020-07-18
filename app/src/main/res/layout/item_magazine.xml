@@ -18,6 +18,7 @@
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:id="@+id/ll_download"
                 android:layout_margin="@dimen/_5sdp"
                 android:background="@drawable/ripple_white">
                 <ImageView
@@ -28,6 +29,7 @@
                     android:src="@drawable/download"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/ll_download1"
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/_5sdp"

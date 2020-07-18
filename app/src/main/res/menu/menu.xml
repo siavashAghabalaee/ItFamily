@@ -16,7 +16,11 @@
             android:title="پشتیبانی" />
         <item
             android:id="@+id/navigation_item_5"
+            android:title="آرشیو مطالب" />
+        <item
+            android:id="@+id/navigation_item_6"
             android:title="واقعیت مجازی" />
+
     </group>
 
 </menu>

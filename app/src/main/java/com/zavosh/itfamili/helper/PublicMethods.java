@@ -2,8 +2,10 @@ package com.zavosh.itfamili.helper;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.view.inputmethod.InputMethodManager;
@@ -75,6 +77,24 @@ public class PublicMethods {
         finalDate = year + "/" + month + "/" + day;
 
         return finalDate;
+    }
+
+    public static void share(String title,String link , Context context){
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, title+"  "+link);
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        context.startActivity(shareIntent);
+    }
+
+    public static void openLink(String link, Context context){
+        try {
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(link));
+            context.startActivity(i);
+        }catch (Exception e){}
     }
 
 }

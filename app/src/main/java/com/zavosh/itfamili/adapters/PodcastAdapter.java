@@ -2,6 +2,7 @@ package com.zavosh.itfamili.adapters;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,7 @@ public class PodcastAdapter extends RecyclerView.Adapter<PodcastAdapter.PodcastV
     public void onBindViewHolder(@NonNull PodcastViewHolder holder, int position) {
 
         final PodcastListResult podcastItem = list.get(position);
-        holder.iv_image.setPicasso(podcastItem.getImage(),activity);
+        holder.iv_image.setPicasso(podcastItem.getImage(), activity);
         holder.tv_podcast_title.setText(podcastItem.getTitle());
         holder.tv_date.setText(PublicMethods.getDate(podcastItem.getPublishDate()));
 
@@ -46,8 +47,9 @@ public class PodcastAdapter extends RecyclerView.Adapter<PodcastAdapter.PodcastV
             @Override
             public void onClick(View v) {
 
-                Bundle bundle=new Bundle();
-                bundle.putParcelable("podcast_detail",podcastItem);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("podcast_detail", podcastItem);
+                Log.i("siavashiii","linkeCount "+podcastItem.getLinkeCount());
                 PageManager.getInstance().goPodcastDetailFragment(bundle);
 
             }
@@ -69,9 +71,9 @@ public class PodcastAdapter extends RecyclerView.Adapter<PodcastAdapter.PodcastV
         public PodcastViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            iv_image=itemView.findViewById(R.id.iv_image);
-            tv_podcast_title=itemView.findViewById(R.id.tv_podcast_title);
-            tv_date=itemView.findViewById(R.id.tv_date);
+            iv_image = itemView.findViewById(R.id.iv_image);
+            tv_podcast_title = itemView.findViewById(R.id.tv_podcast_title);
+            tv_date = itemView.findViewById(R.id.tv_date);
         }
     }
 }

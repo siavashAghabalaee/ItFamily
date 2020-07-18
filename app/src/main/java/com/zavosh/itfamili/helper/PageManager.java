@@ -16,6 +16,8 @@ import com.zavosh.itfamili.activities.VideoPlayerActivity;
 import com.zavosh.itfamili.fragments.BlogDetailsFragment;
 import com.zavosh.itfamili.fragments.BlogListFragment;
 import com.zavosh.itfamili.fragments.CommentFragment;
+import com.zavosh.itfamili.fragments.GroupDetailsFragment;
+import com.zavosh.itfamili.fragments.GroupListFragment;
 import com.zavosh.itfamili.fragments.HomeFragment;
 import com.zavosh.itfamili.fragments.MagazineDetailFragment;
 import com.zavosh.itfamili.fragments.MagazinesFragment;
@@ -186,6 +188,18 @@ public class PageManager implements PageManagerHelper {
     @Override
     public void goCommentFragment(Bundle bundle) {
         CommentFragment fragment = new CommentFragment();
+        fragmentHandler.loadFragment(fragment,true,bundle);
+    }
+
+    @Override
+    public void goGroupListFragment() {
+        GroupListFragment fragment = new GroupListFragment();
+        fragmentHandler.loadFragment(fragment,true);
+    }
+
+    @Override
+    public void goGroupDetailsFragment(Bundle bundle) {
+        GroupDetailsFragment fragment = new GroupDetailsFragment();
         fragmentHandler.loadFragment(fragment,true,bundle);
     }
 

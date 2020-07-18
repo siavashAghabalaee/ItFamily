@@ -26,4 +26,6 @@ public interface PageManagerHelper {
     void goQuestionFragment();
     void goSupportFragment();
     void goCommentFragment(Bundle bundle);
+    void goGroupListFragment();
+    void goGroupDetailsFragment(Bundle bundle);
 }

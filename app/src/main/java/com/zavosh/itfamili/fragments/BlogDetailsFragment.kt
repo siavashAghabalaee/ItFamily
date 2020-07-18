@@ -13,19 +13,9 @@ import com.zavosh.itfamili.helper.PageManager
 import com.zavosh.itfamili.helper.PublicMethods
 import com.zavosh.itfamili.retrofit.Server
 import com.zavosh.itfamili.retrofit.mymodels.bloglistrequest.BlogListResult
+import com.zavosh.itfamili.retrofit.mymodels.grouprequest.GroupDetails
 import com.zavosh.itfamili.retrofit.mymodels.homeRequest.SliderContent
 import kotlinx.android.synthetic.main.fragment_blog_detail.view.*
-import kotlinx.android.synthetic.main.fragment_magazine_detail.view.*
-import kotlinx.android.synthetic.main.fragment_magazine_detail.view.img_back
-import kotlinx.android.synthetic.main.fragment_magazine_detail.view.img_detail
-import kotlinx.android.synthetic.main.fragment_magazine_detail.view.iv_like
-import kotlinx.android.synthetic.main.fragment_magazine_detail.view.menu
-import kotlinx.android.synthetic.main.fragment_magazine_detail.view.pdf_icon
-import kotlinx.android.synthetic.main.fragment_magazine_detail.view.publish_date_txt
-import kotlinx.android.synthetic.main.fragment_magazine_detail.view.tv_comments_count
-import kotlinx.android.synthetic.main.fragment_magazine_detail.view.tv_likes_count
-import kotlinx.android.synthetic.main.fragment_magazine_detail.view.tv_magazine_summery
-import kotlinx.android.synthetic.main.fragment_magazine_detail.view.tv_magazine_title
 
 class BlogDetailsFragment : Fragment() {
 
@@ -70,6 +60,13 @@ class BlogDetailsFragment : Fragment() {
 
         }
 
+        try {
+            val blog_detail = bundle.getParcelable<GroupDetails>("blog_group")
+            bindViewsFromGroup(blog_detail)
+        } catch (e: Exception) {
+
+        }
+
 
     }
 
@@ -98,8 +95,10 @@ class BlogDetailsFragment : Fragment() {
                 Server.getInstance(it).like(blog_detail.id , !blog_detail.isLike.toBoolean())
                 if (!blog_detail.isLike.toBoolean()){
                     rootView.iv_like?.setImageResource(R.mipmap.red_like)
+                    blog_detail.isLike = "true"
                 }else{
                     rootView.iv_like?.setImageResource(R.drawable.like)
+                    blog_detail.isLike = "false"
                 }
             }
 
@@ -110,8 +109,56 @@ class BlogDetailsFragment : Fragment() {
             bundle.putString("id",blog_detail.id)
             PageManager.getInstance().goCommentFragment(bundle)
         }
+
+        rootView.iv_share.setOnClickListener {
+            PublicMethods.share(blog_detail.title ?: "",blog_detail.linkAddress ?: "",context)
+        }
     }
 
+    private fun bindViewsFromGroup(blog_detail: GroupDetails) {
+        rootView.tv_magazine_title.text = blog_detail.title ?: ""
+        rootView.tv_magazine_summery.text = blog_detail.body ?: ""
+        rootView.tv_comments_count.text = (blog_detail.commentCount ?: "") + " نفر نظر داده اند"
+        rootView.tv_likes_count.text = (blog_detail.linkeCount ?: "") + " نفر پسندیده اند "
+        rootView.publish_date_txt.text = PublicMethods.getDate(blog_detail.publishDate)
+        rootView.img_detail.setPicasso(blog_detail.image, activity)
+
+
+        if (blog_detail.isLike){
+            rootView.iv_like?.setImageResource(R.mipmap.red_like)
+        }else{
+            rootView.iv_like?.setImageResource(R.drawable.like)
+        }
+
+        rootView.pdf_icon.setOnClickListener {
+
+            PageManager.getInstance().goPdfViewerActivity(activity, blog_detail.linkAddress?:"")
+        }
+
+        rootView.iv_like?.setOnClickListener {
+            context?.let {
+                Server.getInstance(it).like(blog_detail.id , !blog_detail.isLike)
+                if (!blog_detail.isLike){
+                    rootView.iv_like?.setImageResource(R.mipmap.red_like)
+                    blog_detail.isLike = true
+                }else{
+                    rootView.iv_like?.setImageResource(R.drawable.like)
+                    blog_detail.isLike = false
+                }
+            }
+
+        }
+
+        rootView.iv_comment.setOnClickListener {
+            var bundle = Bundle()
+            bundle.putString("id",blog_detail.id)
+            PageManager.getInstance().goCommentFragment(bundle)
+        }
+
+        rootView.iv_share.setOnClickListener {
+            PublicMethods.share(blog_detail.title ?: "",blog_detail.linkAddress ?: "",context)
+        }
+    }
 
     private fun bindViewsFromHome(blog_detail: SliderContent) {
         rootView.pdf_icon.setOnClickListener {
@@ -138,8 +185,10 @@ class BlogDetailsFragment : Fragment() {
                 Server.getInstance(it).like(blog_detail.id , !blog_detail.isLike.toBoolean())
                 if (!blog_detail.isLike.toBoolean()){
                     rootView.iv_like?.setImageResource(R.mipmap.red_like)
+                    blog_detail.isLike = "true"
                 }else{
                     rootView.iv_like?.setImageResource(R.drawable.like)
+                    blog_detail.isLike = "false"
                 }
             }
         }
@@ -148,6 +197,10 @@ class BlogDetailsFragment : Fragment() {
             var bundle = Bundle()
             bundle.putString("id",blog_detail.id)
             PageManager.getInstance().goCommentFragment(bundle)
+        }
+
+        rootView.iv_share.setOnClickListener {
+            PublicMethods.share(blog_detail.title ?: "",blog_detail.linkAddress ?: "",context)
         }
     }
 
