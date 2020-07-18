@@ -8,7 +8,7 @@
     android:layout_marginLeft="@dimen/_20sdp"
     android:layout_marginRight="@dimen/_20sdp"
     android:background="@drawable/cardview_background">
-    <com.zavosh.itfamili.myviews.MyTextViewBold
+    <com.zavosh.itfamily.myviews.MyTextViewBold
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/_12sdp"
@@ -25,7 +25,7 @@
         android:background="@color/textColor"
         android:layout_marginRight="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_20sdp"/>
-    <com.zavosh.itfamili.myviews.MyTextView
+    <com.zavosh.itfamily.myviews.MyTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/textColor"
@@ -35,7 +35,7 @@
         android:paddingBottom="@dimen/_5sdp"
         android:id="@+id/tv_body"
         android:textDirection="anyRtl"/>
-    <com.zavosh.itfamili.myviews.MyTextView
+    <com.zavosh.itfamily.myviews.MyTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/_12sdp"

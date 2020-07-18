@@ -5,13 +5,13 @@
     android:layout_width="@dimen/_130sdp"
     android:layout_height="@dimen/_230sdp"
     android:layout_marginRight="@dimen/_15sdp">
-    <com.zavosh.itfamili.myviews.MyImageView
+    <com.zavosh.itfamily.myviews.MyImageView
         android:layout_width="@dimen/_180sdp"
         android:scaleType="centerCrop"
         app:riv_corner_radius="@dimen/_20sdp"
         android:id="@+id/iv_image"
         android:layout_height="@dimen/_230sdp"/>
-    <com.zavosh.itfamili.myviews.MyImageView
+    <com.zavosh.itfamily.myviews.MyImageView
         android:layout_width="@dimen/_180sdp"
         android:layout_height="@dimen/_230sdp"
         android:src="@drawable/bg_shap"
@@ -25,7 +25,7 @@
         android:gravity="center"
         android:layout_marginBottom="@dimen/_5sdp"
         android:layout_alignParentBottom="true">
-        <com.zavosh.itfamili.myviews.MyTextView
+        <com.zavosh.itfamily.myviews.MyTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_title"

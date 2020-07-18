@@ -1,45 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:fitsSystemWindows="true"
-    android:id="@+id/mDrawerLayout"
+    android:id="@+id/fragmentContainer"
     tools:context=".activities.HomeActivity">
-
-  <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/frameLayout" />
-    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
-        android:id="@+id/btnTab"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:mbn_circleColor="#ffffff"
-        app:mbn_backgroundBottomColor="#ffffff"
-        app:mbn_countBackgroundColor="#ff6f00"
-        app:mbn_countTextColor="#ffffff"
-        app:mbn_defaultIconColor="#90a4ae"
-        app:mbn_rippleColor="#2f424242"
-        app:mbn_selectedIconColor="#3c415e"
-        app:mbn_shadowColor="#1f212121"/>
-  </RelativeLayout>
-
-
-
-  <com.google.android.material.navigation.NavigationView
-      android:layout_width="wrap_content"
-      android:layout_height="match_parent"
-      android:layout_gravity="end"
-      android:id="@+id/nNavigationView"
+  <androidx.drawerlayout.widget.DrawerLayout
       android:fitsSystemWindows="true"
-      app:menu="@menu/menu"/>
-</androidx.drawerlayout.widget.DrawerLayout >
+      android:orientation="vertical"
+      android:layout_height="match_parent"
+      android:id="@+id/mDrawerLayout"
+      android:layout_width="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+      <FrameLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:id="@+id/frameLayout" />
+      <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+          android:id="@+id/btnTab"
+          android:layout_alignParentBottom="true"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:mbn_circleColor="#ffffff"
+          app:mbn_backgroundBottomColor="#ffffff"
+          app:mbn_countBackgroundColor="#ff6f00"
+          app:mbn_countTextColor="#ffffff"
+          app:mbn_defaultIconColor="#90a4ae"
+          app:mbn_rippleColor="#2f424242"
+          app:mbn_selectedIconColor="#3c415e"
+          app:mbn_shadowColor="#1f212121"/>
+    </RelativeLayout>
+
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:id="@+id/nNavigationView"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/menu"/>
+  </androidx.drawerlayout.widget.DrawerLayout>
+</androidx.constraintlayout.widget.ConstraintLayout >

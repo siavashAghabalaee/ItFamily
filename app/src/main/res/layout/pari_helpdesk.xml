@@ -167,7 +167,7 @@
 
 
 
-            <com.zavosh.itfamili.myviews.MyEditText
+            <com.zavosh.itfamily.myviews.MyEditText
                 android:id="@+id/phone_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -184,7 +184,7 @@
 
 
 
-            <com.zavosh.itfamili.myviews.MyEditText
+            <com.zavosh.itfamily.myviews.MyEditText
                 android:id="@+id/desc_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -77,7 +77,7 @@
             android:layout_height="match_parent"
             app:cardCornerRadius="30dp"
             >
-            <com.zavosh.itfamili.myviews.MyImageView
+            <com.zavosh.itfamily.myviews.MyImageView
                 android:id="@+id/iv_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -153,20 +153,20 @@
                     android:layout_gravity="right|center"
                     android:gravity="right|center">
 
-                    <com.zavosh.itfamili.myviews.MyTextView
+                    <com.zavosh.itfamily.myviews.MyTextView
                         android:id="@+id/tv_podcast_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_5sdp"
                         android:textColor="@color/white"
-                        android:textSize="10sp"></com.zavosh.itfamili.myviews.MyTextView>
+                        android:textSize="10sp"></com.zavosh.itfamily.myviews.MyTextView>
 
-                    <com.zavosh.itfamili.myviews.MyTextView
+                    <com.zavosh.itfamily.myviews.MyTextView
                         android:id="@+id/tv_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
-                        android:textSize="10sp"></com.zavosh.itfamili.myviews.MyTextView>
+                        android:textSize="10sp"></com.zavosh.itfamily.myviews.MyTextView>
 
                 </LinearLayout>
 

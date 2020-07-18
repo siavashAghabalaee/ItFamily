@@ -216,7 +216,7 @@
 
 
 
-            <com.zavosh.itfamili.myviews.MyEditText
+            <com.zavosh.itfamily.myviews.MyEditText
                 android:id="@+id/etv_subject"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -232,7 +232,7 @@
 
 
 
-            <com.zavosh.itfamili.myviews.MyEditText
+            <com.zavosh.itfamily.myviews.MyEditText
 
                 android:id="@+id/etv_message"
                 android:layout_width="match_parent"

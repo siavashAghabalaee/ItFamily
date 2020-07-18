@@ -36,7 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.zavosh.itfamili.myviews.MyImageView
+                    <com.zavosh.itfamily.myviews.MyImageView
                         android:id="@+id/iv_image"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -48,7 +48,7 @@
                         app:riv_corner_radius_top_left="@dimen/_20sdp"
                         app:riv_corner_radius_top_right="@dimen/_20sdp">
 
-                    </com.zavosh.itfamili.myviews.MyImageView>
+                    </com.zavosh.itfamily.myviews.MyImageView>
 
                 </RelativeLayout>
 
@@ -146,7 +146,7 @@
                     android:gravity="center"
                     android:paddingRight="@dimen/_4sdp">
 
-                    <com.zavosh.itfamili.myviews.MyTextView
+                    <com.zavosh.itfamily.myviews.MyTextView
                         android:id="@+id/tv_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
                         android:gravity="center"
                        >
 
-                    </com.zavosh.itfamili.myviews.MyTextView>
+                    </com.zavosh.itfamily.myviews.MyTextView>
 
 
                 </LinearLayout>

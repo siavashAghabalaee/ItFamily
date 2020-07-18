@@ -396,7 +396,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1">
 
-                        <com.zavosh.itfamili.myviews.MyTextView
+                        <com.zavosh.itfamily.myviews.MyTextView
                             android:textSize="@dimen/_12sdp"
                             android:text="مرد"
                             android:layout_width="0dp"
@@ -418,7 +418,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1">
 
-                        <com.zavosh.itfamili.myviews.MyTextView
+                        <com.zavosh.itfamily.myviews.MyTextView
                             android:textSize="@dimen/_12sdp"
                             android:text="زن"
                             android:layout_width="0dp"
@@ -434,7 +434,7 @@
 
                     </LinearLayout>
 
-                    <com.zavosh.itfamili.myviews.MyTextView
+                    <com.zavosh.itfamily.myviews.MyTextView
                         android:gravity="center"
                         android:textSize="@dimen/_12sdp"
                         android:text="جنسیت :"

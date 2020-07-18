@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_home"
-    tools:context="com.zavosh.itfamili.fragments.GroupDetailsFragment">
+    tools:context="com.zavosh.itfamily.fragments.GroupDetailsFragment">
 
     <LinearLayout
         android:orientation="vertical"

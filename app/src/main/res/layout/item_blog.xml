@@ -12,7 +12,7 @@
         android:gravity="center|right"
         android:layout_height="@dimen/_50sdp">
 
-        <com.zavosh.itfamili.myviews.MyTextViewBold
+        <com.zavosh.itfamily.myviews.MyTextViewBold
             android:layout_marginRight="@dimen/_5sdp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -36,13 +36,13 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
-        <com.zavosh.itfamili.myviews.MyImageView
+        <com.zavosh.itfamily.myviews.MyImageView
             android:layout_width="match_parent"
             android:scaleType="centerCrop"
             app:riv_corner_radius="@dimen/_20sdp"
             android:id="@+id/iv_image_blog"
             android:layout_height="@dimen/_230sdp"/>
-        <com.zavosh.itfamili.myviews.MyImageView
+        <com.zavosh.itfamily.myviews.MyImageView
             android:layout_width="match_parent"
             android:layout_height="@dimen/_230sdp"
             android:src="@drawable/bg_shap"
@@ -60,7 +60,7 @@
             <ImageView
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"/>
-            <com.zavosh.itfamili.myviews.MyTextView
+            <com.zavosh.itfamily.myviews.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_titleBlog"

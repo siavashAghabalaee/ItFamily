@@ -138,7 +138,7 @@
 
 
 
-        <com.zavosh.itfamili.myviews.MyEditText
+        <com.zavosh.itfamily.myviews.MyEditText
                 android:id="@+id/etv_name"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -153,7 +153,7 @@
                 android:background="@drawable/edit_text_background"/>
 
 
-        <com.zavosh.itfamili.myviews.MyEditText
+        <com.zavosh.itfamily.myviews.MyEditText
                 android:id="@+id/etv_mail"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -167,7 +167,7 @@
                 android:background="@drawable/edit_text_background"
                 android:hint="ایمیل"/>
 
-        <com.zavosh.itfamili.myviews.MyEditText
+        <com.zavosh.itfamily.myviews.MyEditText
                 android:id="@+id/etv_password"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -202,7 +202,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
 
-                <com.zavosh.itfamili.myviews.MyTextView
+                <com.zavosh.itfamily.myviews.MyTextView
                     android:textSize="@dimen/_18sdp"
                     android:text="مرد"
                     android:layout_width="0dp"
@@ -224,7 +224,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
 
-                <com.zavosh.itfamili.myviews.MyTextView
+                <com.zavosh.itfamily.myviews.MyTextView
                     android:textSize="@dimen/_18sdp"
                     android:text="زن"
                     android:layout_width="0dp"
@@ -240,7 +240,7 @@
 
             </LinearLayout>
 
-            <com.zavosh.itfamili.myviews.MyTextView
+            <com.zavosh.itfamily.myviews.MyTextView
                 android:textSize="@dimen/_18sdp"
                 android:text="جنسیت :"
                 android:layout_width="0dp"
@@ -265,7 +265,7 @@
             android:src="@drawable/register_button"
             android:layout_height="@dimen/_80sdp" />
 
-        <com.zavosh.itfamili.myviews.MyTextViewBold
+        <com.zavosh.itfamily.myviews.MyTextViewBold
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"

@@ -29,7 +29,7 @@
                 android:padding="@dimen/_4sdp"
                 android:rotation="180"
                 android:src="@android:drawable/ic_media_play"/>
-            <com.zavosh.itfamili.myviews.MyTextView
+            <com.zavosh.itfamily.myviews.MyTextView
                 android:id="@+id/tv_title"
                 android:layout_width="0dp"
                 android:layout_weight="1"
