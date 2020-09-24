@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
+    android:id="@+id/fullScreen"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,46 +8,19 @@
         android:layout_height="match_parent"
         tools:context=".activities.RegisterActivity">
 
-    <ProgressBar
-        android:id="@+id/register_loader"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+
 
     <ImageView android:layout_width="match_parent"
                android:scaleType="centerCrop"
                android:layout_height="match_parent"
-    android:src="@drawable/bg_register_page"/>
+                android:src="@drawable/bg_register_page"/>
 
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/pro_bottom"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            app:layout_constraintGuide_percent="0.22"
-            android:orientation="horizontal"
-    >
-    </androidx.constraintlayout.widget.Guideline>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/edit_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.66"></androidx.constraintlayout.widget.Guideline>
 
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/pro_bottom"
-            android:gravity="center|bottom"
-            android:paddingBottom="@dimen/_20sdp"
-
-    >
+            android:layout_height="@dimen/_100sdp"
+            android:gravity="center">
 
         <ImageView
                 android:layout_width="@dimen/_35sdp"
@@ -55,146 +29,53 @@
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:visibility="visible"
+        android:id="@+id/firstBox"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp">
+        <com.zavosh.itfamily.myviews.MyEditText
+            android:id="@+id/etv_name"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/pro_bottom"
-            app:layout_constraintBottom_toTopOf="@id/edit_bottom">
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top_name"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.09"></androidx.constraintlayout.widget.Guideline>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottom_name"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.24"></androidx.constraintlayout.widget.Guideline>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top_mail"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.32"></androidx.constraintlayout.widget.Guideline>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottom_mail"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.47"></androidx.constraintlayout.widget.Guideline>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top_pass"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.55"></androidx.constraintlayout.widget.Guideline>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottom_pass"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.7"></androidx.constraintlayout.widget.Guideline>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottom_passs"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.81"></androidx.constraintlayout.widget.Guideline>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottom_passss"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.94"></androidx.constraintlayout.widget.Guideline>
-
-
-        <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/left_edit"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.1"
-        >
-        </androidx.constraintlayout.widget.Guideline>
-        <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/right_edit"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.9"
-        >
-        </androidx.constraintlayout.widget.Guideline>
-
-
+            android:layout_height="@dimen/_30sdp"
+            android:hint="نام و نام خانوادگی"
+            android:elevation="5dp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"            android:textSize="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/edit_text_background"/>
 
         <com.zavosh.itfamily.myviews.MyEditText
-                android:id="@+id/etv_name"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintRight_toLeftOf="@id/right_edit"
-                app:layout_constraintLeft_toRightOf="@id/left_edit"
-                android:hint="نام و نام خانوادگی"
-                android:elevation="5dp"
-                android:padding="@dimen/_5sdp"
-                android:textSize="@dimen/_12sdp"
-                app:layout_constraintTop_toBottomOf="@id/top_name"
-                app:layout_constraintBottom_toTopOf="@id/bottom_name"
-                android:background="@drawable/edit_text_background"/>
-
-
-        <com.zavosh.itfamily.myviews.MyEditText
-                android:id="@+id/etv_mail"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:elevation="5dp"
-                android:padding="@dimen/_5sdp"
-                android:textSize="@dimen/_12sdp"
-                app:layout_constraintRight_toLeftOf="@id/right_edit"
-                app:layout_constraintLeft_toRightOf="@id/left_edit"
-                app:layout_constraintTop_toBottomOf="@id/top_mail"
-                app:layout_constraintBottom_toTopOf="@id/bottom_mail"
-                android:background="@drawable/edit_text_background"
-                android:hint="ایمیل"/>
-
-        <com.zavosh.itfamily.myviews.MyEditText
-            android:visibility="invisible"
-                android:id="@+id/etv_password"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintRight_toLeftOf="@id/right_edit"
-                app:layout_constraintLeft_toRightOf="@id/left_edit"
-                android:background="@drawable/edit_text_background"
-                android:elevation="5dp"
-                android:padding="5sp"
-                android:textSize="@dimen/_12sdp"
-                app:layout_constraintTop_toBottomOf="@id/top_pass"
-                app:layout_constraintBottom_toTopOf="@id/bottom_pass"
-                android:hint="کلمه عبور"/>
+            android:id="@+id/etv_age"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/edit_text_background"
+            android:elevation="5dp"
+            android:focusable="false"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:textSize="@dimen/_12sdp"
+            android:textDirection="anyRtl"
+            android:hint="@string/selectAge"/>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
             android:padding="@dimen/_5sdp"
             android:singleLine="true"
             android:textColor="@color/white"
             android:textColorHint="@color/hint"
-            android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@id/bottom_passs"
-            app:layout_constraintBottom_toTopOf="@id/bottom_passss"
-            app:layout_constraintRight_toLeftOf="@id/right_edit"
-            app:layout_constraintLeft_toRightOf="@id/left_edit">
+            android:textSize="12sp">
 
 
             <LinearLayout
@@ -204,7 +85,7 @@
                 android:layout_weight="1">
 
                 <com.zavosh.itfamily.myviews.MyTextView
-                    android:textSize="@dimen/_18sdp"
+                    android:textSize="@dimen/_12sdp"
                     android:text="مرد"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -226,7 +107,7 @@
                 android:layout_weight="1">
 
                 <com.zavosh.itfamily.myviews.MyTextView
-                    android:textSize="@dimen/_18sdp"
+                    android:textSize="@dimen/_12sdp"
                     android:text="زن"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -242,7 +123,7 @@
             </LinearLayout>
 
             <com.zavosh.itfamily.myviews.MyTextView
-                android:textSize="@dimen/_18sdp"
+                android:textSize="@dimen/_15sdp"
                 android:text="جنسیت :"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -250,16 +131,67 @@
 
 
         </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/secondBox"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp">
+        <com.zavosh.itfamily.myviews.MyEditText
+            android:id="@+id/etv_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:hint="@string/email"
+            android:elevation="5dp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"            android:textSize="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/edit_text_background"/>
 
+        <com.zavosh.itfamily.myviews.MyEditText
+            android:id="@+id/etv_education"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:elevation="5dp"
+            android:focusable="false"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/edit_text_background"
+            android:hint="@string/education"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.zavosh.itfamily.myviews.MyEditText
+            android:id="@+id/etv_job"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/edit_text_background"
+            android:elevation="5dp"
+            android:focusable="false"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:textSize="@dimen/_12sdp"
+            android:textDirection="anyRtl"
+            android:hint="@string/job"/>
+
+    </LinearLayout>
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_200sdp"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/edit_bottom"
-            app:layout_constraintBottom_toBottomOf="parent">
+            android:layout_alignParentBottom="true">
         <ImageView android:layout_width="@dimen/_80sdp"
             android:id="@+id/iv_register"
             android:layout_centerInParent="true"
@@ -280,4 +212,11 @@
 
     </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:id="@+id/register_loader"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

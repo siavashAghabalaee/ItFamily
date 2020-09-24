@@ -8,10 +8,12 @@ import android.widget.ProgressBar;
 import com.zavosh.itfamily.R;
 import com.zavosh.itfamily.helper.Memory;
 import com.zavosh.itfamily.myviews.MyToast;
+import com.zavosh.itfamily.retrofit.mymodels.basicdata.BasicDataResponse;
 import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListRequest;
 import com.zavosh.itfamily.retrofit.mymodels.commentrequest.CommentRequest;
 import com.zavosh.itfamily.retrofit.mymodels.commentrequest.CommentSender;
 import com.zavosh.itfamily.retrofit.mymodels.contentlist.ContentRequest;
+import com.zavosh.itfamily.retrofit.mymodels.getprofileresult.GetProfileResponse;
 import com.zavosh.itfamily.retrofit.mymodels.grouprequest.GroupDetailsRequest;
 import com.zavosh.itfamily.retrofit.mymodels.grouprequest.GroupDetailsSender;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeRequest;
@@ -44,6 +46,9 @@ public class Server implements RequestsManager {
     public static Server server;
     private Context context;
     private ProgressBar loader;
+    private String education;
+    private String job;
+    private String age;
 
     private Server(Context context) {
         this.context = context;
@@ -140,15 +145,18 @@ public class Server implements RequestsManager {
     }
 
     //id = 4
-    public void sendProfile(String fullName, String email, String isMail, final ProgressBar loader, final com.zavosh.itfamily.retrofit.mymodels.Callback.PostProfile callback) {
+    public void sendProfile(String fullName, String email, String isMail,String age , String job,String education, final ProgressBar loader, final com.zavosh.itfamily.retrofit.mymodels.Callback.PostProfile callback) {
         this.loader = loader;
         this.fullName = fullName;
         this.email = email;
         this.isMail = isMail;
+        this.job = job;
+        this.education = education;
+        this.age = age;
         this.postProfileCallback = callback;
         this.loader.setVisibility(View.VISIBLE);
 
-        PostProfileSender sender = new PostProfileSender(fullName, email, isMail);
+        PostProfileSender sender = new PostProfileSender(fullName, email, isMail,age,job,education);
         apiService.postProfile(Memory.loadToken(),sender ).enqueue(new Callback<PostProfileRequest>() {
             @Override
             public void onResponse(Call<PostProfileRequest> call, Response<PostProfileRequest> response) {
@@ -161,7 +169,6 @@ public class Server implements RequestsManager {
 
             @Override
             public void onFailure(Call<PostProfileRequest> call, Throwable t) {
-                Log.i("sefsefsdfs","error");
                 loader.setVisibility(View.GONE);
                 MyToast.showToast(context, context.getString(R.string.error));
             }
@@ -417,6 +424,51 @@ public class Server implements RequestsManager {
         });
     }
 
+    //id = 16
+    public void getProfileBasicData(ProgressBar loader,com.zavosh.itfamily.retrofit.mymodels.Callback.BasicData callback) {
+        this.basicData = callback; this.loader = loader;
+        loader.setVisibility(View.VISIBLE);
+        apiService.getBasicData().enqueue(new Callback<BasicDataResponse>() {
+            @Override
+            public void onResponse(Call<BasicDataResponse> call, Response<BasicDataResponse> response) {
+                loader.setVisibility(View.GONE);
+                CheckResponse checkResponse = new CheckResponse(response.code(), context, 16, Server.this);
+                if (checkResponse.checkRequestCode() && checkResponse.checkStatus(response.body().getStatus())) {
+                    callback.callback(response.body().getResult());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BasicDataResponse> call, Throwable t) {
+                loader.setVisibility(View.GONE);
+                MyToast.showToast(context, context.getString(R.string.error));
+            }
+        });
+    }
+
+    //id = 17
+    public void getProfile(ProgressBar loader,com.zavosh.itfamily.retrofit.mymodels.Callback.GetProfile callback) {
+         this.loader = loader;
+         this.getProfile = callback;
+        loader.setVisibility(View.VISIBLE);
+        apiService.getProfile(Memory.loadToken()).enqueue(new Callback<GetProfileResponse>() {
+            @Override
+            public void onResponse(Call<GetProfileResponse> call, Response<GetProfileResponse> response) {
+                loader.setVisibility(View.GONE);
+                CheckResponse checkResponse = new CheckResponse(response.code(), context, 17, Server.this);
+                if (checkResponse.checkRequestCode() && checkResponse.checkStatus(response.body().getStatus())) {
+                    callback.callback(response.body().getResult());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GetProfileResponse> call, Throwable t) {
+                loader.setVisibility(View.GONE);
+                MyToast.showToast(context, context.getString(R.string.error));
+            }
+        });
+    }
+
     @Override
     public void resendRequest(int id) {
         switch (id) {
@@ -424,7 +476,7 @@ public class Server implements RequestsManager {
                 getHome(version, osType, loader, callbackHome);
                 break;
             case 4:
-                sendProfile(fullName, email, isMail, loader, postProfileCallback);
+                sendProfile(fullName, email, isMail,age,job,education, loader, postProfileCallback);
                 break;
             case 5:
                 getMagazineList(loader, magazineListCallback);
@@ -459,6 +511,10 @@ public class Server implements RequestsManager {
             case 15:
                 getGroup(loader,this.id,setGroupDetails);
                 break;
+            case 16:
+                getProfileBasicData(loader,basicData);
+            case 17:
+                getProfile(loader,getProfile);
 
         }
     }
@@ -512,4 +568,8 @@ public class Server implements RequestsManager {
     //15
     private com.zavosh.itfamily.retrofit.mymodels.Callback.SetGroupDetails setGroupDetails;
     private String id;
+    //16
+    private com.zavosh.itfamily.retrofit.mymodels.Callback.BasicData basicData;
+    //17
+    private com.zavosh.itfamily.retrofit.mymodels.Callback.GetProfile getProfile;
 }

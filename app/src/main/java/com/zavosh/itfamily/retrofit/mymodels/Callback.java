@@ -1,8 +1,10 @@
 package com.zavosh.itfamily.retrofit.mymodels;
 
+import com.zavosh.itfamily.retrofit.mymodels.basicdata.BasicDataResult;
 import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListResult;
 import com.zavosh.itfamily.retrofit.mymodels.commentrequest.CommentResult;
 import com.zavosh.itfamily.retrofit.mymodels.contentlist.GroupItem;
+import com.zavosh.itfamily.retrofit.mymodels.getprofileresult.GetProfileResult;
 import com.zavosh.itfamily.retrofit.mymodels.grouprequest.GroupDetails;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeResult;
 import com.zavosh.itfamily.retrofit.mymodels.magazinerequest.MagazineResult;
@@ -70,5 +72,13 @@ public interface Callback {
 
     interface SetGroupDetails{
         void callback(ArrayList<GroupDetails> list);
+    }
+
+    interface BasicData{
+        void callback(BasicDataResult data);
+    }
+
+    interface GetProfile{
+        void callback(GetProfileResult data);
     }
 }

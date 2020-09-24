@@ -1,9 +1,11 @@
 package com.zavosh.itfamily.retrofit;
 
+import com.zavosh.itfamily.retrofit.mymodels.basicdata.BasicDataResponse;
 import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListRequest;
 import com.zavosh.itfamily.retrofit.mymodels.commentrequest.CommentRequest;
 import com.zavosh.itfamily.retrofit.mymodels.commentrequest.CommentSender;
 import com.zavosh.itfamily.retrofit.mymodels.contentlist.ContentRequest;
+import com.zavosh.itfamily.retrofit.mymodels.getprofileresult.GetProfileResponse;
 import com.zavosh.itfamily.retrofit.mymodels.grouprequest.GroupDetailsRequest;
 import com.zavosh.itfamily.retrofit.mymodels.grouprequest.GroupDetailsSender;
 import com.zavosh.itfamily.retrofit.mymodels.homeRequest.HomeRequest;
@@ -98,4 +100,12 @@ public interface APIService {
     @Headers("Content-Type: application/json")
     @POST("Content/GetContentByGroup")
     Call<GroupDetailsRequest> getGroup(@Header("Authorization") String token, @Body GroupDetailsSender sender);
+
+    @Headers("Content-Type: application/json")
+    @POST("account/GetProfileBasicData")
+    Call<BasicDataResponse> getBasicData();
+
+    @Headers("Content-Type: application/json")
+    @POST("account/GetProfile")
+    Call<GetProfileResponse> getProfile(@Header("Authorization") String token);
 }

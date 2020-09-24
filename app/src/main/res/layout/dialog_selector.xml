@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_corner_white"
+    android:layout_height="match_parent">
+    <com.zavosh.itfamily.myviews.MyTextViewBold
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:textSize="@dimen/_12sdp"
+        android:gravity="center"
+        android:id="@+id/tv_title"
+        android:textColor="@color/textColor"
+        android:text="@string/selectItem"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/tv_title"
+        android:background="@color/textColor"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:id="@+id/lv_selector"/>
+</RelativeLayout>

@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
+import com.shliama.augmentedvideotutorial.ArActivity
 import com.zavosh.itfamily.R
 import com.zavosh.itfamily.helper.PageManager
 import com.zavosh.itfamily.retrofit.ApiUtils
@@ -94,9 +95,9 @@ class HomeActivity : AppCompatActivity() {
                         .goGroupListFragment()
                 }
                 R.id.navigation_item_6 ->{
-//                    var intent = Intent(this@HomeActivity, ArActivity::class.java)
-//                    intent.putExtra("base_url",ApiUtils.BASE_URL)
-//                    startActivity(intent)TODO start ar
+                    var intent = Intent(this@HomeActivity, ArActivity::class.java)
+                    intent.putExtra("base_url",ApiUtils.BASE_URL)
+                    startActivity(intent)
                 }
             }
 
