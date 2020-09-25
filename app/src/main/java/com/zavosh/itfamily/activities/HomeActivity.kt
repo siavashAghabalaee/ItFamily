@@ -9,9 +9,12 @@ import androidx.core.view.GravityCompat
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.shliama.augmentedvideotutorial.ArActivity
 import com.zavosh.itfamily.R
+import com.zavosh.itfamily.helper.Memory
 import com.zavosh.itfamily.helper.PageManager
 import com.zavosh.itfamily.retrofit.ApiUtils
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.header_nav.*
+import kotlinx.android.synthetic.main.header_nav.view.*
 
 
 class HomeActivity : AppCompatActivity() {
@@ -57,6 +60,7 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
+        nNavigationView?.getHeaderView(0)?.tv_name_header?.setText(Memory.loadName())
         nNavigationView?.setNavigationItemSelectedListener {
             mDrawerLayout.closeDrawer(GravityCompat.END)
             when (it.itemId) {
@@ -106,6 +110,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setup() {
+
 
         PageManager.getInstance(this@HomeActivity, supportFragmentManager).goHomeFragment()
 

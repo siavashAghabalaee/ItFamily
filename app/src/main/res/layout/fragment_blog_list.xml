@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_home"
+    android:id="@+id/rl_box_b"
     tools:context=".fragments.HomeFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -47,9 +48,24 @@
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
-
+    <com.zavosh.itfamily.myviews.MyEditText
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColor"
+        android:id="@+id/etv_search_blog"
+        android:padding="@dimen/_5sdp"
+        android:textSize="@dimen/_12sdp"
+        android:gravity="center"
+        android:hint="@string/search"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:textDirection="anyRtl"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/bg_corner_white"/>
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/etv_search_blog"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerView_blog_list"/>

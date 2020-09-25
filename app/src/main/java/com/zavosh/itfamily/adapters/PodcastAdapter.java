@@ -46,7 +46,7 @@ public class PodcastAdapter extends RecyclerView.Adapter<PodcastAdapter.PodcastV
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                PublicMethods.hideKeyboard(activity);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("podcast_detail", podcastItem);
                 Log.i("siavashiii","linkeCount "+podcastItem.getLinkeCount());

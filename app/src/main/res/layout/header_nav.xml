@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/_20sdp"
+    android:background="@color/colorAccent"
+    android:layout_height="wrap_content">
+    <com.zavosh.itfamily.myviews.MyTextViewBold
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:padding="@dimen/_10sdp"
+        android:text="1233"
+        android:textSize="@dimen/_13sdp"
+        android:id="@+id/tv_name_header"
+        android:gravity="center"
+        android:textColor="@color/white"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/textColor"/>
+</LinearLayout>

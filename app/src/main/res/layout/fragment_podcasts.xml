@@ -7,6 +7,7 @@
     tools:context=".fragments.MagazinesFragment">
 
     <LinearLayout
+        android:id="@+id/ll_box_p"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -61,7 +62,21 @@
                     android:layout_centerVertical="true"/>
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
-
+        <com.zavosh.itfamily.myviews.MyEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
+            android:id="@+id/etv_search_podcast"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_12sdp"
+            android:gravity="center"
+            android:hint="@string/search"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:textDirection="anyRtl"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg_corner_white"/>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.zavosh.itfamily.R;
 import com.zavosh.itfamily.helper.PageManager;
+import com.zavosh.itfamily.helper.PublicMethods;
 import com.zavosh.itfamily.myviews.MyImageView;
 import com.zavosh.itfamily.myviews.MyTextView;
 import com.zavosh.itfamily.myviews.MyTextViewBold;
@@ -57,7 +58,7 @@ public class BlogListAdapter extends RecyclerView.Adapter<BlogListAdapter.BlogVi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                PublicMethods.hideKeyboard(activity);
                 Bundle bundle=new Bundle();
                 bundle.putParcelable("blog_detail",blogItem);
                 PageManager.getInstance().goBlogsDetailsFragment(bundle);
