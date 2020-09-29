@@ -16,6 +16,36 @@
         android:id="@+id/tv_name_header"
         android:gravity="center"
         android:textColor="@color/white"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:gravity="center"
+        android:background="@drawable/bg_corner_white">
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:padding="@dimen/_8sdp"
+            android:id="@+id/iv_search"
+            android:src="@android:drawable/ic_search_category_default"/>
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/textColor"
+            android:layout_marginBottom="@dimen/_5sdp"/>
+        <com.zavosh.itfamily.myviews.MyEditText
+            android:id="@+id/etv_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/_10sdp"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"

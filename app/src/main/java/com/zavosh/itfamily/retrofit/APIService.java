@@ -1,5 +1,6 @@
 package com.zavosh.itfamily.retrofit;
 
+import com.zavosh.itfamily.retrofit.mymodels.SearchSender;
 import com.zavosh.itfamily.retrofit.mymodels.basicdata.BasicDataResponse;
 import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListRequest;
 import com.zavosh.itfamily.retrofit.mymodels.commentrequest.CommentRequest;
@@ -108,4 +109,10 @@ public interface APIService {
     @Headers("Content-Type: application/json")
     @POST("account/GetProfile")
     Call<GetProfileResponse> getProfile(@Header("Authorization") String token);
+
+
+    @Headers("Content-Type: application/json")
+    @POST("Content/GetContentBySearch")
+    Call<GroupDetailsRequest> search(@Header("Authorization") String token, @Body SearchSender sender);
+
 }

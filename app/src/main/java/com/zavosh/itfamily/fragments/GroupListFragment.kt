@@ -18,6 +18,8 @@ class GroupListFragment : Fragment() {
 
     private lateinit var fragmentView : View
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -32,9 +34,6 @@ class GroupListFragment : Fragment() {
         return fragmentView
     }
 
-    companion object {
-
-    }
 
     private fun setup() {
 

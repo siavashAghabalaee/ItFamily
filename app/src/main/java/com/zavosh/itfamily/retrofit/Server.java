@@ -8,6 +8,7 @@ import android.widget.ProgressBar;
 import com.zavosh.itfamily.R;
 import com.zavosh.itfamily.helper.Memory;
 import com.zavosh.itfamily.myviews.MyToast;
+import com.zavosh.itfamily.retrofit.mymodels.SearchSender;
 import com.zavosh.itfamily.retrofit.mymodels.basicdata.BasicDataResponse;
 import com.zavosh.itfamily.retrofit.mymodels.bloglistrequest.BlogListRequest;
 import com.zavosh.itfamily.retrofit.mymodels.commentrequest.CommentRequest;
@@ -469,6 +470,27 @@ public class Server implements RequestsManager {
         });
     }
 
+    //id = 18
+    public void search(ProgressBar loader,String query,com.zavosh.itfamily.retrofit.mymodels.Callback.SetGroupDetails callback) {
+        this.query = query; this.setGroupDetails = callback; this.loader = loader;
+        loader.setVisibility(View.VISIBLE);
+        apiService.search(Memory.loadToken(),new SearchSender(query)).enqueue(new Callback<GroupDetailsRequest>() {
+            @Override
+            public void onResponse(Call<GroupDetailsRequest> call, Response<GroupDetailsRequest> response) {
+                loader.setVisibility(View.GONE);
+                CheckResponse checkResponse = new CheckResponse(response.code(), context, 18, Server.this);
+                if (checkResponse.checkRequestCode() && checkResponse.checkStatus(response.body().getStatus())) {
+                    callback.callback(response.body().getResult());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GroupDetailsRequest> call, Throwable t) {
+                loader.setVisibility(View.GONE);
+                MyToast.showToast(context, context.getString(R.string.error));
+            }
+        });
+    }
     @Override
     public void resendRequest(int id) {
         switch (id) {
@@ -515,6 +537,8 @@ public class Server implements RequestsManager {
                 getProfileBasicData(loader,basicData);
             case 17:
                 getProfile(loader,getProfile);
+            case 18:
+                search(loader,query,setGroupDetails);
 
         }
     }
@@ -572,4 +596,6 @@ public class Server implements RequestsManager {
     private com.zavosh.itfamily.retrofit.mymodels.Callback.BasicData basicData;
     //17
     private com.zavosh.itfamily.retrofit.mymodels.Callback.GetProfile getProfile;
+    //18
+    private String query;
 }

@@ -33,4 +33,9 @@
     <string name="job">شغل</string>
     <string name="age">سن</string>
     <string name="search">جست و جو</string>
+    <string name="all">همه</string>
+    <string name="video">ویدیو</string>
+    <string name="podcast">پادکست</string>
+    <string name="blog">بلاگ</string>
+    <string name="not_found">نتیجه ای یافت نشد</string>
 </resources>

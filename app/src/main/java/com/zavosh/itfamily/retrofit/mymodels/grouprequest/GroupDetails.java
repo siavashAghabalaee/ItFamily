@@ -9,40 +9,40 @@ import com.google.gson.annotations.SerializedName;
 public class GroupDetails  implements Parcelable {
     @SerializedName("id")
     @Expose
-    private String id;
+    private String id ="";
     @SerializedName("title")
     @Expose
-    private String title;
+    private String title="";
     @SerializedName("summery")
     @Expose
-    private String summery;
+    private String summery="";
     @SerializedName("image")
     @Expose
-    private String image;
+    private String image="";
     @SerializedName("linkeCount")
     @Expose
-    private String linkeCount;
+    private String linkeCount="";
     @SerializedName("body")
     @Expose
-    private String body;
+    private String body="";
     @SerializedName("linkAddress")
     @Expose
-    private String linkAddress;
+    private String linkAddress="";
     @SerializedName("publishDate")
     @Expose
-    private String publishDate;
+    private String publishDate="";
     @SerializedName("contentSource")
     @Expose
-    private String contentSource;
+    private String contentSource="";
     @SerializedName("commentCount")
     @Expose
-    private String commentCount;
+    private String commentCount="";
     @SerializedName("isLike")
     @Expose
-    private Boolean isLike;
+    private Boolean isLike = false;
     @SerializedName("type")
     @Expose
-    private String type;
+    private String type="";
 
     protected GroupDetails(Parcel in) {
         id = in.readString();

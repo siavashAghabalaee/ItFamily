@@ -13,7 +13,6 @@ import com.zavosh.itfamily.helper.Memory
 import com.zavosh.itfamily.helper.PageManager
 import com.zavosh.itfamily.retrofit.ApiUtils
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.header_nav.*
 import kotlinx.android.synthetic.main.header_nav.view.*
 
 
@@ -60,7 +59,6 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
-        nNavigationView?.getHeaderView(0)?.tv_name_header?.setText(Memory.loadName())
         nNavigationView?.setNavigationItemSelectedListener {
             mDrawerLayout.closeDrawer(GravityCompat.END)
             when (it.itemId) {
@@ -107,10 +105,21 @@ class HomeActivity : AppCompatActivity() {
 
             return@setNavigationItemSelectedListener true
         }
+
+        nNavigationView?.getHeaderView(0)?.iv_search?.setOnClickListener {
+            var query = nNavigationView?.getHeaderView(0)?.etv_search?.text()
+            if (!query.isNullOrEmpty()) {
+                val bundle = Bundle()
+                bundle.putString("QUERY",query)
+                PageManager.getInstance().goGroupDetailsFragment(bundle)
+            }
+
+            mDrawerLayout.closeDrawer(GravityCompat.END)
+        }
     }
 
     private fun setup() {
-
+        nNavigationView?.getHeaderView(0)?.tv_name_header?.setText(Memory.loadName())
 
         PageManager.getInstance(this@HomeActivity, supportFragmentManager).goHomeFragment()
 

@@ -62,6 +62,37 @@
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
 
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            app:tabRippleColor="@color/colorAccent"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/gray"
+            app:tabIndicatorColor="@color/white"
+            android:id="@+id/tabLayout"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/blog" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/podcast" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/video" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all" />
+        </com.google.android.material.tabs.TabLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -69,6 +100,16 @@
 
 
     </LinearLayout>
+    <com.zavosh.itfamily.myviews.MyTextViewBold
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/_5sdp"
+        android:gravity="center"
+        android:textColor="@color/textColor"
+        android:visibility="gone"
+        android:id="@+id/tv_not_found"
+        android:text="@string/not_found"/>
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
