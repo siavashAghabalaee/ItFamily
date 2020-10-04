@@ -83,4 +83,8 @@ public class Memory {
             return Hawk.get(TOKEN);
         return "";
     }
+
+    public static void clearAll(){
+        Hawk.deleteAll();
+    }
 }

@@ -96,10 +96,14 @@ class HomeActivity : AppCompatActivity() {
                     PageManager.getInstance(this@HomeActivity, supportFragmentManager)
                         .goGroupListFragment()
                 }
-                R.id.navigation_item_6 ->{
-                    var intent = Intent(this@HomeActivity, ArActivity::class.java)
-                    intent.putExtra("base_url",ApiUtils.BASE_URL)
-                    startActivity(intent)
+                R.id.navigation_item_7 ->{
+                    Memory.clearAll()
+                    PageManager.getInstance(this@HomeActivity, supportFragmentManager).goLoginActivity(this@HomeActivity)
+                    finish()
+                }
+                R.id.navigation_item_8 ->{
+                    PageManager.getInstance(this@HomeActivity, supportFragmentManager).goAboutUsFragment()
+//                    Log.i("MyLog",Memory.loadToken())
                 }
             }
 

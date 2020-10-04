@@ -24,6 +24,10 @@ import kotlinx.android.synthetic.main.fragment_home.view.*
 class HomeFragment : Fragment() {
     private lateinit var rootView: View
 
+    companion object{
+        var aboutText = ""
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,11 +51,9 @@ class HomeFragment : Fragment() {
 
 
     private fun getHomeData() {
-        Log.i("oawdiadiwjawd", "12")
         Server.getInstance(context!!)
             .getHome(PublicMethods.getAppVersion(context!!), "Android", rootView.loader_home,
                 Callback.Home {
-                    Log.i("oawdiadiwjawd", "13")
                     var adapter = HomeAdapters(
                         activity,
                         it.sliderContents,
@@ -60,10 +62,9 @@ class HomeFragment : Fragment() {
                         it.blogContent,
                         it.magzines
                     )
-                    Log.i("oawdiadiwjawd", "14")
                     rootView.recyclerView_home.layoutManager = LinearLayoutManager(context)
                     rootView.recyclerView_home.adapter = adapter
-                    Log.i("oawdiadiwjawd", "15")
+                    aboutText = it.aboutText?:""
                 })
     }
 }

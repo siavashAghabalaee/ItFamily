@@ -22,6 +22,17 @@ public class HomeResult {
     @SerializedName("magzines")
     @Expose
     private List<Magzine> magzines = null;
+    @SerializedName("aboutText")
+    @Expose
+    private String aboutText = "";
+
+    public String getAboutText() {
+        return aboutText;
+    }
+
+    public void setAboutText(String aboutText) {
+        this.aboutText = aboutText;
+    }
 
     public List<SliderContent> getSliderContents() {
         return sliderContents;

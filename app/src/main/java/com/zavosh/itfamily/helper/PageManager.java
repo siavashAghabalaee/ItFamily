@@ -13,6 +13,7 @@ import com.zavosh.itfamily.activities.PdfViewerActivity;
 import com.zavosh.itfamily.activities.RegisterActivity;
 import com.zavosh.itfamily.activities.VerifyActivity;
 import com.zavosh.itfamily.activities.VideoPlayerActivity;
+import com.zavosh.itfamily.fragments.AboutUsFragment;
 import com.zavosh.itfamily.fragments.BlogDetailsFragment;
 import com.zavosh.itfamily.fragments.BlogListFragment;
 import com.zavosh.itfamily.fragments.CommentFragment;
@@ -201,6 +202,12 @@ public class PageManager implements PageManagerHelper {
     public void goGroupDetailsFragment(Bundle bundle) {
         GroupDetailsFragment fragment = new GroupDetailsFragment();
         fragmentHandler.loadFragment(fragment,true,bundle);
+    }
+
+    @Override
+    public void goAboutUsFragment() {
+        AboutUsFragment fragment = new AboutUsFragment();
+        fragmentHandler.loadFragment(fragment,true);
     }
 
 }
